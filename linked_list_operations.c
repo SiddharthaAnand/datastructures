@@ -9,15 +9,25 @@ struct node
 };
 
 void push(struct node **, int);
-//struct node** create_node();
-/*
-struct node** create_node()
-{
-	struct node* new_node = (struct node *)malloc(sizeof(struct node));
-	new_node->next = NULL;
-	return &new_node;
-}*/
+void print_list(struct node**);
+void free_list(struct node**);
+int length_ll(struct node**);
+int length_linkedlist_recursive(struct node**);
+void free_list_iterative(struct node**);
 
+/* Iterative implementation of the length of the linked list */
+int length_ll(struct node** head)
+{
+	struct node* temp = *head;
+	int count = 0;
+	while(temp != NULL)
+	{
+		count++;
+		temp = temp->next;
+	}
+	return count;
+}
+/* Adding in the linked list */
 void push(struct node** address_head, int data)
 {
 	struct node* new_node = (struct node *)malloc(sizeof(struct node));
@@ -26,7 +36,7 @@ void push(struct node** address_head, int data)
 	*address_head = new_node;
 	//return &address_head;
 }
-
+/* Printing the values in the linked list */
 void print_list(struct node** address_head)
 {
 	struct node* temp = *address_head;
@@ -38,8 +48,8 @@ void print_list(struct node** address_head)
 		printf("%d ", temp->data);
 	}
 }
-
-void free_list(struct node** address_head)
+/* Freeing the nodes in the linked list, freeing the memory, Iterative */
+void free_list_iterative(struct node** address_head)
 {
 	while(*address_head != NULL)
 	{
@@ -48,7 +58,14 @@ void free_list(struct node** address_head)
 		free(temp);
 	}
 }
-/*
+
+/* Iterative implementation of the length of the linked list */
+int length_linkedlist_recursive(struct node** head)
+{
+	if(*head == NULL) return 0;
+	return length_linkedlist_recursive(&((*head)->next)) + 1;
+}
+/* Freeing the nodes in the linked list, freeing the memory, Recursive */
 void free_list(struct node** address_head)
 {
 	int count = 0;
@@ -57,12 +74,11 @@ void free_list(struct node** address_head)
 		return;
 	count += 1;
 	free_list(&((*address_head)->next));
-	printf("\nsize of list : %lu\n", sizeof(struct node));
 	struct node* temp = (*address_head);
 	(*address_head)->next = NULL;
 	free(temp);
 }
-*/
+
 int main()
 {
 	struct node* head = NULL;
@@ -71,6 +87,11 @@ int main()
 	push(&head, 3);
 	push(&head, 4);
 	push(&head, 5);
+	push(&head, 6);
+	printf("\nLength of the list : %d\n", length_ll(&head));
+	printf("\nLength of the list : %d\n", length_linkedlist_recursive(&head));
+	
 	print_list(&head);
 	free_list(&head);
+
 }
