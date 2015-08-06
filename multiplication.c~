@@ -1,0 +1,66 @@
+/* This program takes any two non-negative numbers of any size and finds the multiplication of those numbers
+
+Input 
+#size of first number
+3
+#size of second number
+2
+#first number
+123
+#second number
+24
+
+Output
+2952
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int multiply(int *fN, int *sN, int *a, int s1, int s2)
+{
+	int i, j, carry = 0, temp, k = 1, intermediate_add, p = 1, s;
+	for(i = s2; i > 0; i--)
+	{
+		carry = 0;
+		for(j = s1; j > 0; j--)
+		{
+			temp = sN[i] * fN[j];
+			intermediate_add = a[k] + temp + carry;
+			a[k] = intermediate_add % 10;
+			carry = intermediate_add / 10;
+			k++;
+			//printf("\nCarry = %d, temp = %d", carry, temp);
+		}
+		p++;
+		s = k;
+		k = p;
+	}
+	return s;
+}
+
+int main()
+{
+	int *firstNumber, *secondNumber, *answer, *carry;
+	int size1, size2, i, s;
+	scanf("%d", &size1);
+	firstNumber = (int *)malloc(sizeof(int) * (size1 + 1));
+	scanf("%d", &size2);
+	secondNumber = (int *)malloc(sizeof(int) * (size2 + 1));
+	answer = (int *)malloc(sizeof(int) * (size1 + size2 + 1));
+	for(i = 1; i <= size1; i++)
+		scanf("%d", &firstNumber[i]);
+	for(i = 1; i <= size2; i++)
+		scanf("%d", &secondNumber[i]);
+
+	s = multiply(firstNumber, secondNumber, answer, size1, size2);
+	if(answer[s - 1] == 0)
+	{
+		printf("0");
+		exit(0);
+	}
+	printf("\n------Answer------\n");
+	for(i = s - 1; i > 0; i--)
+		printf("%d ", answer[i]);
+}
+

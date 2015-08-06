@@ -1,0 +1,12 @@
+#include<stdio.h>
+
+int main()
+{
+	int a = 10, b = -5;
+	double c = 10.9;
+	char *s = "Siddhartha";
+	printf("\na = %d", a);
+	printf("\nb = %+d", b);
+	printf("\nc = %#g", c);
+	printf("\ns = %s\n", s);
+}
