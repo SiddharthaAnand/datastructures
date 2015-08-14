@@ -16,7 +16,9 @@ void insertion_sort(int *input_numbers, int size)
 			input_numbers[k+1] = input_numbers[k];
 			k--;
 		}
+		print(input_numbers, size);
 		input_numbers[k+1] = temp;
+		print(input_numbers, size);
 	}
 }
 
