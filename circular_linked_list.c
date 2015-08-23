@@ -76,7 +76,7 @@ void delete_value_clinked_list(struct node **add_head, int data)
 		if(curr->next->data == data)
 		{
 			struct node *delete_node = curr->next;
-			curr = curr->next->next;
+			curr->next = curr->next->next;
 			free(delete_node);
 		}
 	}
