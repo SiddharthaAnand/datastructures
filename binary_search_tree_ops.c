@@ -17,7 +17,7 @@ int max(int a, int b)
 int height_BST(struct node* root)
 {
 	if(root == NULL)
-		return 0;
+		return -1;
 	else
 		return max(height_BST(root->left_child), height_BST(root->right_child)) + 1;
 }
@@ -115,7 +115,7 @@ int main()
 	insert_elements(&root, 3);
 	insert_elements(&root, 7);
 
-	printf("\nHeight of the BST: %d\n", height_BST(root) - 1);
+	printf("\nHeight of the BST: %d\n", height_BST(root));
 	insert_elements(&root, 1);
 	insert_elements(&root, 2);
 	insert_elements(&root, 6);
@@ -129,6 +129,6 @@ int main()
 	print_tree_preorder(root);
 	printf("\n");
 	// A tree with only the root is of height 0
-	printf("\nHeight of the BST: %d\n", height_BST(root) - 1);
+	printf("\nHeight of the BST: %d\n", height_BST(root));
 	printf("\n%d\n", search_elements(&root, 4));
 }
