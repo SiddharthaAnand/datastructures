@@ -53,6 +53,7 @@ int binary_search(int arr[], int x)
 
 int main()
 {
+	//Assuming 10 values taken in the sorted array. Input needs to be sorted.
 	int arr[10], i = 0, x;
 	while(i < 10)
 	{
@@ -60,7 +61,11 @@ int main()
 		i++;
 	}
 
+	//x is the value to be searched in the array. 
+	//Returns -1 if the value is not present in the array.
 	scanf("%d", &x);
+
+	//The difference between the (positions + 1) is the frequency of the value x.
 	printf("\nLeftmost Position of %d: %d\n", x, leftmost_posn(arr, 0, 9, x));
 	printf("\nRightmost Position of %d: %d\n", x, rightmost_posn(arr, 0, 9, x));
 
