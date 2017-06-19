@@ -1,4 +1,7 @@
-// Java program to print permutations of a given string with spaces
+// Java program to print  a given string with spaces
+// 0 or 1 space only
+//Input: ABC
+//Output: (A B C)(A BC)(AB C)(ABC)
 import java.io.*;
 import java.util.Scanner;
 class GFG {
