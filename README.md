@@ -2,6 +2,9 @@
 
 This repository consists of problems in data structures and algorithms related to 
 problem solving. 
+Most of the problems worked out here are from www.geeksforgeeks.org, hackerrank.com,
+hackerearth.com, cracking the coding interview book and some random questions scattered
+all over the internet.
 
 # languages used - C, C++, Java and Python.
 
