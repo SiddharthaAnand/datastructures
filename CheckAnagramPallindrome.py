@@ -11,6 +11,7 @@ def checkAnagramPallindrome(str_input):
 	OR
 	All characters except one are even;
 	'''
+	
 	#Take a dictionary to store the frequency of characters in the string.
 	char_frequency = {}
 	for char in str_input:
