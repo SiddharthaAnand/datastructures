@@ -6,6 +6,7 @@ import java.util.Scanner;
  * Output: All subsets of the given set.
  * The first line of the input denotes the size of the set. The second line denotes the elements of the set.
  * There are two methods doing the same generation - one recursive and the other based on bit position of the sets.
+ * Question from Cracking the coding interview
  */
 class SubsetGeneration {
 	public static void generate(int[] subset) {
