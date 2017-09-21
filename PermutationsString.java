@@ -14,7 +14,7 @@ class PermutationsString {
 			System.out.println(input);
 			return;
 		}
-		// 
+		// When it is time to print.
 		if (k == input.length) {
 			System.out.println(input);
 			return;
