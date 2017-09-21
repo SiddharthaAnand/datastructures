@@ -2,7 +2,7 @@
  * Output: abc, acb, bac, bca, cba, cab
  * Given a string as input, print all the permutations of that string.
  * Method: Recursive backtracking method used here.
- *         
+ * Question from Cracking the coding interview
  */
 import java.util.Scanner;
 
