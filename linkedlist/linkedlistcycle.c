@@ -4,14 +4,14 @@
 struct node {
 	int data;
 	struct node *next;
-}
+};
 
 int checkForCycle(struct node **head) {
 	struct node *temp = *head;
 	// If the ptr is null ; no list
 	if (temp == NULL) return -1;
 	// If there is only one node
-	if (temp->next == head) return 1;
+	if (temp->next == *head) return 1;
 	// Take two pointers and make it a slow and fast one.
 	// 
 	struct node *slow = *head;
@@ -31,16 +31,15 @@ int checkForCycle(struct node **head) {
 
 // Method to create a node only.
 struct node *newNode(int data) {
-	struct node *temp = *head;
 	// Create the first node
-	new = (struct node *)malloc(sizeof(struct node));
+	struct node *new = (struct node *)malloc(sizeof(struct node));
 	new->data = data;
 	new->next = NULL;
 	return new;
 }
 
 // Check for NULL head at the calling method
-void appendEnd(struct node **head, struct node **new) {
+void appendEnd(struct node **head, int data) {
 	// If it is the first node
 	struct node *temp = *head;
 	// Run a loop till the last but one node and then insert
@@ -48,6 +47,7 @@ void appendEnd(struct node **head, struct node **new) {
 	while (temp->next != NULL) {
 		temp = temp->next;
 	}
+	struct node *new = newNode(data);
 	// Now, insert the node
 	temp->next = new;
 }
@@ -63,10 +63,19 @@ void printLinkedList(struct node **head) {
 }
 
 // Insertion of a LinkedList
-void insert() {
-
+struct node* insert() {
+	struct node *head = NULL;
+	head->data = 2;
+	head->next = NULL;
+	appendEnd(&head, 1);
+	appendEnd(&head, 3);
+	appendEnd(&head, 4);
+	return head;
 }
 
-int main() {
+// Create a file reader to read the elements from input.txt.
 
+int main() {
+	struct node * head = insert();
+	printLinkedList(&head);
 }
