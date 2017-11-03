@@ -24,7 +24,6 @@ class UseHashMaptoSort {
 		String winner = "";
 		int freq = 0; 
 		for (Map.Entry h: hm.entrySet()) {
-			// System.out.println(h.getKey() + " " + h.getValue());
 			if ((Integer)h.getValue() > freq) {
 				winner = (String)h.getKey();
 				freq = (Integer)h.getValue();
