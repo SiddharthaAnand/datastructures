@@ -63,19 +63,20 @@ void printLinkedList(struct node **head) {
 }
 
 // Insertion of a LinkedList
-struct node* insert() {
-	struct node *head = NULL;
-	head->data = 2;
-	head->next = NULL;
-	appendEnd(&head, 1);
-	appendEnd(&head, 3);
-	appendEnd(&head, 4);
-	return head;
+void insert(struct node **head) {
+	appendEnd(head, 1);
+	appendEnd(head, 3);
+	appendEnd(head, 4);
+	//return head;
 }
 
 // Create a file reader to read the elements from input.txt.
 
 int main() {
-	struct node * head = insert();
+	struct node *head = NULL;
+	head->data = 1;
+	head->next = newNode(2);
+	head->next->next = newNode(3);
+	//insert(&head);
 	printLinkedList(&head);
 }
