@@ -13,6 +13,9 @@ class IntersectionPointLL {
 	public static Node getIntersection(Node head_1, Node head_2) {
 		//if (head_1 == null || head_2 == null) return;
 		Node temp = head_1;
+		// Using a hashmap to store the address of the nodes/
+		// If the same node is visited again, then that is the
+		// intersection point.
 		HashMap<Node, Integer> hm = new HashMap<Node, Integer>();
 		int count = 0;
 		while (head_1 != null) {
