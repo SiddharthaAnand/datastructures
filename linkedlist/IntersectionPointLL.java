@@ -1,87 +1,60 @@
-#include <iostream>
-#include <algorithm>
-#define arr_size1 6
-#define arr_size2 5
-
-using namespace std;
-
-void intersection_of_arrays(int input1[], int input2[])
-{
-	int output[min(arr_size1, arr_size2)], index1 = 0, index2 = 0, index3 = 0;
-	sort(input1, input1 + arr_size1);
-	sort(input2, input2 + arr_size2);
-
-	while(index1 < arr_size1 && index2 < arr_size2)
-	{
-		if(input1[index1] == input2[index2])
-		{
-			output[index3++] = input1[index1];
-			(index2++, index1++);
-			continue;
-		}
-		(input1[index1] < input2[index2]) ? index1++ : index2++;
+import java.util.HashMap;
+class Node {
+	int data;
+	Node next;
+	Node (int d) {
+		this.data = d;
+		this.next = null;
 	}
-	
-	/* Print the output */
-	cout<<"Intersection\n";
-	for(int i = 0; i < index3; i++)
-		cout<<output[i]<<" ";
-	cout<<endl;
 }
 
-void union_of_arrays(int input1[], int input2[])
-{
-	int output[(arr_size1 + arr_size2)], index1 = 0, index2 = 0, index3 = 0;
-	sort(input1, input1 + arr_size1);
-	sort(input2, input2 + arr_size2);
-
-	while(index1 < arr_size1 && index2 < arr_size2)
-	{
-		if(input1[index1] == input2[index2])
-		{
-			output[index3++] = input1[index1];
-			(index1++, index2++);
-			continue;
+class IntersectionPointLL {
+	// @return the Node which is the intersection point.
+	public static Node getIntersection(Node head_1, Node head_2) {
+		//if (head_1 == null || head_2 == null) return;
+		Node temp = head_1;
+		HashMap<Node, Integer> hm = new HashMap<Node, Integer>();
+		int count = 0;
+		while (head_1 != null) {
+			hm.put(head_1, count);
+			count++;
+			head_1 = head_1.next;
 		}
-		output[index3++] = ((input1[index1] < input2[index2]) ?	input1[index1++] : input2[index2++]);
+
+		while(head_2 != null) {
+			if (hm.containsKey(head_2)) {
+				temp = head_2;
+				break;
+			}
+			head_2 = head_2.next;
+		}
+		return temp;
 	}
 
-	if(index1 == arr_size1)
-	{
-		while(index2 < arr_size2)
-			output[index3++] = input2[index2++];
-	}
-	else
-	{
-		while(index1 < arr_size1)
-			output[index3++] = input2[index1++];
+	static void print(Node head) {
+		while(head != null) {
+			System.out.println(head.data);
+			head = head.next;
+		}
 	}
 
-	cout<<"Union\n";
-	for(int i = 0; i < index3; i++)
-		cout<<output[i]<<" ";
-	cout<<endl;
-}
-
-int main()
-{
-	int input1[arr_size1], input2[arr_size2], size = 0;
-
-	cout<<"\nEnter the first array\n";
-	while(size < arr_size1)
-	{
-		cin>>input1[size];
-		size++;
+	public static void main(String[] args) {
+		/*
+		 * 1  -->  2  -->  3  -->  null = head
+		 * 1-->3--^  = head2
+		 * The structure above is defined below.
+		 */
+		Node head = new Node(1);
+		head.next = new Node(2);
+		head.next.next = new Node(3);
+		Node head2 = new Node(1);
+		head2.next = new Node(3);
+		head2.next.next = head.next;
+		System.out.println("-----First list-----");
+		print(head);
+		System.out.println("-----Second list-----");
+		print(head2);
+		System.out.println("Prints the node data where the intersection starts");
+		System.out.println(getIntersection(head, head2).data);
 	}
-	size = 0;
-	
-	cout<<"\nEnter the second array\n";
-	while(size < arr_size2)
-	{
-		cin>>input2[size];
-		size++;
-	}
-	
-	intersection_of_arrays(input1, input2);
-	union_of_arrays(input1, input2);
 }
