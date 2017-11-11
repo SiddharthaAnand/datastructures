@@ -55,6 +55,7 @@ void printadjacencyList(struct graph *g) {
     }
     printf("\n");
 }
+/*
 int main() {
     struct graph *g = createGraph(5);
     addEdge(g, 1, 2);
@@ -67,3 +68,4 @@ int main() {
 
     printadjacencyList(g);
 }
+*/
