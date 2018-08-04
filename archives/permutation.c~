@@ -1,0 +1,97 @@
+/** qsort function is used to sort the input in case they are not initially the first value in lexicographcial order.
+This program implements the Narayan Pandit ancient method of finding permutations and also takes into account repeated inputs.
+Ex. Input : 1122 Output : 4!/2!2! = 12 permutations
+
+swap function takes the array base index, and the position of the two values which needs to be exchanged.
+
+print function takes the array and its length as the paramters and simply prints it on the console.
+
+reverse function takes the array and the two position from where reverse needs to be implemented in the Narayan Pandit algorithm.
+
+permutation function takes the array, the first position and the lastIndex of the array as the parameters and implements the Narayan andit algorithm for finding permutation. **/
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+
+char string[10000];
+static int count = 0;
+int len;
+
+int cmpfunc (const void * a, const void * b)
+{
+   return ( *(char*)a - *(char*)b );
+}
+
+
+void print()
+{
+	int i;
+	printf("\n");
+	for(i = 0; i < len; i++)
+		printf("%c ", string[i]);
+}
+
+void swap(int firstIndex, int secondIndex)
+{
+	char x = string[firstIndex];
+	string[firstIndex] = string[secondIndex];
+	string[secondIndex] = x;
+}
+
+void reverse(int firstIndex, int lastIndex)
+{
+	while(firstIndex < lastIndex)
+	{
+		char x = string[firstIndex];
+		string[firstIndex] = string[lastIndex];
+		string[lastIndex] = x;
+		firstIndex++;
+		lastIndex--;
+	}
+}
+
+void permutation(int k, int length)
+{
+	int i, p, q, flag = 0;
+	for(i = 0; i < length; i++)
+	{
+		if(string[i] < string[i+1])
+		{
+			flag = 1;
+			p = i;
+		}
+	}
+	for(i = p + 1; i <= length; i++)
+	{
+		if(string[p] < string[i])
+		{
+			q = i;
+		}
+	}
+	if(flag)	
+	{
+		swap(p, q);
+		reverse(p+1, length);
+		++count;
+		print();
+		permutation(0, length);
+	}
+}
+
+int main()
+{
+	int i = 0;
+	printf("\nEnter the string : ");
+	gets(string);
+	len = strlen(string);
+	qsort(string, len, sizeof(char), cmpfunc);
+	for(i = 0; i < len; i++)
+		printf("%c", string[i]);
+	
+	permutation(0, len - 1);
+	printf("\n\n-----Number of permutations : %d----\n\n", count + 1);
+}
+
