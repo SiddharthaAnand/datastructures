@@ -1,7 +1,5 @@
 package arrays;
 import java.util.Scanner;
-import java.util.Arrays;
-
 
 class Pivot {
 	public static int findPivot(int[] input, int low, int high) {
@@ -35,10 +33,6 @@ class Pivot {
 		System.out.println(text);
 	}
 
-	public static void sortArray(int[] array) {
-		Arrays.sort(array);
-	}
-
 	public static void printValue(String text, int value) {
 		System.out.println(text + " : " + value);
 	}
@@ -52,7 +46,6 @@ class Pivot {
 			len -= 1;
 			array[idx++] = sc.nextInt();
 		}
-		//sortArray(array);
 		printValue("Pivot in array", findPivot(array, 0, array.length - 1));
 	}
 }
