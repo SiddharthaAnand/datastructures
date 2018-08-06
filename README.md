@@ -11,16 +11,16 @@ the packages created. Please do not use the archives folder for adding any code.
 ## How to run
 Clone the repository using the following command:
 ```
-git clone 
+$ git clone https://github.com/SiddharthaAnand/datastructures.git
 ```
 Switch directory inside the cloned directory:
 ```
-cd datastructures
+$ cd datastructures
 ```
 In order to run any file, type the following command:
 ```
-javac -d . BinarySearch.java
-java arrays.BinarySearch
+$ javac -d . BinarySearch.java
+$ java arrays.BinarySearch
 ```
 The command will create a package named arrays in your local directory and put
 the class file inside that directory.
