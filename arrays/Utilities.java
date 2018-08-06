@@ -5,6 +5,11 @@ package utilities;
 import java.util.Scanner;
 
 public class Utilities {
+	
+	public static void print(int value) {
+		System.out.print(value + " ");
+	}
+
 	public static void print(String text, String delimeter, int[] array) {
 		System.out.print(text + delimeter + " ");
 
