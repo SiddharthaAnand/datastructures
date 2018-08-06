@@ -39,3 +39,12 @@ Any code that you add needs to have a proper directory name. The directory
 names can be one of the following:
 * name of the data-structure (arrays/)
 * name of an algorithm/design paradigm (divide-and-conquer/)
+Do add easy-to-understand comments at the beginning of the code to understand the 
+question, input and output of the program.
+
+## To-dos
+[X] Add a Utilities.java file which can be used anywhere in the repository.
+[ ] Add other data-structures like Strings, Linked-lists and Trees.
+[ ] Add advanced data-structures like Red-Black trees.
+[ ] Add algorithms related to graphs.
+[ ] Add design patterns examples
