@@ -1,3 +1,6 @@
+/* Given an array, left rotate the array by the given number of
+ * rotations quickly.
+ */
 package arrays;
 import utilities.Utilities;
 

@@ -1,4 +1,5 @@
-/**
+/** Utilities file which contains common methods used 
+ *  over and over again in coding.
  * Method overloading in action.
  */
 package utilities;
