@@ -8,22 +8,31 @@ import utilities.Utilities;
 
 public class SubMatrixSumQuery {
 
-	public static void initializeMatrix(int[][] cumulativeMatrix) {
-
-	}
-	
 	// no need to return the matrix array since it manipulates the matrix in-place 
 	// and by reference.
-	public static void findCumulativeSumOfMatrix(int[][] cumulativeMatrix, int rowLen, int colLen) {
-		int[][] buffer = new int[rowLen][colLen];
-		for (int idx = 0; idx < rowLen; i++) {
+	public static void findCumulativeSumOfMatrix(int[][] buffer, int[][] matrix, int rowLen, int colLen) {
+		// initialize first row and first column in buffer
+		for (int idx = 0; idx < rowLen; idx++) {
+			buffer[0][idx] = matrix[0][idx];
+		}
+		for (int idx = 0; idx < colLen; idx++) {
+			buffer[idx][0] = matrix[idx][0];
+		}
+		// Sum row-wise
+		for (int idx = 0; idx < rowLen; idx++) {
+			for (int _idx = 1; _idx < colLen; _idx++) {
+				buffer[idx][_idx] = buffer[idx][_idx-1] + matrix[idx][_idx];
+			}
+		}
+		// Sum column-wise
+		for (int idx = 1; idx < rowLen; idx++) {
 			for (int _idx = 0; _idx < colLen; _idx++) {
-
+				buffer[_idx][idx] = buffer[_idx][idx-1] + matrix[_idx][idx];
 			}
 		}
 	}
 
-	public static void findSumOfSubMatrix(int[][] cumulativeMatrix, int rowL, int colL, int rowR, int colR) {
+	public static int findSumOfSubMatrix(int[][] cumulativeMatrix, int rowL, int colL, int rowR, int colR) {
 		return (cumulativeMatrix[rowR][colR] - cumulativeMatrix[rowL][colL]);
 	}
 
@@ -32,11 +41,24 @@ public class SubMatrixSumQuery {
 		Utilities.print("Enter the matrix size", ":");
 		int len = Utilities.takeInputIntegerValue();
 		int[][] matrix = new int[len][len];
+		int[][] cumulativeMatrix = new int[len][len];
+
 		Utilities.print("Enter the matrix values", "");
 		for (int idx = 0; idx < len; idx++) {
 			for (int _idx = 0; _idx < len; _idx++) {
-				matrix[idx][_idx] = sc.nextInput();
+				matrix[idx][_idx] = Utilities.takeInputIntegerValue();
 			}
 		}
+		Utilities.printMatrix(matrix, len, len);
+		Utilities.print("Enter the position of sub-matrices whose sum is needed", "");
+		Utilities.print("Example", ":");
+		Utilities.print("LeftRow", ":", 0);
+		Utilities.print("LeftCol", ":", 0);
+		Utilities.print("RightRow", ":", 2);
+		Utilities.print("RightCol", ":", 2);
+		findCumulativeSumOfMatrix(cumulativeMatrix, matrix, len, len);
+		Utilities.printMatrix(cumulativeMatrix, len, len);
+		Utilities.print("Sum of the sub-matrix is", ":", findSumOfSubMatrix(cumulativeMatrix, 0, 0, 2, 2));
+
 	}
 }
