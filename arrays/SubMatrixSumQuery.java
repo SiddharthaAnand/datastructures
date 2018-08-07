@@ -56,13 +56,25 @@ public class SubMatrixSumQuery {
 		Utilities.printMatrix(matrix, len, len);
 		Utilities.print("Enter the position of sub-matrices whose sum is needed", "");
 		Utilities.print("Example", ":");
-		Utilities.print("LeftRow", ":", 0);
-		Utilities.print("LeftCol", ":", 0);
+		Utilities.print("LeftRow", ":", 1);
+		Utilities.print("LeftCol", ":", 1);
 		Utilities.print("RightRow", ":", 2);
 		Utilities.print("RightCol", ":", 2);
 		findCumulativeSumOfMatrix(cumulativeMatrix, matrix, len, len);
 		Utilities.printMatrix(cumulativeMatrix, len, len);
-		Utilities.print("Sum of the sub-matrix is", ":", findSumOfSubMatrix(cumulativeMatrix, 1, 1, 2, 2));
+		Utilities.print("Sum of the sub-matrix from (1, 1) to (2, 2) is", ":", findSumOfSubMatrix(cumulativeMatrix, 1, 1, 2, 2));
+		// INput required:
+		// left row position
+		// left column position
+		// righ row position
+		// right column position
+		Utilities.print("Enter the position of sub-matrices whose sum is needed", "");
+		int rowL = Utilities.takeInputIntegerValue();
+		int colL = Utilities.takeInputIntegerValue();
+		int rowR = Utilities.takeInputIntegerValue();
+		int colR = Utilities.takeInputIntegerValue();
+		Utilities.print("Sum of the sub-matrix is", ":", findSumOfSubMatrix(cumulativeMatrix, rowL, colL, rowR, colR));
+
 
 	}
 }
