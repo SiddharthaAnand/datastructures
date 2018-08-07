@@ -7,6 +7,14 @@ import java.util.Scanner;
 
 public class Utilities {
 	
+	public static void printMatrix(int[][] matrix, int row, int col) {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				System.out.print(matrix[i][j] + " ");
+			}
+			print("\n", "");
+		}
+	}
 	public static void print(int value) {
 		System.out.print(value + " ");
 	}
