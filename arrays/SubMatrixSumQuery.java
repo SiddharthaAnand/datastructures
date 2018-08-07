@@ -25,15 +25,19 @@ public class SubMatrixSumQuery {
 			}
 		}
 		// Sum column-wise
-		for (int idx = 1; idx < rowLen; idx++) {
-			for (int _idx = 0; _idx < colLen; _idx++) {
-				buffer[_idx][idx] = buffer[_idx][idx-1] + matrix[_idx][idx];
+		for (int idx = 0; idx < rowLen; idx++) {
+			for (int _idx = 1; _idx < colLen; _idx++) {
+				buffer[_idx][idx] = buffer[_idx][idx] + buffer[_idx-1][idx];
 			}
 		}
 	}
 
 	public static int findSumOfSubMatrix(int[][] cumulativeMatrix, int rowL, int colL, int rowR, int colR) {
-		return (cumulativeMatrix[rowR][colR] - cumulativeMatrix[rowL][colL]);
+		if (rowL == colL && rowL == 0)
+			return cumulativeMatrix[rowR][colR];
+		return (cumulativeMatrix[rowR][colR] - 
+			(cumulativeMatrix[rowR][colL-1] + cumulativeMatrix[rowL-1][colR]) + 
+			cumulativeMatrix[rowL-1][colL-1]);
 	}
 
 	public static void main(String[] args) {
@@ -58,7 +62,7 @@ public class SubMatrixSumQuery {
 		Utilities.print("RightCol", ":", 2);
 		findCumulativeSumOfMatrix(cumulativeMatrix, matrix, len, len);
 		Utilities.printMatrix(cumulativeMatrix, len, len);
-		Utilities.print("Sum of the sub-matrix is", ":", findSumOfSubMatrix(cumulativeMatrix, 0, 0, 2, 2));
+		Utilities.print("Sum of the sub-matrix is", ":", findSumOfSubMatrix(cumulativeMatrix, 1, 1, 2, 2));
 
 	}
 }
