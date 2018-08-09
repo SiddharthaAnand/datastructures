@@ -7,7 +7,7 @@ Questions picked up from https://www.geeksforgeeks.org, https://www.hackerrank.c
 ## Information
 The programs have been divided according to data-structures as can be seen from
 the packages created. Please do not use the archives folder for adding any code.
-
+You can also add certain concepts implemented through code.
 ## How to run
 Clone the repository using the following command:
 ```
