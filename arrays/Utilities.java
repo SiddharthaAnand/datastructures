@@ -40,6 +40,11 @@ public class Utilities {
 		return new Scanner(System.in);
 	}
 
+	public static String takeInput() {
+		Scanner sc = getScanner();
+		return sc.next();
+	}
+	
 	public static int takeInputIntegerValue() {
 		Scanner sc = getScanner();
 		return sc.nextInt();
