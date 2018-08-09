@@ -3,12 +3,12 @@
  * all the elements of the array together
  */
 
-package arrays;
-import utilities.Utilities;
+package vectors;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.Comparator;
+import java.util.Scanner;
 
 // Application of vectors here
 
@@ -29,20 +29,18 @@ public class FormulateLargestNumber {
 		}
 	}
 
-	public static void addTestcase() {
-
-	}
-
 	public static void main(String[] args) {
-		Utilities.print("Enter the length of the array", ":");
-		int len = Utilities.takeInputIntegerValue();
+		System.out.println("Enter the length of the array");
+		Scanner sc = new Scanner(System.in);
+		int len = sc.nextInt();
 		int idx = 0;
 		Vector<String> array = new Vector<String>(len);
+		
 		while(len > 0) {
 			len--;
-			array.add(Utilities.takeInput());
+			array.add(sc.next());
 		}
 		formulateLargestNumberFromArray(array);
-		//Utilities.print("Resultant array", ":", array);
+		
 	}
 }
