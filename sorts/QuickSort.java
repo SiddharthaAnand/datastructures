@@ -1,16 +1,15 @@
 /* Given an integer array, apply quick sort technique
  * to sort the given array.
- *
+ * 1. First step of quick sort: take a random pivot and divide the array
+ * 2. Put the pivot at the correct place 
+ *    divide the left and right side of teh array
+ *	  continue with the same algorithm until end.
  */
 
 package sorts;
 import java.util.Scanner;
 
 public class QuickSort {
-	// 1. First step of quick sort: take a random pivot and divide the array
-	// 2. Put the pivot at the correct place 
-	// divide the left and right side of teh array
-	// continue with the same algorithm until end
 	public static int divideArray(int[] array, int leftIdx, int rightIdx) {
 		int pivotIndex = rightIdx;
 		int leftPtr = leftIdx - 1;
