@@ -7,7 +7,7 @@ import java.util.Random;
 import sorts.QuickSort;
 
 public class Analysis {
-	
+	// Do a quick sort using the QuickSort file
 	public static void startSort(int[] array) {
 		QuickSort.doQuickSort(array);
 	}
