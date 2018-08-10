@@ -61,9 +61,9 @@ public class Analysis {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the size of the randomly generated arrays for analysis:");
+		System.out.println("Enter the size of the randomly generated array:");
 		int len = sc.nextInt();
-		System.out.println("Enter the number of times it should run for an average analysis:");
+		System.out.println("Enter the number of times it should generate a random array for an average analysis:");
 		int maxLimit = sc.nextInt();
 		controller(len, maxLimit);
 	}
