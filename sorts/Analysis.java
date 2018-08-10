@@ -44,22 +44,27 @@ public class Analysis {
 		System.out.println();
 	}
 
-	public static void controller(int arraySize) {
+	public static void controller(int arraySize, int maxLimit) {
 		int[] array = new int[arraySize];
-		generateRandomArray(array, arraySize);
-		//printArray(array);
-		long startTimeInSeconds = getCurrentTime();
-		startSort(array);
-		long endTimeInSeconds = getCurrentTime();
-		//printArray(array);
-		writeToFile(arraySize, endTimeInSeconds - startTimeInSeconds);
-		System.out.println("Time taken: " + (endTimeInSeconds - startTimeInSeconds));
+		while (maxLimit > 0) {
+			generateRandomArray(array, arraySize);
+			//printArray(array);
+			long startTimeInSeconds = getCurrentTime();
+			startSort(array);
+			long endTimeInSeconds = getCurrentTime();
+			//printArray(array);
+			writeToFile(arraySize, endTimeInSeconds - startTimeInSeconds);
+			System.out.println("Time taken: " + (endTimeInSeconds - startTimeInSeconds));
+			maxLimit -= 1;
+		}
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the size of the randomly generated arrays for analysis:");
 		int len = sc.nextInt();
-		controller(len);
+		System.out.println("Enter the number of times it should run for an average analysis:");
+		int maxLimit = sc.nextInt();
+		controller(len, maxLimit);
 	}
 }
