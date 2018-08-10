@@ -44,7 +44,7 @@ public class Analysis {
 		System.out.println();
 	}
 
-	public static void controller(int arraySize, int maxLimit) {
+	public static void analysisMachine(int arraySize, int maxLimit) {
 		int[] array = new int[arraySize];
 		while (maxLimit > 0) {
 			generateRandomArray(array, arraySize);
@@ -65,6 +65,6 @@ public class Analysis {
 		int len = sc.nextInt();
 		System.out.println("Enter the number of times it should generate a random array for an average analysis:");
 		int maxLimit = sc.nextInt();
-		controller(len, maxLimit);
+		analysisMachine(len, maxLimit);
 	}
 }
