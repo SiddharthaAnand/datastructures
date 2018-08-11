@@ -46,25 +46,43 @@ public class Analysis {
 
 	public static void analysisMachine(int arraySize, int maxLimit) {
 		int[] array = new int[arraySize];
+		double sum = 0;
+		double average = 0;
+		int max = maxLimit;
 		while (maxLimit > 0) {
+			//System.out.println("maxLimit: " + maxLimit);
 			generateRandomArray(array, arraySize);
 			//printArray(array);
-			long startTimeInSeconds = getCurrentTime();
+			long startTimeInMSeconds = getCurrentTime();
 			startSort(array);
-			long endTimeInSeconds = getCurrentTime();
+			long endTimeInMSeconds = getCurrentTime();
 			//printArray(array);
-			writeToFile(arraySize, endTimeInSeconds - startTimeInSeconds);
-			System.out.println("Time taken: " + (endTimeInSeconds - startTimeInSeconds));
+			//writeToFile(arraySize, endTimeInSeconds - startTimeInSeconds);
+			sum +=  (endTimeInMSeconds - startTimeInMSeconds);
 			maxLimit -= 1;
+
 		}
+		average = sum / max;
+		System.out.println(arraySize + "," + average);
 	}
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the size of the randomly generated array:");
-		int len = sc.nextInt();
-		System.out.println("Enter the number of times it should generate a random array for an average analysis:");
-		int maxLimit = sc.nextInt();
-		analysisMachine(len, maxLimit);
+	public static void main(String[] args) throws InterruptedException {
+		int[] lengthArray = {100, 500, 1000, 5000, 10000, 50000, 100000,
+						200000, 500000, 1000000, 2000000, 3000000, 4000000, 5000000,
+						6000000, 7000000, 8000000, 9000000, 10000000, 20000000, 30000000, 
+						40000000, 50000000, 60000000, 70000000, 80000000, 90000000, 100000000, 
+						200000000, 300000000, 400000000, 500000000, 600000000, 700000000, 
+						800000000, 900000000 
+						};
+		int idx = 0, maxLimit = 10000;
+		System.out.println("===================Analysis Start===================");
+		System.out.println("ArraySize,Time");
+		while (idx < lengthArray.length) {
+			idx += 1;
+			//Thread.sleep(5000);
+			int len = lengthArray[idx];
+			analysisMachine(len, maxLimit);
+		}
+		System.out.println("===================Analysis Complete================");
 	}
 }
