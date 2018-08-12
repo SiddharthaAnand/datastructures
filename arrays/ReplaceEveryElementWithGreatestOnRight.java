@@ -1,7 +1,7 @@
 package arrays;
 import utilities.RandomInput;
 
-public class ReplaceEveryElementWithGreatestOnRight {
+public class ReplaceEveryElementWithGreatestOnRight implements Stub {
 	// Possible in single pass of the array
 	private static void replace(int[] array) {
 		int largest = array[array.length - 1];
@@ -16,19 +16,11 @@ public class ReplaceEveryElementWithGreatestOnRight {
 		array[array.length-1] = -1;
 	}
 
-	public static void printArray(int[] array) {
-		System.out.println();
-		for (int idx = 0; idx < array.length; idx++) {
-			System.out.print(array[idx] + " ");
-		}
-		System.out.println();
-	}
-
 	public static void main(String[] args) {
 		// generate random numbers in range [-10, 10)
-		int[] input = RandomInput.generateArray(10, 0, 100);
-		printArray(input);
+		int[] input = generateArray(10, 10);
+		printArray("Input", input);
 		replace(input);
-		printArray(input);
+		printArray("Output", input);
 	}
 }
