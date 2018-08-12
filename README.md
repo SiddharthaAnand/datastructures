@@ -31,6 +31,12 @@ This java file contains the typical common methods that are required in almost
 every code that is written in this repository. For example, taking an input,
 printing on a new line or printing text along with a data-structure.
 
+## Stub.java
+This class contains method to generate a random valued array, given the size and 
+the max value you want in the array. It uses the built-in Random class to generate
+the values. It also has a method to print the values of a given input array along
+with a text given as formal parameter.
+
 ## Contribution
 Feel free to refactor code, report bugs, submit pull requests or just send a suggestion.
 
