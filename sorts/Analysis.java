@@ -74,10 +74,11 @@ public class Analysis {
 		System.out.println("===================Analysis Start===================");
 		System.out.println("ArraySize,Time");
 		while (idx < lengthArray.length) {
-			idx += 1;
+			
 			//Thread.sleep(5000);
 			int len = lengthArray[idx];
 			analysisMachine(len, maxLimit);
+			idx += 1;
 		}
 		System.out.println("===================Analysis Complete================");
 	}
