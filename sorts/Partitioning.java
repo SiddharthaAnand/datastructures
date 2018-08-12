@@ -11,19 +11,22 @@ import java.util.Scanner;
 import sorts.RandomInput;
 
 public class Partitioning {
-	// Divide the array into three parts
-	// a[1...low] zeros
-	// a[low+1...mid] ones
-	// a[mid+1...hih] twos
+	
 	private static void swap(int[] array, int x, int y) {
 		int temp = array[x];
 		array[x] = array[y];
 		array[y] = temp;
 	}
-
+	// Divide the array into three parts
+	// a[1...low] zeros
+	// a[low+1...mid] ones
+	// a[mid+1...hih] twos
+	// Time complexity: O(n)
+	// Space complexity: O(1)
 	public static void doPartitioning(int[] array) {
 		int low = 0, mid = 0, high = array.length-1;
 		while (mid <= high) {
+			// Invariant: a[0-low-1] = 0s etc
 			int value = array[mid];
 			switch(value) {
 				case 0:
