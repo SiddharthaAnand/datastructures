@@ -17,9 +17,10 @@ out the time taken to sort the array using QuickSort. The QuickSort
 class is written in another class in the same directory.
 
 ### QuickSort
-Pivot is blindly chosen to be the last element of the array, since
-the array is random so I can consider it to be balanced set of 
-sorted, partially-sorted or reversely-sorted array.
+This method is a divide-and-conquer algorithm. Pivot is blindly 
+chosen to be the last element of the array, since the array is 
+random so I can consider it to be balanced set of sorted, 
+partially-sorted or reversely-sorted array.
 
 ## Example:
 ```

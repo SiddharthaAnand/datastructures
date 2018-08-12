@@ -67,14 +67,10 @@ public class Analysis {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		int[] lengthArray = {100, 500, 1000, 5000, 10000, 50000, 100000,
-						200000, 500000, 1000000, 2000000, 3000000, 4000000, 5000000,
-						6000000, 7000000, 8000000, 9000000, 10000000, 20000000, 30000000, 
-						40000000, 50000000, 60000000, 70000000, 80000000, 90000000, 100000000, 
-						200000000, 300000000, 400000000, 500000000, 600000000, 700000000, 
+		int[] lengthArray = {200000000, 300000000, 400000000, 500000000, 600000000, 700000000, 
 						800000000, 900000000 
 						};
-		int idx = 0, maxLimit = 10000;
+		int idx = 0, maxLimit = 100;
 		System.out.println("===================Analysis Start===================");
 		System.out.println("ArraySize,Time");
 		while (idx < lengthArray.length) {
