@@ -2,7 +2,7 @@ package arrays;
 import utilities.RandomInput;
 
 public class Stub {
-	private int[] input;
+	
 	public static void printArray(String text, int[] input) {
 		System.out.print(text + ": ");
 		for (int idx = 0; idx < input.length; idx++) {
@@ -11,7 +11,8 @@ public class Stub {
 		System.out.println();
 	}
 
-	public static void generateArray() {
-		input = RandomInput.getRandomArray(10, 0, 10);
+	public static int[] generateArray(int size, int maxValue) {
+		int[] input = RandomInput.generateArray(size, 0, maxValue);
+		return input;
 	}
 }
