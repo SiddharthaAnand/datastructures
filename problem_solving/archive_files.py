@@ -35,5 +35,5 @@ class ArchiveFile(object):
 if __name__ == '__main__':
 	directory_path = raw_input("Enter the directory to archive: ")
 	time_in_days = raw_input("Enter the time(in days) threshold more than which files to be archived: ")
-	archiveControl = ArchiveFile(directory_path, time_in_days)
+	archive_control = ArchiveFile(directory_path, time_in_days)
 	
