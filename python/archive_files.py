@@ -5,6 +5,7 @@
 	 Input: directory_path days(optional)
 '''
 import os
+import subprocess
 
 class ArchiveFile(object):
 	def __init__(self, directory_path, time_in_days):
@@ -20,7 +21,11 @@ class ArchiveFile(object):
 		return self.time_in_days
 
 	def check_for_valid_directory(self, directory_path):
-		pass
+		''' Checks for a valid path or directory.
+		'''
+		if (os.path.exists(directory_path) == True):
+			return True
+		return False
 
 	def check_for_valid_time(self, time_in_days):
 		pass
@@ -49,6 +54,11 @@ if __name__ == '__main__':
 	directory_path = raw_input("Enter the directory to archive: ")
 	time_in_days = raw_input("Enter the time(in days) threshold more than which files to be archived: ")
 	archive_control = ArchiveFile(directory_path, time_in_days)
-	archive_control.get_list_of_files(directory_path)
-	print archive_control.sub_dir
-	print archive_control.file_list
+	if archive_control.check_for_valid_directory(directory_path):
+
+		archive_control.get_list_of_files(directory_path)
+		#print archive_control.sub_dir
+		print archive_control.file_list
+	else:
+		print "----Invalid Directory"
+		print "----Exited."
