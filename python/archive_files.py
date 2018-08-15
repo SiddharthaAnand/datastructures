@@ -10,6 +10,7 @@ class ArchiveFile(object):
 	def __init__(self, directory_path, time_in_days):
 		self.directory_path = directory_path
 		self.time_in_days = time_in_days
+		self.dst_dir = "archives_test/"
 		self.files_to_archive = []
 		self.file_list = []
 		self.sub_dir = []
@@ -51,11 +52,13 @@ class ArchiveFile(object):
 		   folder.
 		'''
 		files = self.files_to_archive
-		dst_dir = "archives_test/"
-		os.makedirs(dst_dir)
+		
+		# Creeate a directory if not already present
+		if not os.path.exists(self.dst_dir):
+			os.makedirs(self.dst_dir)
 		for fl in files:
 			fname_idx = fl.rfind("/")
-			os.rename(fl, dst_dir + fl[fname_idx:])
+			os.rename(fl, self.dst_dir + fl[fname_idx:])
 
 	def get_sub_directories(self, directory):
 		''' Get sub-directories in the current
@@ -63,8 +66,10 @@ class ArchiveFile(object):
 		'''
 		for val in os.walk(directory):
 			for v in val[1]:
-				if "archives" not in v:
+				if self.dst_dir not in v:
 					self.sub_dir.append(val[0] + "/" + v)
+				else:
+					print "Checking archives folder too"
 
 
 	def get_list_of_files_before_threshold(self):
