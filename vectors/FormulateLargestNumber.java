@@ -2,7 +2,10 @@
  * we have the largest number on combining
  * all the elements of the array together
  */
-
+// Arrange the numbers to form the largest number
+// This will create a new clas file with *$1.class
+// name in the end. It's called an Anonymous Inner Class
+// since this does not have a name.
 package vectors;
 import java.util.Collections;
 import java.util.Iterator;
@@ -14,7 +17,7 @@ import java.util.Scanner;
 
 public class FormulateLargestNumber {
 	public static void formulateLargestNumberFromArray(Vector<String> array) {
-		// Arrange the numbers to form the largest number
+		
 		Collections.sort(array, new Comparator<String>() {
 			@Override
 			public int compare(String X, String Y) {
