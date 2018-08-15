@@ -15,7 +15,6 @@ class ArchiveFile(object):
 		self.file_list = []
 		self.sub_dir = []
 
-
 	def get_directory(self):
 		return self.directory_path
 
