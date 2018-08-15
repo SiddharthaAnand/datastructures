@@ -34,13 +34,16 @@ class ArchiveFile(object):
 		pass
 
 	def move_to_archives(self):
-		
+		pass
 
 	def get_sub_directories(self, directory):
+		''' Get sub-directories in the current
+		    directory but avoid archives/.
+		'''
 		for val in os.walk(directory):
 			for v in val[1]:
-				self.sub_dir.append(val[0] + "/" + v)
-
+				if "archives" not in v:
+					self.sub_dir.append(val[0] + "/" + v)
 
 	def get_list_of_files(self, directory_path):
 		self.get_sub_directories(directory_path)
@@ -55,9 +58,7 @@ if __name__ == '__main__':
 	time_in_days = raw_input("Enter the time(in days) threshold more than which files to be archived: ")
 	archive_control = ArchiveFile(directory_path, time_in_days)
 	if archive_control.check_for_valid_directory(directory_path):
-
 		archive_control.get_list_of_files(directory_path)
-		#print archive_control.sub_dir
 		print archive_control.file_list
 	else:
 		print "----Invalid Directory"
