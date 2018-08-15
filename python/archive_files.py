@@ -29,7 +29,7 @@ class ArchiveFile(object):
 		pass
 
 	def move_to_archives(self):
-		pass
+		
 
 	def get_sub_directories(self, directory):
 		for val in os.walk(directory):
@@ -39,11 +39,11 @@ class ArchiveFile(object):
 
 	def get_list_of_files(self, directory_path):
 		self.get_sub_directories(directory_path)
+		self.sub_dir.append(directory_path)
 		for directory in self.sub_dir:
 			for files in os.walk(directory):
 				for f in files[2]:
-					if len(f) != 0:
-						self.file_list.append(f)
+					self.file_list.append(f)
 		
 if __name__ == '__main__':
 	directory_path = raw_input("Enter the directory to archive: ")
