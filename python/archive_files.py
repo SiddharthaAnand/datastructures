@@ -40,7 +40,7 @@ class ArchiveFile(object):
 			return False
 		return True
 
-	def get_modified_time(self, file_name):
+	def get_last_modified_time_file(self, file_name):
 		try:
 			return os.path.getmtime(file_name)
 		except OSError as e:
