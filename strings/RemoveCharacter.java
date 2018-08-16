@@ -13,16 +13,23 @@ public class RemoveCharacter {
 				newString += text.charAt(idx);
 			}
 		}
-		System.out.println("Remvoed character: " + newString);
+		System.out.println("Removed character: " + newString);
 	}
 	
-	public static void removeCharacterRecur(String text, char ch) {
-
+	public static String removeCharacterRecur(String text, char ch, int idx) {
+		if (text.length() == 0)	return "";
+		if (text.charAt(idx) != ch) {
+			return text.charAt(idx) + removeCharacterRecur(text.substring(idx+1), ch, idx+1);
+		}
+		else {
+			return removeCharacterRecur(text.substring(idx+1), ch, idx+1);	
+		}
 	}
 
 	private static void testCases() {
 		//removeCharacterRecur()
-		removeCharacterIter("Siddhartha", 'd');
+		//removeCharacterIter("Siddhartha", 'd');
+		System.out.println(removeCharacterRecur("Siddhartha", 'd', 0));
 	}
 
 	public static void main(String[] args) {
