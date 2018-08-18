@@ -19,10 +19,10 @@ public class RemoveCharacter {
 	public static String removeCharacterRecur(String text, char ch, int idx) {
 		if (text.length() == 0)	return "";
 		if (text.charAt(idx) != ch) {
-			return text.charAt(idx) + removeCharacterRecur(text.substring(idx+1), ch, idx+1);
+			return text.charAt(idx) + removeCharacterRecur(text.substring(idx+1), ch, idx);
 		}
 		else {
-			return removeCharacterRecur(text.substring(idx+1), ch, idx+1);	
+			return removeCharacterRecur(text.substring(idx+1), ch, idx);	
 		}
 	}
 
