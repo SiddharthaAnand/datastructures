@@ -4,6 +4,7 @@
  */
 package utilities;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Utilities {
 	
@@ -48,6 +49,10 @@ public class Utilities {
 	public static int takeInputIntegerValue() {
 		Scanner sc = getScanner();
 		return sc.nextInt();
+	}
+
+	public static void sortArray(int[] array) {
+		Arrays.sort(array);
 	}
 
 	// No need to return the value since the values are pushed
