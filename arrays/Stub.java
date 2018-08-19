@@ -11,6 +11,9 @@ public class Stub {
 		System.out.println();
 	}
 
+	public static void print(String text, int value) {
+		System.out.println(text + ": " + value);
+	}
 	public static void printStringArray(String text) {
 		System.out.println(text);
 	}
