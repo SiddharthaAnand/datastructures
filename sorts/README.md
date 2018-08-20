@@ -29,7 +29,7 @@ timeTaken = 1 millisecond
 array = {23, 3234, 2345 , 3546, 4567, -1345, -905, 1256, 13, -34, 121323};
 timeTaken = 0 millisecond
 ```
-This generation of the same-sized array is done hundred thousand times, 
+This generation of the same-sized array is done hundred thousand times(some of them a little less since the time was taking too long to conclude the average), 
 and then the average is taken out over those values.
 
 ## A data snapshot

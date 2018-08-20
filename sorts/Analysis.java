@@ -32,10 +32,6 @@ public class Analysis {
 		}
 	}
 
-	public static void writeToFile(int arraySize, long time) {
-
-	}
-
 	public static void printArray(int[] array) {
 		System.out.println();
 		for (int idx = 0; idx < array.length; idx++) {
