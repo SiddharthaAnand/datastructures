@@ -6,6 +6,11 @@ package arrays;
 import java.util.Random;
 
 public class MinDistBetweenNumbers extends Stub {
+	/* Logic is to keep two pointers both reading the input and 
+	 * updating itself as any of the two numbers is found.
+	 * As the numbers are found, compare the difference of their
+	 * positions, and store the minimum distance between them.
+	 */
 	public static int getMinDistBetweenNumbers(int[] input, int x, int y) {
 		int posOne = -1;
 		int posTwo = -1;
