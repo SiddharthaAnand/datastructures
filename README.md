@@ -50,7 +50,7 @@ question, input and output of the program.
 
 ## To-dos
 - [X] Add a Utilities.java file which can be used anywhere in the repository.
-- [ ] Add other data-structures like Strings, Linked-lists and Trees.
+- [X] Add other data-structures like Strings, Linked-lists and Trees. (In progress)
 - [ ] Add advanced data-structures like Red-Black trees.
 - [ ] Add algorithms related to graphs.
 - [ ] Add design patterns examples
