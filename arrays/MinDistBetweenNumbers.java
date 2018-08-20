@@ -33,6 +33,13 @@ public class MinDistBetweenNumbers extends Stub {
 		return minDist;
 	}
 
+	/* Generate a random input array.
+	 * Generate two random values to be searched 
+	 * in the array.
+	 * Return the minimum distance between them.
+	 * The numbers may not be present in the array
+	 * since it is randomly generated.
+	 */
 	public static void main(String[] args) {
 		int[] input = generateArray(20, 10);
 		Random rm = new Random();
