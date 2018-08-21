@@ -17,7 +17,8 @@ import java.util.Scanner;
 
 public class FormulateLargestNumber {
 	public static void formulateLargestNumberFromArray(Vector<String> array) {
-		
+		// Need to override compare method of Comparator Class(Anonymous class)
+		// to modify the way string will be compared.
 		Collections.sort(array, new Comparator<String>() {
 			@Override
 			public int compare(String X, String Y) {
@@ -26,6 +27,7 @@ public class FormulateLargestNumber {
 				return XY.compareTo(YX) > 0 ? -1: 1;
 			}
 		});
+		// Iterator usage
 		Iterator it = array.iterator();
 		while (it.hasNext()) {
 			System.out.print(it.next());
