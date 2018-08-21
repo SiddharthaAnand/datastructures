@@ -1,6 +1,6 @@
 /* Shuffle a given input array randomly such that
  * any combination is equally likely.
- * URL: 
+ * URL: geeksforgeeks
  */
 package arrays;
 import utilities.RandomInput;
