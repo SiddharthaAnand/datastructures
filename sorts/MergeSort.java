@@ -12,14 +12,16 @@ public class MergeSort {
 		// Create arrays temporarily for the sorting
 		int[] tempL = new int[firstSize];
 		int[] tempR = new int[secondSize];
-
+		// Copy values in both the temp arrays
 		for (int idx = 0; idx < firstSize; idx++)
 			tempL[idx] = input[low + idx];
 		for (int idx = 0; idx < secondSize; idx++)
 			tempR[idx] = input[mid + 1 + idx];
-	
+		// Initialize indexes back to zero to check the values from both
+		// arrays.
 		int idxL = 0, idxR = 0;
 		int k = low;
+		// Continue the array comparison till any one of them reaches the end.
 		while (idxR < secondSize && idxL < firstSize) {
 			if (tempL[idxL] <= tempR[idxR]) {
 				input[k] = tempL[idxL];
@@ -31,7 +33,8 @@ public class MergeSort {
 			}
 			k++;
 		}
-
+		// Copy the remaining the elements from both the arrays into the 
+		// original array.
 		while (idxR < secondSize) {
 			input[k++] = tempR[idxR++];
 		}
@@ -40,6 +43,8 @@ public class MergeSort {
 		}
 	}
 
+	// Merge Sort method
+	// Divide the array in two equal parts
 	private static void doMergeSort(int[] input, int low, int high) {
 		if (low < high) {
 			int mid = low + (high - low) / 2;
@@ -57,6 +62,7 @@ public class MergeSort {
 		System.out.println();
 	}
 
+	// Generate random initialized array
 	public static int[] generateArray(int size, int maxValue) {
 		int[] input = RandomInput.generateArray(size, 0, maxValue);
 		return input;
@@ -75,6 +81,7 @@ public class MergeSort {
 		}
 		return input;
 	}
+	
 	public static void main(String[] args) {
 		int[] input = generateArray(20, 20);
 		printArray("Input", input);
