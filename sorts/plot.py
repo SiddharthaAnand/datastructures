@@ -1,4 +1,5 @@
 import os
+import numpy as np
 import matplotlib.pyplot as plt
 
 class Plot(object):
@@ -20,20 +21,28 @@ class Plot(object):
 		return False
 
 	def clean_lines(self):
-		self.lines = self.lines[2:-1]
-		print self.lines
-
+		self.lines = self.lines[2:-4]
+		
 	def plot(self):
-		x = []
-		y = []
+		x = [-10]
+		y = [-10]
+		# Plot an n^2 line to contrast it with nlogn line
+
+		# Plot the data
 		for line in self.lines:
 			# size
 			x.append(int(line.strip().split(',')[0]))
 			# time in ms
 			y.append(float(line.strip().split(',')[1]))
 
-		plt.plot(x, y, "ro")
-		#plt.axis([0, 500000000, 0, 60000])
+		# evenly sampled time at 200ms intervals
+		t = np.arange(500., 80000000., 10000)
+		q = np.arange(500., 80000000., 10000)
+		s = np.arange(500., 80000000., 10000)
+		# red dashes, blue squares and green triangles
+		plt.plot(x, y, 'bs', t, t**2, 'r--', t, t, 'r--')
+		#plt.plot(x, y, "ro")
+		#plt.axis([-2, 90000000, -2, 60000])
 		plt.show()
 
 if __name__ == '__main__':
