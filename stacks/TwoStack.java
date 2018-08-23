@@ -17,6 +17,13 @@ class TwoStack {
 		topSecond = size;
 	}
 
+	public static void printStack() {
+		System.out.println();
+		for (int idx = 0; idx < input.length; idx++) {
+			System.out.print(input[idx] + " ");
+		}
+		System.out.println();
+	}
 	public static void pushFirstStack(int value) {
 		if ((topFirst+1) != topSecond) {
 			topFirst++;
@@ -41,6 +48,7 @@ class TwoStack {
 		int value = Integer.MAX_VALUE;
 		if (topFirst != -1) {
 			value = input[topFirst];
+			input[topFirst] = 0;
 			topFirst--;
 		}
 		else {
@@ -53,6 +61,7 @@ class TwoStack {
 		int value = Integer.MAX_VALUE;
 		if (topSecond != input.length) {
 			value = input[topSecond];
+			input[topSecond] = 0;
 			topSecond++;
 		}
 		else {
