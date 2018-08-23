@@ -1,5 +1,12 @@
-package stacks;
+//https://www.geeksforgeeks.org/?p=18754
+// Implement 2 stacks using an array.
 
+package stacks;
+/* Start the two stacks from the two extreme ends of the 
+ * array. And keep incrementing by one as and when the 
+ * values are added. Check for underflow/overflow condition.
+ * Return a value/print the conditions.
+ */
 class TwoStack {
 	static int topFirst = -1;
 	static int topSecond = -1;

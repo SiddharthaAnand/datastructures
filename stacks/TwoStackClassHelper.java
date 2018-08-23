@@ -5,10 +5,15 @@ package stacks;
 import stacks.TwoStack;
 import java.util.Scanner;
 
+/* Helper class to implement the two stack using a single array
+ * question.
+ */
 public class TwoStackClassHelper {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		TwoStack ts = new TwoStack(10);
+		System.out.println("Enter the size of the array which will implement the stacks: ");
+		int size = sc.nextInt();
+		TwoStack ts = new TwoStack(size);
 		int stack;
 		while (true) {
 			System.out.println("Enter 1/2 for Push/Pop");
