@@ -4,7 +4,7 @@ package stacks;
 
 public class Queue {
 	int front = -1;
-	int rear = -1;
+	int rear = 0;
 	int size;
 	int[] queue;
 
@@ -15,9 +15,9 @@ public class Queue {
 	}
 
 	private void enQueue(int value) {
-		if ((rear+1) != size) {
-			front++;
-			queue[front] = value;
+		if ((rear+1) % size != front) {
+			queue[rear] = value;
+			rear++;
 		}
 		else {
 			System.out.println("Queue overflow condition!");
@@ -25,9 +25,16 @@ public class Queue {
 	}
 
 	private void deQueue() {
-		if (()) {
-			
+		int val = Integer.MAX_VALUE;
+		if ((front % size) != rear) {
+			front++;
+			val = queue[front];
+			queue[front] = 0;
 		}
+		else {
+			System.out.println("Queue underflow condition");
+		}
+		return val;
 	}
 
 }
