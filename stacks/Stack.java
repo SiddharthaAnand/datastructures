@@ -14,6 +14,13 @@ public class Stack {
 		input = new int[capacity];
 	}
 
+	public void print() {
+		System.out.println();
+		for (int idx = 0; idx < size; idx++) {
+			System.out.print(input[idx] + " ");
+		}
+		System.out.println();
+	}
 	public int pop() {
 		int val = Integer.MAX_VALUE;
 		if (top != -1) {
