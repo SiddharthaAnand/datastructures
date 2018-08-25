@@ -17,7 +17,7 @@ public class QueueHelper {
 		int size = sc.nextInt();
 		Queue q = new Queue(size);
 		while (true) {
-			System.out.println("Enter 1/2/3 to enqueue/dequeue/print: ");
+			System.out.println("Enter 1/2/3/4 to enqueue/dequeue/print/exit: ");
 			int val = sc.nextInt();
 			switch(val) {
 				case 1:
@@ -35,6 +35,8 @@ public class QueueHelper {
 					print(q.queue);
 					break;
 				default:
+				case 4:
+					System.exit(0);
 					break;
 			}
 		}
