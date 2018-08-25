@@ -45,6 +45,8 @@ public class Queue {
 	 * beginning of the queue. So, first need to check the 
 	 * underflow condition,
 	 * Second is to dequeue the value from the queue.
+	 * If the queue is empty, then reset the values back to starting
+	 * position.
 	 */
 	public static int deQueue() {
 		int val = Integer.MAX_VALUE;
