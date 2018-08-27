@@ -23,11 +23,12 @@ public class QueueLinkedList {
 		front = null;
 	}
 
-	public void print(QueueLinkedList q) {
+	public void print() {
 		System.out.println();
+		QueueNode q = front;
 		if (q != null) {
 			while (q != null) {
-				System.out.print(q.val + " ");
+				System.out.print(q.value + " ");
 				q = q.next;
 			}
 		}
@@ -46,8 +47,16 @@ public class QueueLinkedList {
 	 * No nede to check overflow since this is linked list.
 	 */
 	public void enQueue(int val) {
+
 		QueueNode q = createNode(val);
-		rear = q;
+		if (size == 0) {
+			front = q;
+			rear = q;
+		}
+		else {
+			rear.next = q;
+			rear = q;
+		}
 		size++;
 	}
 
@@ -61,8 +70,8 @@ public class QueueLinkedList {
 
 			val = front.value;
 			QueueNode q = front;
-			q = null;
 			front = front.next;
+			q = null;
 			size--;
 		}
 		else {
