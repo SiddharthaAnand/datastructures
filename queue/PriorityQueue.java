@@ -20,11 +20,15 @@ class NodeQueue {
 
 public class PriorityQueue {
 	int size = -1;
-	QueueNode front;
-	QueueNode rear;
+	NodeQueue front;
+	NodeQueue rear;
 
-	private QueueNode getPositionQueueNode(QueueNode q, int priority) {
+	private NodeQueue getPositionToInsertNodeQueue(NodeQueue q, int priority) {
 
+	}
+
+	private NodeQueue createNode(int val) {
+		return new NodeQueue(val);
 	}
 
 	private void enQueue(int val, int priority) {
