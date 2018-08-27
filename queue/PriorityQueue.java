@@ -23,24 +23,43 @@ public class PriorityQueue {
 	NodeQueue front;
 	NodeQueue rear;
 
-	private NodeQueue getPositionToInsertNodeQueue(NodeQueue q, int priority) {
+	// Compare the priority of the new node with the other nodes
+	// and return the node after which we can insert the new node.
+	private NodeQueue getPositionToInsertNodeQueue(NodeQueue q) {
 
 	}
 
-	private NodeQueue createNode(int val) {
-		return new NodeQueue(val);
+	// Create a new Node
+	private NodeQueue createNode(int val, int priority) {
+		return new NodeQueue(val, priority);
 	}
 
+	// 1. insert the node in the correct position according to priority
+	// takes O(n) time in worst-case
 	private void enQueue(int val, int priority) {
 
 	}
 
+	// Dequeue 
+	// must take O(1) time
 	private int deQueue() {
 
 	}
 
+	// Simply iterate through the queue since it is 
+	// already in prioritised order.
 	private void print() {
-
+		if (size != 0) {
+			NodeQueue n = front;
+			System.out.println();
+			while (n != null) {
+				System.out.print(n.value + " ");
+			}
+			System.out.println();
+		}
+		else {
+			System.out.println("Queue is empty!");
+		}
 	}
 
 	public static void main(String[] args) {
