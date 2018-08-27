@@ -1,5 +1,5 @@
 /* URL: https://www.geeksforgeeks.org/queue-set-2-linked-list-implementation/
- *
+ * Queue underflow condition easier to check using size of the queue.
  */
 
 package queue;
