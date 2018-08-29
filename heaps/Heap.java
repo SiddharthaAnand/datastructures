@@ -4,8 +4,10 @@ package heaps;
 class Heap {
 	
 	int[] heap;
-	Heap() {
-
+	int size;
+	Heap(int[] input) {
+		size = input.length;
+		heap = input;
 	}
 
 	public int getMax() {
