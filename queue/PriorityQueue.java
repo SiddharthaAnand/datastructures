@@ -6,6 +6,8 @@
 	
 package queue;
 import java.util.Scanner;
+
+// Define a node for the priority queue
 class NodeQueue {
 	int value;
 	int priority;
@@ -18,6 +20,7 @@ class NodeQueue {
 	}
 }
 
+// define a data structure for priority queue
 public class PriorityQueue {
 	int size = -1;
 	NodeQueue front;
@@ -28,9 +31,13 @@ public class PriorityQueue {
 	private NodeQueue getPositionToInsertNodeQueue(NodeQueue q) {
 		NodeQueue temp = front;
 		NodeQueue posNode = null;
+		if (temp == null) {
+			
+		}
 		while (temp.next != null && temp.priority > q.priority) {
 			temp = temp.next;
 		}
+
 		posNode = temp;
 		return posNode;
 	}
