@@ -10,6 +10,7 @@ public class Heap {
 	int[] array;
 	int capacity = 0;
 
+	// Initialize array size here
 	Heap(int[] input) {
 		capacity = input.length;
 		array = input;
@@ -23,6 +24,7 @@ public class Heap {
 		return max;
 	}
 
+	// method to swap the values
 	private void swap(int x, int y) {
 		int temp = array[x];
 		array[x] = array[y];
