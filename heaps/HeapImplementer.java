@@ -1,3 +1,7 @@
+/* Class which creates a integer array and converts it
+ * into a max-heap.
+ * Tests the methods of Heap.class present in the same directory.
+ */
 package heaps;
 import heaps.Heap;
 import java.util.Scanner;
