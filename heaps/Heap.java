@@ -31,6 +31,8 @@ public class Heap {
 		array[y] = temp;
 	}
 
+	/* Takes O(log n) time
+	 */
 	public void heapify(int parentIdx) {
 		int leftChildIdx = 2 * parentIdx + 1;
 		int rightChildIdx = 2 * parentIdx + 2;
