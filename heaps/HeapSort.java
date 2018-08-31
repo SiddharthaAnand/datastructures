@@ -8,6 +8,13 @@ import java.util.Scanner;
 
 public class HeapSort {
 	
+	/* Heap Sort
+	 * Create a heap first.
+	 * Then, replace the first element with the last, if sorting in ascending order
+	 * and the heap is a max-heap.
+	 * Decrease the size of the array by one over which run the heapify again.
+	 * Keep doing this until you reach the beginning of the array input.
+	 */
 	private static void doHeapSort(int[] input) {		
 		Heap hp = new Heap(input);
 		hp.printHeap();
