@@ -5,20 +5,8 @@
 // Low value of priority means low priority of the node.
 	
 package queue;
+import heaps.Heap;
 import java.util.Scanner;
-
-// Define a node for the priority queue
-class NodeQueue {
-	int value;
-	int priority;
-	NodeQueue next;
-
-	NodeQueue(int v, int p) {
-		value = v;
-		priority = p;
-		next = null;
-	}
-}
 
 // define a data structure for priority queue
 public class PriorityQueue {
