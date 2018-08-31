@@ -35,6 +35,9 @@ public class Trie {
 			if (tempPtr.alphabets[alphabet] != null) {
 				tempPtr = tempPtr.alphabets[alphabet];
 			}
+			else {
+				return false;
+			}
 		}
 		if (tempPtr != null && tempPtr.isEndOfWord)
 			found = true;
