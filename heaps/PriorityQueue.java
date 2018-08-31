@@ -51,7 +51,7 @@ public class PriorityQueue {
 		PriorityHeap pHeap = new PriorityHeap(input, priority);
 		pHeap.createHeap();
 		pHeap.print();
-		/*
+		
 		while (true) {
 			System.out.println("Enter 1/2/3 to enqueue/dequeue/print the priority queue");
 			int val = sc.nextInt();
@@ -69,12 +69,13 @@ public class PriorityQueue {
 					System.out.println("Dequeued!" + val);
 					break;
 				case 3:
+					pHeap.print();
 					break;
 				default:
 
 					break;
 			}
-		}*/
+		}
 
 		
 	}

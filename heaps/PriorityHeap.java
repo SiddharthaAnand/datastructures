@@ -22,6 +22,7 @@ public class PriorityHeap {
 			int p = priority[0];
 			input[0] = input[size-1];
 			priority[0] = priority[size-1];
+			size--;
 			heapify(0);
 		}
 		return val;
@@ -48,6 +49,7 @@ public class PriorityHeap {
 	public int deQueue() {
 		int ret = Integer.MIN_VALUE;
 		if (size != 0) {
+
 			ret = getMax();
 		}
 		return ret;
