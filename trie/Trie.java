@@ -1,5 +1,6 @@
 /* Store the words to search in a dictionary.
  * Using a trie.
+ * Awesome explanation here: https://leetcode.com/articles/implement-trie-prefix-tree/
  */
 
 package trie;
