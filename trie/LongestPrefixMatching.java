@@ -1,3 +1,9 @@
+/* Reference URL: https://www.geeksforgeeks.org/longest-prefix-matching-a-trie-based-solution-in-java/
+ * Another one: https://leetcode.com/articles/implement-trie-prefix-tree/
+ * Use trie to get the longest prefix of a given word.
+ * Dictionary taken to be a file named "most_common_english_words.txt" present
+ * in the current directory for simplicity instead of having an input for that.
+ */
 package trie;
 import trie.Trie;
 import java.io.File;
