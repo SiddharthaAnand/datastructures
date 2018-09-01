@@ -38,7 +38,9 @@ public class AutoComplete {
 					temp = temp.alphabets[alphabet];
 				}
 			}
-
+			// Does not matter if it is word present in the dictionary or not.
+			// This helps in getting the word or it's prefix in the dictionary.
+			// No need to check if it is the end of word or not.
 			if (idx == searchedWord.length()) {
 				isPresent = true;
 				TrieNode start = temp;
@@ -53,6 +55,7 @@ public class AutoComplete {
 		if (start == null) {
 			return;
 		}
+		// If the current word is present, then it is also one of the suggestions.
 		if (start.isEndOfWord == true) {
 			listOfWords.add(word);
 		}
