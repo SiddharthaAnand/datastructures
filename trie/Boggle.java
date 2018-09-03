@@ -20,7 +20,22 @@ public class Boggle {
 		return present;
 	}
 
-	public static void traverseBoggle(Character[][] boggle) {
+	public static void traverseBoggle(int[][]flagArr, Character[][] boggle, int row, int col, String tempWord) {
+		// If the array is null
+		if (boggle == null || boggle.length == 0) {
+			return;
+		}
+		// If the call has reached the end of the array
+		if (row == boggle[0].length || col == boggle[0].length) {
+			return;
+		}
+		// Recurse over the next character and check
+		flagArr[row][col+1] = 1;
+		traverseBoggle(boggle, row, col+1, tempWord + boggle[row][col+1]);
+		flagArr[row][col+1] = 0;
+		flagArr[row+1][col] = 1;
+		traverseBoggle(boggle, row, col+1, tempWord + boggle[row][col+1]);
+		flagArr[row+1][col] = 0;
 
 	}
 
