@@ -20,7 +20,7 @@ public class Boggle {
 		return present;
 	}
 
-	public static void traverseBoggle(int[][]flagArr, Character[][] boggle, int row, int col, String tempWord) {
+	public static void traverseBoggle(Vector<String> boggleWords, int[][]flagArr, Character[][] boggle, int row, int col, String tempWord, Trie dictionary) {
 		// If the array is null
 		if (boggle == null || boggle.length == 0) {
 			return;
@@ -29,20 +29,31 @@ public class Boggle {
 		if (row == boggle[0].length || col == boggle[0].length) {
 			return;
 		}
+		if (search(tempWord) == true) {
+			boggleWords.add(tempWord);
+		}
 		// Recurse over the next character and check
-		flagArr[row][col+1] = 1;
-		traverseBoggle(boggle, row, col+1, tempWord + boggle[row][col+1]);
-		flagArr[row][col+1] = 0;
-		flagArr[row+1][col] = 1;
-		traverseBoggle(boggle, row, col+1, tempWord + boggle[row][col+1]);
-		flagArr[row+1][col] = 0;
+		if (flagArr[row][col] != 1) {
+			flagArr[row][col] = 1;
+			tempWord = tempWord + boggle[row][col];
+			traverseBoggle(boggle, row, col+1, tempWord);
+			traverseBoggle(boggle, row+1, col, tempWord);
+			traverseBoggle(boggle, row, col-1, tempWord);
+			traverseBoggle(boggle, row-1, col, tempWord);
+			flagArr[row][col] = 0;
+			tempWord = tempWord.substring(0, tempWord.length()-1);
+		}
+	}
+
+	private static void initialize(int size) {
 
 	}
 
-	public static void playBoggle(Character[][] boggle) {
+	public static void playBoggle(Character[][] boggle, Trie dictionary) {
 		// Store the boggle words here
 		Vector<String> boggleWords = new Vector<String>();
-
+		int[][] flagArr = initialize();
+		traverseBoggle(boggleWords, flagArr, boggle, 0, 0, "", dictionary);
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
@@ -74,6 +85,6 @@ public class Boggle {
 			dictionary.insert(word);
 		}
 
-		playBoggle(boggle);
+		playBoggle(boggle, dictionary);
 	}	
 }
