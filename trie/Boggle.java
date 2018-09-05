@@ -8,52 +8,72 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 
 public class Boggle {
 
-	// Will be called everytime to search a word in trie
-	private static boolean search(String word, Trie dictionary) {
-		boolean present = false;
-		if (dictionary.search(word) == true) {
-			present = true;
-		}
-		return present;
-	}
-
-	public static void traverseBoggle(Vector<String> boggleWords, int[][]flagArr, Character[][] boggle, int row, int col, String tempWord, Trie dictionary) {
+	public static void traverseBoggle(Vector<String> boggleWords, int[][]flagArr, Character[][] boggle, int row, int col, String tempWord, TrieNode root) {
 		// If the array is null
 		if (boggle == null || boggle.length == 0) {
 			return;
 		}
 		// If the call has reached the end of the array
-		if (row == boggle[0].length || col == boggle[0].length) {
+		if (row < 0  || col < 0 || row == boggle[0].length || col == boggle[0].length) {
 			return;
 		}
-		if (search(tempWord) == true) {
+		if (root.isEndOfWord == true) {
 			boggleWords.add(tempWord);
 		}
 		// Recurse over the next character and check
-		if (flagArr[row][col] != 1) {
-			flagArr[row][col] = 1;
-			tempWord = tempWord + boggle[row][col];
-			traverseBoggle(boggle, row, col+1, tempWord);
-			traverseBoggle(boggle, row+1, col, tempWord);
-			traverseBoggle(boggle, row, col-1, tempWord);
-			traverseBoggle(boggle, row-1, col, tempWord);
-			flagArr[row][col] = 0;
-			tempWord = tempWord.substring(0, tempWord.length()-1);
+		int alphabet = boggle[row][col] - 'a';
+		if (flagArr[row][col] != 1 && root.alphabets[alphabet] != null) {
+			traverseBoggle(boggleWords, flagArr, boggle, row, col+1, tempWord, root);
+			traverseBoggle(boggleWords, flagArr, boggle, row+1, col, tempWord, root);
+			traverseBoggle(boggleWords, flagArr, boggle, row, col-1, tempWord, root);
+			traverseBoggle(boggleWords, flagArr, boggle, row-1, col, tempWord, root);
 		}
 	}
 
-	private static void initialize(int size) {
-
+	private static int[][] initialize(int size) {
+		int[][] flagArr = new int[size][size];
+		for (int idx = 0; idx < size; idx++) {
+			for (int idx_y = 0; idx_y < size; idx_y++) {
+				flagArr[idx][idx_y] = 0;
+			}
+		}
+		return flagArr;
 	}
 
 	public static void playBoggle(Character[][] boggle, Trie dictionary) {
 		// Store the boggle words here
 		Vector<String> boggleWords = new Vector<String>();
-		int[][] flagArr = initialize();
-		traverseBoggle(boggleWords, flagArr, boggle, 0, 0, "", dictionary);
+		int[][] flagArr = initialize(boggle[0].length);
+		String tempWord = "";
+
+		// Better solution is to iterate over the array and check if the 
+		// characters are present in the dictionary or not.
+		for (int idx = 0; idx < boggle.length; idx++) {
+			for (int idx_y = 0; idx_y < boggle.length; idx_y++) {
+				int alphabet = boggle[idx][idx_y] - 'a';
+				if (dictionary.root.alphabets[alphabet] != null) {
+					tempWord = tempWord + boggle[idx][idx_y];
+					traverseBoggle(boggleWords, flagArr, boggle, idx, idx_y, tempWord, dictionary.root);
+					tempWord = "";
+				}
+			}
+		}
+		//traverseBoggle(boggleWords, flagArr, boggle, 0, 0, "", dictionary);
+		printBoggleWords(boggleWords);
+	}
+
+	public static void printBoggleWords(Vector<String> boggleWords) {
+		Iterator<String> it = boggleWords.iterator();
+		boggleWords.iterator();
+		System.out.println();
+		while (it.hasNext()) {
+			System.out.print(it.next() + ", ");
+		}
+		System.out.println();
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
