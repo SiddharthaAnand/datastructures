@@ -12,25 +12,45 @@ import java.util.Iterator;
 
 public class Boggle {
 
-	public static void traverseBoggle(Vector<String> boggleWords, int[][]flagArr, Character[][] boggle, int row, int col, String tempWord, TrieNode root) {
-		// If the array is null
-		if (boggle == null || boggle.length == 0) {
-			return;
-		}
+	private static boolean isSafe(int i, int j, int[][] flagArr, Character[][] boggle) {
 		// If the call has reached the end of the array
-		if (row < 0  || col < 0 || row == boggle[0].length || col == boggle[0].length) {
-			return;
+		if (i >= 0  && j >= 0 && i < boggle[0].length && j < boggle[0].length && flagArr[i][j] == 0) {
+			return true;
 		}
+		return false;
+	}
+
+	public static void traverseBoggle(Vector<String> boggleWords, int[][]flagArr, Character[][] boggle, int row, int col, String tempWord, TrieNode root) {
+	
 		if (root.isEndOfWord == true) {
+			//System.out.println("Here");
+			System.out.println(tempWord);
 			boggleWords.add(tempWord);
 		}
 		// Recurse over the next character and check
-		int alphabet = boggle[row][col] - 'a';
-		if (flagArr[row][col] != 1 && root.alphabets[alphabet] != null) {
-			traverseBoggle(boggleWords, flagArr, boggle, row, col+1, tempWord, root);
-			traverseBoggle(boggleWords, flagArr, boggle, row+1, col, tempWord, root);
-			traverseBoggle(boggleWords, flagArr, boggle, row, col-1, tempWord, root);
-			traverseBoggle(boggleWords, flagArr, boggle, row-1, col, tempWord, root);
+		// int alphabet = boggle[row][col] - 'a';
+		if (flagArr[row][col] != 1) {
+
+			flagArr[row][col] = 1;
+			for (int k = 0; k < 26; k++) {
+				if (root.alphabets[k] != null) {
+					int alphabet = (char)(k + 'a');
+
+					if(isSafe(row, col+1, flagArr, boggle) && boggle[row][col+1] == alphabet) {
+						traverseBoggle(boggleWords, flagArr, boggle, row, col+1, tempWord + (char)alphabet, root.alphabets[k]);
+					}
+					if(isSafe(row+1, col, flagArr, boggle) && boggle[row+1][col] == alphabet) {
+						traverseBoggle(boggleWords, flagArr, boggle, row+1, col, tempWord + (char)alphabet, root.alphabets[k]);
+					}
+					if(isSafe(row, col-1, flagArr, boggle) && boggle[row][col-1] == alphabet) {
+						traverseBoggle(boggleWords, flagArr, boggle, row, col-1, tempWord + (char)alphabet, root.alphabets[k]);
+					}
+					if(isSafe(row-1, col, flagArr, boggle) && boggle[row-1][col] == alphabet) {
+						traverseBoggle(boggleWords, flagArr, boggle, row-1, col, tempWord + (char)alphabet, root.alphabets[k]);
+					}
+				}
+			}
+			flagArr[row][col] = 0;
 		}
 	}
 
@@ -68,7 +88,6 @@ public class Boggle {
 
 	public static void printBoggleWords(Vector<String> boggleWords) {
 		Iterator<String> it = boggleWords.iterator();
-		boggleWords.iterator();
 		System.out.println();
 		while (it.hasNext()) {
 			System.out.print(it.next() + ", ");
