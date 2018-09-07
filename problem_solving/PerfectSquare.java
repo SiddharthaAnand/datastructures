@@ -3,6 +3,8 @@
  * Helpful link: https://www.geeksforgeeks.org/rounding-off-errors-java/
  */
 
+package problem_solving;
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
