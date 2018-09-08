@@ -36,6 +36,23 @@ public class DetectLoop {
 		return -1;
 	}
 	
+	// Avoid storing extra store in HashMap
+	private static int detectLoop(Node head, int avoid) {
+		if (head == null)
+			return -1;
+		Node tortoise = head;
+		Node hare     = head.next;
+
+		while (tortoise != null && hare != null && hare.next != null && tortoise != hare) {
+			tortoise = tortoise.next;
+			hare     = hare.next.next;
+		}
+
+		if (tortoise == hare) {
+			return hare.value;
+		}
+		return -1;
+	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Node head = new Node(1);
@@ -43,9 +60,11 @@ public class DetectLoop {
 		head.next.next = new Node(3);
 		head.next.next.next = new Node(4);
 		head.next.next.next.next = new Node(5);
-		//head.next.next.next.next = head;
+		head.next.next.next.next = head.next.next;
 
-		int result = detectLoop(head);
+		//int result = detectLoop(head);
+		//Avoid hashmap storage
+		int result = detectLoop(head, 1);
 
 		if (result == -1) {
 			System.out.println("No loop in the list");
