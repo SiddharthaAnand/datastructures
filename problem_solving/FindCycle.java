@@ -1,5 +1,5 @@
-/* URL: 
- *
+/* URL: https://www.geeksforgeeks.org/detect-cycle-undirected-graph/
+ * Solution: Try DFS
  */
 
 package problem_solving;
@@ -55,6 +55,12 @@ public class FindCycle {
 
 	}
 
+	/* 1 ---- 2
+	 * |  \ -/|
+	 * |  /\  |
+	 * | /   \|
+	 * 3 ---- 4
+	 */
 	public static void main(String[] args) {
 		Graph gp = new Graph(4);
 		gp.addEdge(1, 2);
