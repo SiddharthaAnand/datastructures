@@ -20,6 +20,9 @@ class Item {
 
 public class FractionalKnapsack {
 	
+	/* Sort the items based on value.
+	 *
+	 */
 	private static void sortItem(Vector<Item> items) {
 		Collections.sort(items, new Comparator<Item>() {
 			@Override
@@ -29,6 +32,8 @@ public class FractionalKnapsack {
 			}
 		});
 	}
+
+
 	private static int fractionalKnapsackMaximumProfit(Vector<Item> items, int maxWeight) {
 		// Sort items based on value, following the greedy approach.
 		sortItem(items);
@@ -59,6 +64,7 @@ public class FractionalKnapsack {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of test cases: ");
 		int input = sc.nextInt();
 		Vector<Item> item = new Vector<Item>();
 
