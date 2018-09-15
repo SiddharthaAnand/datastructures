@@ -1,3 +1,6 @@
+/* URL: https://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-sumtree/
+ * Also, contains the method to convert the binary tree to sum tree.
+ */
 package binary_tree;
 
 class Node {
