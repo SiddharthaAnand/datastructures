@@ -13,6 +13,27 @@ class Node {
 }
 
 public class SumTree {
+
+	private static int createSumTree(Node root) {
+		if (root == null)
+			return 0;
+		if (root.left == null && root.right == null)
+			return root.value;
+		int lValue = createSumTree(root.left);
+		int rValue = createSumTree(root.right);
+
+		root.value = lValue + rValue;
+		return 2 * root.value;
+	}
+
+	private static void inOrder(Node root) {
+		if (root == null)
+			return;
+		inOrder(root.left);
+		System.out.print(root.value + " ");
+		inOrder(root.right);
+	}
+
 	private static int sum(Node root) {
 		if (root == null)
 			return 0;
@@ -38,13 +59,21 @@ public class SumTree {
 	public static void main(String[] args) {
 		Node root = new Node(26);
 		root.left = new Node(10);
-		root.right = new Node(3);
+		root.right = new Node(4);
 		root.left.left = new Node(4);
 		root.left.right = new Node(6);
 		root.right.right = new Node(3);
 		//root.left.left.right = new Node(7);
 		System.out.println();
 		System.out.println(checkSumTree(root));
+		System.out.println();
+		inOrder(root);
+		// Create a sumtree
+		System.out.println();
+		createSumTree(root);
+		System.out.println();
+		
+		inOrder(root);
 		System.out.println();
 	}
 }
