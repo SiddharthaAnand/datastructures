@@ -7,6 +7,8 @@ package problem_solving;
 import java.util.Scanner;
 
 public class CombinationalSum {
+	/* Recursively, call teh values with the currentSum as the changing value
+	 */
 	private static void findCombSum(int[] array, int idx, int currSum, int finalSum, String answer) {
 		if (idx == array.length)
 			return;
