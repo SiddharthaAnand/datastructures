@@ -30,10 +30,7 @@ public class FindMiddleLinkedList {
 			tortoise = tortoise.next;
 			hare = hare.next.next;
 		}
-
-		
-			middle = tortoise;
-		
+		middle = tortoise;
 		return middle;
 	}
 
@@ -45,6 +42,7 @@ public class FindMiddleLinkedList {
 		head.next.next.next.next = new Node(5);
 		head.next.next.next.next.next = new Node(6);
 		head.next.next.next.next.next.next = new Node(7);
+		head.next.next.next.next.next.next.next = new Node(8);
 		Node middle = findMiddleOfLinkedList(head);
 		System.out.println("Middle value: " + middle.data);
 	}
