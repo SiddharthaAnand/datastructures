@@ -28,7 +28,7 @@ class LinkedList {
 	public void reverseLinkedList() {
 		// No need for changes or reversal.
 		if (head == null || head.next == null) {
-
+			return;
 		}
 		else {
 			Node temp = head;
