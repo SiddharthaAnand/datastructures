@@ -5,8 +5,10 @@ import java.util.Scanner;
 
 public class FindPathInMatrix {
 	private static void findPath(int[][] matrix, int[][] pathTraversed, int i, int j) {
+		// 0 is a brick wall which cannot be broken.
 		if (matrix != null && (i < 0 || j < 0 || i >= matrix[0].length || j >= matrix[0].length || matrix[i][j] == 0))
 			return;
+		// 2 is the final position to reach.
 		if (matrix[i][j] == 2) {
 			printMatrix(pathTraversed);
 			System.out.println("Found a path to 2 from 1 (The 1s denoting the path to 2)");
