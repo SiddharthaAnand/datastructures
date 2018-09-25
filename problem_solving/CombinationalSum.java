@@ -21,6 +21,8 @@ public class CombinationalSum {
 		if (currSum > finalSum)
 			return;
 		for (int j = idx; j < array.length; j++) {
+			if (currSum + array[j] > finalSum)
+				continue;
 			findCombSum(array, j, currSum + array[j], finalSum, answer + "," + array[j]);
 		}
 	}
