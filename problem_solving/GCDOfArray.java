@@ -27,6 +27,8 @@ public class GCDOfArray {
 			idx++;
 			input--;
 		}
+		if (array == null || array.length == 0)
+			break;
 		int gcd = array[0];
 		for (int i = 1; i < array.length; i++) {
 			gcd = findGCD(gcd, array[i]);
