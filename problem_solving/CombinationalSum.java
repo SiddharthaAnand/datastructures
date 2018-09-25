@@ -10,7 +10,7 @@ public class CombinationalSum {
 	/* Recursively, call the values with the currentSum as the changing value
 	 */
 	private static void findCombSum(int[] array, int idx, int currSum, int finalSum, String answer) {
-		if (idx == array.length || currSum > finalSum)
+		if (array == null || array.length == 0 || idx == array.length || currSum > finalSum)
 			return;
 
 		if (currSum == finalSum) {
