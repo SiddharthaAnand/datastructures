@@ -7,19 +7,16 @@ package problem_solving;
 import java.util.Scanner;
 
 public class CombinationalSum {
-	/* Recursively, call teh values with the currentSum as the changing value
+	/* Recursively, call the values with the currentSum as the changing value
 	 */
 	private static void findCombSum(int[] array, int idx, int currSum, int finalSum, String answer) {
-		if (idx == array.length)
+		if (idx == array.length || currSum > finalSum)
 			return;
 
 		if (currSum == finalSum) {
 			System.out.println(answer);
 			return;
 		}
-
-		if (currSum > finalSum)
-			return;
 		for (int j = idx; j < array.length; j++) {
 			if (currSum + array[j] > finalSum)
 				continue;
