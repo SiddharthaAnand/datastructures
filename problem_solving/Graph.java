@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class Graph 
 {
     private Map<Integer, List<Integer>> adjacencyList;
- 
+    public int farthestNode = -1;
+    public int farthestNodeLength = -1;
     public Graph(int v) 
     {
         adjacencyList = new HashMap<Integer, List<Integer>>();
@@ -45,11 +46,13 @@ public class Graph
         Iterator<Integer> it = adjacencyList.get(startNode).iterator();
         visited[startNode] = true;
         System.out.print(startNode + "->");
+        if (dist > farthestNodeLength) {
+            farthestNodeLength = dist;
+            farthestNode = startNode;
+        }
         while (it.hasNext()) {
             int nextNode = (Integer)it.next();
             if (visited[nextNode] == false) {
-                //visited[nextNode] = true;
-                //System.out.print(nextNode + "->");
                 startDFS(nextNode, dist + 1, visited);
             }
         }
@@ -98,7 +101,11 @@ public class Graph
                 System.out.println();
             }
             boolean[] visited = new boolean[v+1];
-            glist.startDFS(1, 0, visited);
+            int startNode = 1;
+            glist.startDFS(startNode, 0, visited);
+
+            System.out.println("Farthest node length: " + glist.farthestNodeLength);
+            System.out.println("Farthest node from " + startNode + " : " + glist.farthestNode);
         } 
         catch (Exception E) 
         {
