@@ -100,6 +100,7 @@ public class Graph
                 }
                 System.out.println();
             }
+            //visited array to store the vertices which are visited once need not be visited again.
             boolean[] visited = new boolean[v+1];
             int startNode = 1;
             glist.startDFS(startNode, 0, visited);
@@ -107,6 +108,7 @@ public class Graph
             System.out.println("Farthest node length: " + glist.farthestNodeLength);
             System.out.println("Farthest node from " + startNode + " : " + glist.farthestNode);
 
+            
             for (int i = 1; i <= v; i++) {
                 visited[i] = false;
             }
