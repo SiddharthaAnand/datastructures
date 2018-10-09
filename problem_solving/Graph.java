@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
- 
+ import java.util.*;
 public class Graph 
 {
     private Map<Integer, List<Integer>> adjacencyList;
@@ -22,14 +22,12 @@ public class Graph
     {
         if (to > adjacencyList.size() || from > adjacencyList.size())
             System.out.println("The vertices does not exists");
-        if (to < from) {
+        
             List<Integer> sls = adjacencyList.get(to);
             sls.add(from);
-        }
-        else {
             List<Integer> dls = adjacencyList.get(from);
             dls.add(to);
-        }
+        
     }
  
     public List<Integer> getEdge(int to) 
@@ -42,6 +40,21 @@ public class Graph
         return adjacencyList.get(to);
     }
  
+    // Method to store the leaf node which is the farthest from the starting node.
+    public void startDFS(int startNode, int dist, boolean[] visited) {
+        Iterator<Integer> it = adjacencyList.get(startNode).iterator();
+        visited[startNode] = true;
+        System.out.print(startNode + "->");
+        while (it.hasNext()) {
+            int nextNode = (Integer)it.next();
+            if (visited[nextNode] == false) {
+                //visited[nextNode] = true;
+                //System.out.print(nextNode + "->");
+                startDFS(nextNode, dist + 1, visited);
+            }
+        }
+    }
+
     public static void main(String args[]) 
     {
         int v, e, count = 1, to, from;
@@ -84,10 +97,12 @@ public class Graph
                 }
                 System.out.println();
             }
+            boolean[] visited = new boolean[v+1];
+            glist.startDFS(1, 0, visited);
         } 
         catch (Exception E) 
         {
-            System.out.println("Something went wrong");
+            System.out.println("Something went wrong" + E);
         }
         sc.close();
     }
