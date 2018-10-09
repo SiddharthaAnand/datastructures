@@ -106,6 +106,16 @@ public class Graph
 
             System.out.println("Farthest node length: " + glist.farthestNodeLength);
             System.out.println("Farthest node from " + startNode + " : " + glist.farthestNode);
+
+            for (int i = 1; i <= v; i++) {
+                visited[i] = false;
+            }
+            startNode = glist.farthestNode;
+            glist.startDFS(startNode, 0, visited);
+
+            System.out.println("Farthest node length: " + glist.farthestNodeLength);
+            System.out.println("Farthest node from " + startNode + " : " + glist.farthestNode);
+
         } 
         catch (Exception E) 
         {
