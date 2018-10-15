@@ -17,8 +17,8 @@ def check_valid(s):
     return False
     
 def change_pwd(s):
-    pass
-
+    freq = {}
+    
 T = int(raw_input())
 while T > 0:
     T -= 1
