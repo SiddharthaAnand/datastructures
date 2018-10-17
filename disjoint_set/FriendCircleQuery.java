@@ -6,6 +6,8 @@ import java.io.File;
 import java.util.Scanner;
 import disjointset.Edge;
 import java.io.IOException;
+import java.util.Comparator;
+import java.util.Collections;
 
 class UnionFind {
 	Vector<Edge> edges;
@@ -17,8 +19,17 @@ class UnionFind {
 		edges = edgelist;
 	}
 
-	void getTotalEdge() {
-		
+	void sortEdgeByWeight() {
+		Collections.sort(edges, new Comparator<Edge>() {
+
+			@Override
+			public int compare(Edge a, Edge b) {
+				if (a.weight < b.weight)
+					return -1;
+				return 1;
+			}
+
+		});
 	}
 }
 
