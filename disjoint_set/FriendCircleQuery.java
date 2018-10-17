@@ -4,20 +4,21 @@ package disjointset;
 import java.util.Vector;
 import java.io.File;
 import java.util.Scanner;
-import Edge.Edge;
+import disjointset.Edge;
+import java.io.IOException;
 
 class UnionFind {
-	Vector<Edge>[] edges;
-	UnionFind(int totalEdges) {
-		edges = new Vector<Edge>[totalEdges];
+	Vector<Edge> edges;
+	UnionFind() {
+		edges = new Vector<Edge>();
 	}
 
-	void addEdge(int a, int b, int wt) {
-		edges.add(new Edge(a, b, wt));
+	void addEdge(Vector<Edge> edgelist) {
+		edges = edgelist;
 	}
 
 	void getTotalEdge() {
-		return edges.length;
+		
 	}
 }
 
@@ -25,18 +26,22 @@ public class FriendCircleQuery {
 	public static void main(String[] args) {
 		try {
 			File f = new File("edgelist");
+			Vector<Edge> edgelist = new Vector<Edge>();
 			UnionFind ufind = new UnionFind();
 			Scanner sc = new Scanner(f);
-			while (sc.hasNext()) {
-				String split[] = sc.next().split();
-				int a = (Integer)split[0].charAt(0);
-				int b = (Integer)split[1].charAt(0);
-				int wt = (Integer)split[2].charAt(0);
 
+			while (sc.hasNext()) {
+				String split[] = sc.next().split(" ");
+				int a = split[0].charAt(0);
+				int b = split[1].charAt(0);
+				int wt = split[2].charAt(0);
+				edgelist.add(new Edge(a, b, wt));
 			}
+
+			ufind.addEdge(edgelist);
 		}
 		catch(IOException e) {
-			System.out.println(e.printStackTrace());
+			System.out.println(e);
 		}
 
 
