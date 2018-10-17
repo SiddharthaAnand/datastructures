@@ -4,30 +4,42 @@ package disjointset;
 import java.util.Vector;
 import java.io.File;
 import java.util.Scanner;
-
-class Edge {
-	int x;
-	int y;
-	int weight;
-
-	Edge(int a, int b, int wt) {
-		x = a;
-		y = b;
-		weight = wt;
-	}
-}
+import Edge.Edge;
 
 class UnionFind {
 	Vector<Edge>[] edges;
-	UnionFind(Vector<Edge> edge) {
-		edges = edge;
+	UnionFind(int totalEdges) {
+		edges = new Vector<Edge>[totalEdges];
+	}
+
+	void addEdge(int a, int b, int wt) {
+		edges.add(new Edge(a, b, wt));
+	}
+
+	void getTotalEdge() {
+		return edges.length;
 	}
 }
 
 public class FriendCircleQuery {
 	public static void main(String[] args) {
-		File f = new File("edgelist");
-		Scanner sc = new Scanner(f);
+		try {
+			File f = new File("edgelist");
+			UnionFind ufind = new UnionFind();
+			Scanner sc = new Scanner(f);
+			while (sc.hasNext()) {
+				String split[] = sc.next().split();
+				int a = (Integer)split[0].charAt(0);
+				int b = (Integer)split[1].charAt(0);
+				int wt = (Integer)split[2].charAt(0);
+
+			}
+		}
+		catch(IOException e) {
+			System.out.println(e.printStackTrace());
+		}
+
+
 
 	}
 }
