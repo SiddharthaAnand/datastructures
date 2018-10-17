@@ -8,6 +8,7 @@ import disjointset.Edge;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.Collections;
+import java.util.Iterator;
 
 class UnionFind {
 	Vector<Edge> edges;
@@ -31,6 +32,15 @@ class UnionFind {
 
 		});
 	}
+
+	void printEdge() {
+		Iterator<Edge> it = edges.iterator();
+
+		while (it.hasNext()) {
+			Edge e = it.next();
+			System.out.println(e.x + " " + e.y + " " + e.weight);
+		}
+	}
 }
 
 public class FriendCircleQuery {
@@ -42,14 +52,16 @@ public class FriendCircleQuery {
 			Scanner sc = new Scanner(f);
 
 			while (sc.hasNext()) {
-				String split[] = sc.next().split(" ");
-				int a = split[0].charAt(0);
-				int b = split[1].charAt(0);
-				int wt = split[2].charAt(0);
+				String split[] = sc.nextLine().split(" ");
+				int a = Integer.parseInt(split[0]);
+				int b = Integer.parseInt(split[1]);
+				int wt = Integer.parseInt(split[2]);
 				edgelist.add(new Edge(a, b, wt));
 			}
 
 			ufind.addEdge(edgelist);
+			ufind.sortEdgeByWeight();
+			ufind.printEdge();
 		}
 		catch(IOException e) {
 			System.out.println(e);
