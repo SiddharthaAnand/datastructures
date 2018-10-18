@@ -1,10 +1,10 @@
 // URL: https://www.hackerrank.com/challenges/friend-circle-queries/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=miscellaneous
 
-package disjointset;
+package disjoint_set;
 import java.util.Vector;
 import java.io.File;
 import java.util.Scanner;
-import disjointset.Edge;
+
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.Collections;
@@ -42,6 +42,7 @@ class UnionFind {
 		}
 	}
 }
+
 
 public class FriendCircleQuery {
 	public static void main(String[] args) {
