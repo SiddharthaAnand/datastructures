@@ -38,6 +38,31 @@ class UnionFind {
 		return x;
 	}
 
+	// Union of the nodes by rank
+	// Based on the rank, combine the nodes so that the rank of x after the union is one
+	// more than the old one.
+
+	void unionByRank(int x, int y) {
+		int parentX = findParent(x);
+		int parentY = findParent(y);
+
+		// If  both are part of the same set/tree then adding this will make a cycle.
+		if (parentX == parentY) {
+			return;
+		}
+
+		else if (rank[x] > rank[y]) {
+			parent[y] = parentX;
+		}
+		else if (rank[x] < rank[y]) {
+			parent[x] = parentY;
+		}
+		else {
+			parent[x] = parentY;
+			rank[y]++;
+		}
+	}
+
 	void addEdge(Vector<Edge> edgelist) {
 		edges = edgelist;
 	}
@@ -58,6 +83,7 @@ class UnionFind {
 		});
 	}
 
+	// Print the edges using Iterator class.
 	void printEdge() {
 		Iterator<Edge> it = edges.iterator();
 
@@ -65,6 +91,25 @@ class UnionFind {
 			Edge e = it.next();
 			System.out.println(e.x + " " + e.y + " " + e.weight);
 		}
+	}
+
+	// Print the parent of all the nodes.
+	void printParent() {
+		System.out.println("----------Parent Array----------");
+		for (int i = 0; i < parent.length; i++) {
+			System.out.print(i + " " + parent[i]);
+		}
+		System.out.println();
+	}
+
+	//Rank only matters for the root nodes.
+	// rank will not change for the other nodes which are not root.
+	void printRank() {
+		System.out.println("------------Rank Array----------");
+		for (int i = 0; i < rank.length; i++) {
+			System.out.print(i + " " + rank[i]);
+		}
+		System.out.println();
 	}
 }
 
@@ -107,7 +152,11 @@ public class FriendCircleQuery {
 			UnionFind ufind = new UnionFind(totalNodes);
 			ufind.addEdge(edgelist);
 			ufind.sortEdgeByWeight();
+			System.out.println("-------Sorted edge list  by weight--------");
 			ufind.printEdge();
+			System.out.println("------------------------------------------");
+
+
 		}
 		catch(IOException e) {
 			System.out.println(e);
