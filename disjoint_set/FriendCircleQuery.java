@@ -31,13 +31,13 @@ class UnionFind {
 	}
 
 	// Here, need to implement path compression to improve traversal of the parent tree.
-	void findParent(int x) {
+	int findParent(int x) {
 		if (parent[x] != x) {
 			parent[x] = findParent(parent[x]);
 		}
 		return x;
 	}
-	
+
 	void addEdge(Vector<Edge> edgelist) {
 		edges = edgelist;
 	}
@@ -85,6 +85,7 @@ public class FriendCircleQuery {
 				totalNodes = edge.y;
 			}
 		}
+		return totalNodes;
 	}
 
 	public static void main(String[] args) {
