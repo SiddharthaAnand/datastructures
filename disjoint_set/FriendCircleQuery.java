@@ -22,12 +22,22 @@ class UnionFind {
 		edges = new Vector<Edge>();
 		parent = new int[totalNodes];
 		rank = new int[totalNodes];
+
+		// Initialise parent and rank arrays
+		for (int i = 0; i < totalNodes; i++) {
+			parent[i] = i;
+			rank[i] = -1;
+		}
 	}
 
 	// Here, need to implement path compression to improve traversal of the parent tree.
 	void findParent(int x) {
-		if (parent != null && parent[x])
+		if (parent[x] != x) {
+			parent[x] = findParent(parent[x]);
+		}
+		return x;
 	}
+	
 	void addEdge(Vector<Edge> edgelist) {
 		edges = edgelist;
 	}
