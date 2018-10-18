@@ -18,9 +18,10 @@ class UnionFind {
 	// rank(x) <= height(x) where x is the parent node of the tree that is getting formed.
 	int[] rank;
 
-	UnionFind() {
+	UnionFind(int totalNodes) {
 		edges = new Vector<Edge>();
-		parent = new int[n];
+		parent = new int[totalNodes];
+		rank = new int[totalNodes];
 	}
 
 	// Here, need to implement path compression to improve traversal of the parent tree.
@@ -31,16 +32,19 @@ class UnionFind {
 		edges = edgelist;
 	}
 
+	// Method to sort the edges by weight.
+	// Used in Kruskal's Algorithm for Minimum Spanning Tree.
+	// For Union-Find algorithm.
 	void sortEdgeByWeight() {
+		// Implementing the compare() method so that the edges can be 
+		// sorted by weight.
 		Collections.sort(edges, new Comparator<Edge>() {
-
 			@Override
 			public int compare(Edge a, Edge b) {
 				if (a.weight < b.weight)
 					return -1;
 				return 1;
 			}
-
 		});
 	}
 
@@ -77,7 +81,7 @@ public class FriendCircleQuery {
 		try {
 			File f = new File("edgelist");
 			Vector<Edge> edgelist = new Vector<Edge>();
-			UnionFind ufind = new UnionFind();
+			
 			Scanner sc = new Scanner(f);
 
 			while (sc.hasNext()) {
@@ -89,7 +93,7 @@ public class FriendCircleQuery {
 			}
 
 			int totalNodes = totalNodes(edgelist);
-
+			UnionFind ufind = new UnionFind(totalNodes);
 			ufind.addEdge(edgelist);
 			ufind.sortEdgeByWeight();
 			ufind.printEdge();
