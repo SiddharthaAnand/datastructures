@@ -52,6 +52,6 @@ question, input and output of the program.
 - [X] Add a Utilities.java file which can be used anywhere in the repository.
 - [X] Add other data-structures like Strings, Linked-lists and Trees. (In progress)
 - [ ] Add advanced data-structures like Red-Black trees.
-- [ ] Add algorithms related to graphs.
+- [X] Add algorithms related to graphs.
 - [ ] Add design patterns examples
 - [ ] Add language-specific usages of certain common classes(ex. Comparable and Comparator in Java).
