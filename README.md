@@ -54,4 +54,4 @@ question, input and output of the program.
 - [ ] Add advanced data-structures like Red-Black trees.
 - [X] Add algorithms related to graphs.
 - [ ] Add design patterns examples
-- [ ] Add language-specific usages of certain common classes(ex. Comparable and Comparator in Java).
+- [X] Add language-specific usages of certain common classes(ex. Comparable and Comparator in Java).
