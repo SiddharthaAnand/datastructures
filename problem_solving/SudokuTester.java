@@ -26,14 +26,15 @@ class SudokuTester {
 		print(sudoMatrix);
 
 		// check isSafe() method
-		System.out.println(sudo.isSafe(0, 0, 1) == true);
-		System.out.println(sudo.isSafe(0, 0, 2) == true);
-		System.out.println(sudo.isSafe(4, 4, 8) == true);
+		System.out.println("isSafe() method testcase:      " + ((sudo.isSafe(0, 0, 1) == true) ? "Passed" : "Failed"));
+		System.out.println("isSafe() method testcase:      " + ((sudo.isSafe(0, 0, 2) == false) ? "Passed" : "Failed"));
+		System.out.println("isSafe() method testcase:      " + ((sudo.isSafe(4, 4, 8) == false) ? "Passed" : "Failed"));
 
 		// check isEmpty() method
-		System.out.println("Empty: " + (sudo.isEmpty(0, 0) == true));
-		System.out.println("Empty: " + (sudo.isEmpty(0, 1) == true));
+		System.out.println("isEmpty() mthod testcase:      " + ((sudo.isEmpty(0, 0) == false) ? "Passed" : "Failed"));
+		System.out.println("isSafe() method testcase:      " + ((sudo.isEmpty(0, 1) == true) ? "Passed" : "Failed"));
+	
+		// Check the file name
+		System.out.println("getFileName() method testcase: " + ((sudo.getFileName() == "sudoku_file") ? "Passed" : "Failed"));
 	}
-
-
 }
