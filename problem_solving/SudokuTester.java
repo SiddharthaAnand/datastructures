@@ -25,6 +25,14 @@ class SudokuTester {
 		int[][] sudoMatrix = sudo.fileToMatrix(sudo.fileName);
 		print(sudoMatrix);
 
+		// check isSafe() method
+		System.out.println(sudo.isSafe(0, 0, 1) == true);
+		System.out.println(sudo.isSafe(0, 0, 2) == true);
+		System.out.println(sudo.isSafe(4, 4, 8) == true);
+
+		// check isEmpty() method
+		System.out.println("Empty: " + (sudo.isEmpty(0, 0) == true));
+		System.out.println("Empty: " + (sudo.isEmpty(0, 1) == true));
 	}
 
 
