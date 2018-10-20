@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 class SudokuTester {
 	
-
+	// Print the sudo
 	public static void print(int[][] matrix) {
 		System.out.println("---------------------");
 		System.out.println("---------------------");
@@ -19,6 +19,7 @@ class SudokuTester {
 		System.out.println("---------------------");
 		System.out.println("---------------------");
 	}
+
 	public static void main(String[] args) throws FileNotFoundException {
 		Sudoku sudo = new Sudoku("sudoku_file");
 		// check fileToMatrix method
