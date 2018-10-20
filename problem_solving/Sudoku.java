@@ -4,23 +4,28 @@
  * Output       : A complete sudoku matrix
  */
 
+package sudoku;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-class Sudoku {
+public class Sudoku {
 	int[][] sudokuMatrix;
-	String fileName;
+	public String fileName;
 
 	public Sudoku(String filename) throws FileNotFoundException {
 		fileName = filename;
 		sudokuMatrix = fileToMatrix(filename);
 	}
 
+	public String getFileName() {
+		return fileName;
+	}
+	
 	/* Method to convert from file to a 2D matrix.
 	 * filename - Name of the file which store the sudo matrix.
 	 */
-	int[][] fileToMatrix(String filename) throws FileNotFoundException {
+	public int[][] fileToMatrix(String filename) throws FileNotFoundException {
 		int[][] sudokuMatrix = new int[9][9];
 		File fileReader = new File(filename);
 		Scanner sc = new Scanner(fileReader);
