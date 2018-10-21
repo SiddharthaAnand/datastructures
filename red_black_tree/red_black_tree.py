@@ -1,8 +1,10 @@
+# encoding=utf-8
+
 '''
 Basic implementation of a Red Black Tree data structure in Python.
 Implemented in Python 3.6
 
-Source: 
+Source:
     Cormen, T. et al. "Introduction to Algorithms", 2nd Edition
 
 Author:
@@ -10,6 +12,10 @@ Author:
     @aitorres on github
     @andresitorresm on twitter
 '''
+
+# Importing randint for the test client, not really
+# needed for the data structure
+from random import randint
 
 # These constants make it easy to know within the code
 # which integer is meant to be RED, and which one is BLACk
@@ -81,7 +87,7 @@ class RedBlackTreeNode():
         '''
         Returns an appropriate string representation of the current node
         as well as its children sub-trees, recursively.
-        
+
         The string representation is performed following an in-order path
         along the tree.
         '''
@@ -154,7 +160,7 @@ class RedBlackTree():
                 x = x.left
             else:
                 x = x.right
-        
+
         # We set the node's temporary place
         z.parent = y
         if y is self.nil:
@@ -179,7 +185,7 @@ class RedBlackTree():
         '''
         Detects and corrects any unbalance within the tree due to a recently
         performed insertion, regarding the amount of red and black nodes,
-        and the red-black tree property: 
+        and the red-black tree property:
             For each node, all paths from the node to descendant leaves contain the same number
             of black nodes.
 
@@ -218,13 +224,13 @@ class RedBlackTree():
                     z.parent.parent.color = RED
                     self.left_rotate(z.parent.parent)
 
-        # If the root of the tree was changed, make sure it's a 
+        # If the root of the tree was changed, make sure it's a
         # black node.
         self.root.color = BLACK
 
     def left_rotate(self, x):
         '''
-        Rotates a node's children to the left with a constant 
+        Rotates a node's children to the left with a constant
         amount of pointer changes to preserve the tree's balance.
         '''
 
@@ -244,7 +250,7 @@ class RedBlackTree():
 
     def right_rotate(self, x):
         '''
-        Rotates a node's children to the right with a constant 
+        Rotates a node's children to the right with a constant
         amount of pointer changes to preserve the tree's balance.
         '''
 
@@ -262,6 +268,7 @@ class RedBlackTree():
         y.right = x
         x.parent = y
 
+
     def __str__(self):
         '''
         Returns an appropriate string representation for a red-black tree.
@@ -272,7 +279,19 @@ class RedBlackTree():
         return str(self.root)
 
 def main():
-    print("This works!")
+    print("RED BLACK TREE IMPLEMENTATION TEST CLIENT")
+    # Instantiating a red-black tree and finding 15 random integer values
+    print("TEST CLIENT:\tInstantiating red-black tree.")
+    tree = RedBlackTree()
+    values = [randint(-1000, 1000) for i in range(0, 15)]
+
+    print("TEST CLIENT:\tInserting 15 random integers in the range [-1000, 1000)")
+    # Inserting the values
+    for value in values:
+        tree.insert_key(value)
+
+    print("TEST CLIENT:\tPrinting the tree in order:")
+    print(tree)
 
 if __name__ == '__main__':
     main()
