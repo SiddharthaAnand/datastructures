@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Sudoku {
-	int[][] sudokuMatrix;
+	public int[][] sudokuMatrix;
 	public String fileName;
 
 	public Sudoku(String filename) throws FileNotFoundException {
@@ -58,13 +58,9 @@ public class Sudoku {
 				return false;
 			}
 		}
-		// Check that specific mini 2X3 matrix
-		int countRow = 0;
-		int countCol = 0;
-		for (int k = i; countRow < 3; k++, k %= 3) {
-			countRow += 1;
-			for (int l = j; countCol < 3; l++, l %= 3) {
-				countCol += 1;
+		// Check that specific mini 3X3 matrix
+		for (int k = 0; k < 3; k++) {
+			for (int l = 0; l < 3; l++) {
 				if (sudokuMatrix[k][l] == valueToPut) {
 					return false;
 				}
@@ -81,10 +77,11 @@ public class Sudoku {
 
 	/* Method to solve the sudoku using backtracking.
 	 */
-	public void solveIt(int i, int j, int valueToPut) {
+	public boolean solveIt(int i, int j, int valueToPut) {
 		if (i < 0 || j < 0 || i >= 9 || j >= 9) {
-			return;
+			return true;
 		}
+
 		else {
 			for (int k = i; k < 9; k++) {
 				for (int l = j; l < 9; l++) {
@@ -98,6 +95,7 @@ public class Sudoku {
 				}
 			}
 		}
+		return true;
 	}
 }
 
