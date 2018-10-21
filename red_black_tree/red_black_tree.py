@@ -186,8 +186,8 @@ class RedBlackTree():
         Detects and corrects any unbalance within the tree due to a recently
         performed insertion, regarding the amount of red and black nodes,
         and the red-black tree property:
-            For each node, all paths from the node to descendant leaves contain the same number
-            of black nodes.
+            For each node, all paths from the node to descendant leaves contain the
+            same number of black nodes.
 
         The method performs all the recoloring and rotations needed.
         '''
@@ -270,7 +270,7 @@ class RedBlackTree():
 
     def search(self, key):
         '''
-        Searchs for a given key. If found, returns the node that corresponds
+        Searches for a given key. If found, returns the node that corresponds
         to the key. If not found, returns the nil node.
         '''
 
@@ -281,7 +281,142 @@ class RedBlackTree():
                 x = x.left
             else:
                 x = x.right
-        return x 
+        return x
+
+    def delete_key(self, key):
+        '''
+        Auxiliary method to delete a key. It looks for the key
+        within the tree, and if it's found, passes its node to the
+        fully implemented delete method. It will pass the first
+        match always.
+
+        If the key is not found, the method raises a ValueError.
+        '''
+
+        node = self.search(key)
+        if node is self.nil:
+            raise ValueError("The key you are trying to delete is not in the tree.")
+
+        return self.delete(node)
+
+    def delete(self, z):
+        '''
+        Deletes (and returns) a node that exists within the red-black tree.
+        It performs the proper rotations and checkups needed to ensure
+        the tree stays balanced after the deletion.
+        '''
+
+        if z.left is self.nil or z.right is self.nil:
+            y = z
+        else:
+            y = self.tree_successor(z)
+        if y.left is not self.nil:
+            x = y.left
+        else:
+            x = y.right
+        x.parent = y.parent
+
+        if y.parent is self.nil:
+            self.root = x
+        else:
+            if y == y.parent.left:
+                y.parent.left = x
+            else:
+                y.parent.right = x
+
+        if y != z:
+            z.item = y.item
+
+        if y.color == BLACK:
+            self.delete_fixup(x)
+
+        self.size -= 1
+        return y
+
+    def delete_fixup(self, x):
+        '''
+        Detects and corrects any unbalance within the tree due to a recently
+        performed deletion, regarding the amount of red and black nodes,
+        and the red-black tree property:
+            For each node, all paths from the node to descendant leaves contain the
+            same number of black nodes.
+
+        The method performs all the recoloring and rotations needed.
+        '''
+
+        while x != self.root and x.color == BLACK:
+            if x == x.parent.left:
+                w = x.parent.right
+                if w.color == RED:
+                    w.color = BLACK
+                    x.parent.color = RED
+                    self.left_rotate(x.parent)
+                    w = x.parent.right
+                if w.left.color == BLACK and w.right.color == BLACK:
+                    w.color = RED
+                    x = x.parent
+                else:
+                    if w.right.color == BLACK:
+                        w.left.color = BLACK
+                        w.color = RED
+                        self.right_rotate(w)
+                        w = x.parent.right
+                    w.color = x.parent.color
+                    x.parent.color = BLACK
+                    w.right.color = BLACK
+                    self.left_rotate(x.parent)
+                    x = self.root
+            else:
+                w = x.parent.left
+                if w.color == RED:
+                    w.color = BLACK
+                    x.parent.color = RED
+                    self.right_rotate(x.parent)
+                    w = x.parent.left
+                if w.right.color == BLACK and w.left.color == BLACK:
+                    w.color = RED
+                    x = x.parent
+                else:
+                    if w.left.color == BLACK:
+                        w.right.color = BLACK
+                        w.color = RED
+                        self.left_rotate(w)
+                        w = x.parent.left
+                    w.color = x.parent.color
+                    x.parent.color = BLACK
+                    w.left.color = BLACK
+                    self.right_rotate(x.parent)
+                    x = self.root
+
+    def tree_successor(self, x):
+        '''
+        Returns the direct tree successor of a given
+        node; that is, the child sub-tree (given by its root node)
+        that holds the succeeding values.
+        '''
+
+        # The right sub-tree, if exists, is always the successor
+        if x.right is not self.nil:
+            return self.tree_minimum(x.right)
+
+        # If the right sub-tree doesn't exist, the successor will
+        # be in another branch of the tree. Let's look for it!
+        y = x.parent
+        while y is not self.nil and x == y.right:
+            x = y
+            y = y.parent
+
+        return y
+
+    def tree_minimum(self, x):
+        '''
+        Returns the minimum value of a given tree.
+        '''
+
+        # The minimum value is always the left-most leaf.
+        while x.left is not self.nil:
+            x = x.left
+        return x
 
     def __str__(self):
         '''
@@ -293,6 +428,10 @@ class RedBlackTree():
         return str(self.root)
 
 def main():
+    '''
+    Implements a small test client for the red-black tree implementation.
+    '''
+
     print("RED BLACK TREE IMPLEMENTATION TEST CLIENT")
     # Instantiating a red-black tree and finding 15 random integer values
     print("TEST CLIENT:\tInstantiating red-black tree.")
@@ -326,6 +465,15 @@ def main():
         print("TEST CLIENT:\t\tFound the value.")
     else:
         print("TEST CLIENT:\t\tValue not found.\n")
+
+    print("TEST CLIENT:\tDeleting a value that exists in the tree.")
+    # We delete the last randomly-generated value that was inserted into
+    # the tree.
+    value = values[len(values)-1]
+    node = tree.search(value)
+    tree.delete(node)
+    print("TEST CLIENT:\tPrinting the tree after the deletion:")
+    print(tree)
 
 if __name__ == '__main__':
     main()
