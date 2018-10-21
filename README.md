@@ -40,7 +40,7 @@ with a text given as formal parameter.
 ## Contribution
 Feel free to refactor code, report bugs, submit pull requests or just send a suggestion.
 
-You can get a list of the repository authors and contributors at the (AUTHORS.md)[AUTHORS.md] file.
+You can get a list of the repository authors and contributors at the [AUTHORS.md](AUTHORS.md) file.
 
 ## How to contribute
 Any code that you add needs to have a proper directory name. The directory
