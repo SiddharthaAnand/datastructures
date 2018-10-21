@@ -268,6 +268,20 @@ class RedBlackTree():
         y.right = x
         x.parent = y
 
+    def search(self, key):
+        '''
+        Searchs for a given key. If found, returns the node that corresponds
+        to the key. If not found, returns the nil node.
+        '''
+
+        x = self.root
+
+        while x is not self.nil and key != x.item:
+            if key < x.item:
+                x = x.left
+            else:
+                x = x.right
+        return x 
 
     def __str__(self):
         '''
@@ -285,13 +299,33 @@ def main():
     tree = RedBlackTree()
     values = [randint(-1000, 1000) for i in range(0, 15)]
 
-    print("TEST CLIENT:\tInserting 15 random integers in the range [-1000, 1000)")
+    print("TEST CLIENT:\tInserting 15 random integers in the range [-1000, 1000)\n")
     # Inserting the values
     for value in values:
         tree.insert_key(value)
 
     print("TEST CLIENT:\tPrinting the tree in order:")
     print(tree)
+    print("")
+
+    print("TEST CLIENT:\tSearching for an existing value:")
+    # We search for the first generated element of those inserted into the tree
+    value = values[0]
+    node = tree.search(value)
+    if not node.is_nil():
+        print("TEST CLIENT:\t\tFound the value.\n")
+    else:
+        print("TEST CLIENT:\t\tValue not found.\n")
+
+    print("TEST CLIENT:\tSearching for a NOT existing value:")
+    # We search for a value that does not belong to the tree because it's
+    # outside the generated range
+    value = randint(1001, 2000)
+    node = tree.search(value)
+    if not node.is_nil():
+        print("TEST CLIENT:\t\tFound the value.")
+    else:
+        print("TEST CLIENT:\t\tValue not found.\n")
 
 if __name__ == '__main__':
     main()
