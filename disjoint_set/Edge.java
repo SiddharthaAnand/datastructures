@@ -1,4 +1,4 @@
-package disjointset;
+package disjoint_set;
 
 
 class Edge {
