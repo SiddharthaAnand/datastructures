@@ -41,6 +41,8 @@ class RedBlackTreeNode():
         by checking if its parent node is None.
         '''
 
+        # A node has either None as its parent, or a nil node marked
+        # as such as its parent.
         return self.parent is None or self.parent.is_nil()
 
     def is_leaf(self):
@@ -49,33 +51,51 @@ class RedBlackTreeNode():
         its children are None.
         '''
 
+        # A leaf has either None as its two children, or two
+        # nil nodes as the children. This variable checks for the first
+        # condition
         none_children = self.left is None and self.right is None
 
-        if not none_children:
-            return self.left.is_nil() and self.right.is_nil()
+        if none_children:
+            return True
 
-        return True
+        # We check the second condition and return its appropriate value
+        return self.left.is_nil() and self.right.is_nil()
 
     def is_nil(self):
         '''
         Checks whether a given, instantiated node equals to None.
         '''
 
+        # A nil node has no color and no value
         return self.color is None and self.item is None
 
     def __str__(self):
+        '''
+        Returns an appropriate string representation of the current node
+        as well as its children sub-trees, recursively.
+        
+        The string representation is performed following an in-order path
+        along the tree.
+        '''
+
+        # We start with an empty string
         rep = ""
 
+        # If the left sub-tree is not empty, print it
         if self.left is not None and not self.left.is_nil():
             rep += str(self.left)
             rep += " "
 
+        # We add the current node item
         rep += str(self.item)
 
+        # If the right sub-tree is not empty, print it
         if self.right is not None and not self.right.is_nil():
             rep += " "
             rep += str(self.right)
 
+        # We return the appropriate representation we have found
         return rep
 
 
