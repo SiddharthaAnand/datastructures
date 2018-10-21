@@ -22,7 +22,7 @@ class RedBlackTreeNode():
     RED = 0
     BLACK = 1
 
-    def __init__(self, color=RedBlackTreeNode.BLACK, item=None, parent=None, left=None, right=None):
+    def __init__(self, item, color=None, parent=None, left=None, right=None):
         '''
         Constructor of the class. Given a color, an item, and three other nodes
         that represent the parent node and left and right children, builds
@@ -54,7 +54,7 @@ class RedBlackTreeNode():
         if not none_children:
             return self.left.is_null_node() and self.right.is_null_node()
 
-        return False
+        return True
 
     def is_null_node(self):
         '''
@@ -76,6 +76,19 @@ class RedBlackTreeNode():
         self.item = None
         return self.is_null_node()
 
+    def __str__(self):
+        rep = str(self.item)
+
+        if self.left is not None:
+            rep += " "
+            rep += str(self.left.item)
+
+        if self.right is not None:
+            rep += " "
+            rep += str(self.right.item)
+
+        return rep
+        
 class RedBlackTree():
     pass
 
