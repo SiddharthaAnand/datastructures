@@ -41,7 +41,7 @@ class RedBlackTreeNode():
         by checking if its parent node is None.
         '''
 
-        return self.parent is None or self.parent.is_null_node()
+        return self.parent is None or self.parent.is_nil()
 
     def is_leaf(self):
         '''
@@ -52,40 +52,29 @@ class RedBlackTreeNode():
         none_children = self.left is None and self.right is None
 
         if not none_children:
-            return self.left.is_null_node() and self.right.is_null_node()
+            return self.left.is_nil() and self.right.is_nil()
 
         return True
 
-    def is_null_node(self):
+    def is_nil(self):
         '''
         Checks whether a given, instantiated node equals to None.
         '''
 
-        return self.color == BLACK and self.item is None
-
-    def set_null_node(self):
-        '''
-        Sets a given node as a null one, by saving its color
-        as black and its item as None.
-
-        Returns True if the node has been successfully set as a null one,
-        or False otherwise.
-        '''
-
-        self.color = BLACK
-        self.item = None
-        return self.is_null_node()
+        return self.color is None and self.item is None
 
     def __str__(self):
-        rep = str(self.item)
+        rep = ""
 
-        if self.left is not None:
+        if self.left is not None and not self.left.is_nil():
+            rep += str(self.left)
             rep += " "
-            rep += str(self.left.item)
 
-        if self.right is not None:
+        rep += str(self.item)
+
+        if self.right is not None and not self.right.is_nil():
             rep += " "
-            rep += str(self.right.item)
+            rep += str(self.right)
 
         return rep
 
