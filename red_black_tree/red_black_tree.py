@@ -22,7 +22,13 @@ class RedBlackTreeNode():
     RED = 0
     BLACK = 1
 
-    def __init__(self, color, item, parent, left, right):
+    def __init__(self, color=RedBlackTreeNode.BLACK, item=None, parent=None, left=None, right=None):
+        '''
+        Constructor of the class. Given a color, an item, and three other nodes
+        that represent the parent node and left and right children, builds
+        an instance of a Red Black Tree node with such information.
+        '''
+
         self.color = color
         self.item = item
         self.parent = parent
@@ -30,20 +36,42 @@ class RedBlackTreeNode():
         self.right = right
 
     def is_root_node(self):
+        '''
+        Determines whether a node is the root of a tree,
+        by checking if its parent node is None.
+        '''
+
         return self.parent is None or self.parent.is_null_node()
 
     def is_leaf(self):
+        '''
+        Determines whether a node is a leaf, by checking if both
+        its children are None.
+        '''
+
         none_children = self.left is None and self.right is None
-        
+
         if not none_children:
             return self.left.is_null_node() and self.right.is_null_node()
 
         return False
 
     def is_null_node(self):
+        '''
+        Checks whether a given, instantiated node equals to None.
+        '''
+
         return self.color == RedBlackTreeNode.BLACK and self.item is None
 
     def set_null_node(self):
+        '''
+        Sets a given node as a null one, by saving its color
+        as black and its item as None.
+
+        Returns True if the node has been successfully set as a null one,
+        or False otherwise.
+        '''
+
         self.color = RedBlackTreeNode.BLACK
         self.item = None
         return self.is_null_node()
