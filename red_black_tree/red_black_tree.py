@@ -4,6 +4,11 @@ Basic implementation of a Red Black Tree data structure in Python.
 Implemented in Python 3.6
 '''
 
+# These constants make it easy to know within the code
+# which integer is meant to be RED, and which one is BLACk
+RED = 0
+BLACK = 1
+
 class RedBlackTreeNode():
     '''
     Represents one node within a Red Black Tree.
@@ -16,11 +21,6 @@ class RedBlackTreeNode():
     - Its left and right children. If the node is a leaf,
       its left and right children are None.
     '''
-
-    # These constants make it easy to know within the code
-    # which integer is meant to be RED, and which one is BLACk
-    RED = 0
-    BLACK = 1
 
     def __init__(self, item, color=None, parent=None, left=None, right=None):
         '''
@@ -61,7 +61,7 @@ class RedBlackTreeNode():
         Checks whether a given, instantiated node equals to None.
         '''
 
-        return self.color == RedBlackTreeNode.BLACK and self.item is None
+        return self.color == BLACK and self.item is None
 
     def set_null_node(self):
         '''
@@ -72,7 +72,7 @@ class RedBlackTreeNode():
         or False otherwise.
         '''
 
-        self.color = RedBlackTreeNode.BLACK
+        self.color = BLACK
         self.item = None
         return self.is_null_node()
 
@@ -88,9 +88,7 @@ class RedBlackTreeNode():
             rep += str(self.right.item)
 
         return rep
-        
-class RedBlackTree():
-    pass
+
 
 def main():
     print("This works!")
