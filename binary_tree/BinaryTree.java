@@ -23,31 +23,28 @@ public class BinaryTree {
 	 * values are sorted or not (which needs an extra O(n) array, 
 	 * we can do the same check, without using the array)
 	 */
-	private static int checkBST(Node root) {
+	private static boolean checkBST(Node root, int min, int max) {
 		if (root == null)
-			return -1;
+			return true;
 		if (root.left == null && root.right == null)
-			return root.data;
-		int lValue = checkBST(root.left);
-		if (lValue > root.data)
-			return -1;
-		int rValue = checkBST(root.right);
-		if (rValue < root.data)
-			return -1;
-		return rValue;
+			return true;
+		return ((root.data > min && root.data < max) && 
+			     checkBST(root.left, min, root.data-1) &&
+			     checkBST(root.right, root.data+1, max));
+
 	}
 
 	public static void main(String[] args) {
 		// Hardcoding values here for faster check
-		Node root = new Node(3);
+		Node root = new Node(4);
 		root.left = new Node(2);
 		root.right = new Node(5);
 		root.left.left = new Node(1);
-		root.left.right = new Node(4);
+		root.left.right = new Node(3);
 		//root.right.left = new Node(6);
 		//root.right.right = new Node(-1);
 
-		boolean isBST = checkBST(root) != -1 ? true : false;
+		boolean isBST = checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
 		if (isBST) {
 			System.out.println("It is a BST");
