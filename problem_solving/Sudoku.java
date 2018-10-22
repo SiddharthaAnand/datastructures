@@ -59,8 +59,8 @@ public class Sudoku {
 			}
 		}
 		// Check that specific mini 3X3 matrix
-		for (int k = 0; k < 3; k++) {
-			for (int l = 0; l < 3; l++) {
+		for (int k = i; k < (i+3); k++) {
+			for (int l = j; l < (j+3); l++) {
 				if (sudokuMatrix[k][l] == valueToPut) {
 					return false;
 				}
@@ -78,24 +78,23 @@ public class Sudoku {
 	/* Method to solve the sudoku using backtracking.
 	 */
 	public boolean solveIt(int i, int j, int valueToPut) {
-		if (i < 0 || j < 0 || i >= 9 || j >= 9) {
-			return true;
+
+		return true;
+	}
+	// Print the sudo
+	public static void print(int[][] matrix) {
+		System.out.println("---------------------");
+		System.out.println("---------------------");
+
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				System.out.print(matrix[i][j] + " ");
+			}
+			System.out.println();
 		}
 
-		else {
-			for (int k = i; k < 9; k++) {
-				for (int l = j; l < 9; l++) {
-					if (isEmpty(i, j)) {
-						for (int v = 1; v <= 9; v++) {
-							if (isSafe(i, j, v)) {
-								sudokuMatrix[i][j] = v;
-							}
-						}
-					}
-				}
-			}
-		}
-		return true;
+		System.out.println("---------------------");
+		System.out.println("---------------------");
 	}
 }
 
