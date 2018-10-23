@@ -59,8 +59,10 @@ public class Sudoku {
 			}
 		}
 		// Check that specific mini 3X3 matrix
-		for (int k = i; k < (i+3); k++) {
-			for (int l = j; l < (j+3); l++) {
+		int q = i - i%3;
+		int r = j - j%3;
+		for (int k = q; k < (q+3); k++) {
+			for (int l = r; l < (r+3); l++) {
 				if (sudokuMatrix[k][l] == valueToPut) {
 					return false;
 				}
@@ -75,12 +77,40 @@ public class Sudoku {
 		return sudokuMatrix[i][j] == -1 ? true : false;
 	}
 
+	public boolean findEmptySpace() {
+		for (int i = 0; i < 9; i++) {
+			for (int j =0; j < 9; j++) {
+				if (sudokuMatrix[i][j] == -1)
+					return true;
+			}
+		}
+		return false;
+	}
+
 	/* Method to solve the sudoku using backtracking.
 	 */
-	public boolean solveIt(int i, int j, int valueToPut) {
+	public boolean solveIt() {
+		for (int a = 0; a < 9; a++) {
+			for (int b =0; b < 9; b++) {
+				if (isEmpty(a,b)) {
 
+					for (int k = 1; k <= 9; k++) {
+						if (isSafe(a, b, k)) {
+							sudokuMatrix[a][b] = k;
+							print(sudokuMatrix);
+							if (solveIt()) {
+								return true;
+							}
+							sudokuMatrix[a][b] = -1;
+						}
+					}
+					return false;
+				}
+			}
+		}
 		return true;
 	}
+
 	// Print the sudo
 	public static void print(int[][] matrix) {
 		System.out.println("---------------------");
