@@ -36,13 +36,16 @@ public class LongestCommonSubsequence {
 
 	}
 	public static void main(String[] args) throws FileNotFoundException {
-		File fOne = new File("fileOne");
-		File fTwo = new File("fileTwo");
+		Scanner sc = new Scanner(System.in);
+		String fileOne = sc.next();
+		String fileTwo = sc.next();
+		File fOne = new File(fileOne);
+		File fTwo = new File(fileTwo);
 
 		// Read the file contents into Strings
 		StringBuffer a = new StringBuffer();
 		StringBuffer b = new StringBuffer();
-		Scanner sc = new Scanner(fOne);
+		sc = new Scanner(fOne);
 		while (sc.hasNextLine()) {
 			a = a.append(sc.nextLine());
 		}
