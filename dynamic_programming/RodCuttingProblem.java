@@ -11,6 +11,10 @@ public class RodCuttingProblem {
 		return (a > b) ? a : b;
 	}
 
+	/* Method recursively finds out better ways of cutting the rod
+	 * for maximizing the cost. There are overlapping sub-problems
+	 * which need not be computed again.
+	 */
 	private static int maximizeRodCutting(int rodSize, int[] prices) {
 		int maxVal = Integer.MIN_VALUE;
 		if (rodSize == 0 || rodSize == 1) {
@@ -27,6 +31,7 @@ public class RodCuttingProblem {
 		return maxVal;
 	}
 
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the size of the cost array: ");
