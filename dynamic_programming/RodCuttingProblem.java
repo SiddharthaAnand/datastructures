@@ -31,7 +31,25 @@ public class RodCuttingProblem {
 		return maxVal;
 	}
 
-	
+	/* Method which stores the sub-problem values to avoid calculating
+	 * again and avoid unnecessary recursive calls.
+	 * O(n^2) time complexity of this method.
+	 */
+	private static void maximizeRodCutting(String dp, int rodSize, int[] prices) {
+		if (rodSize < 0 || prices == null || prices.length == 0)
+			return;
+		int[] maxCost = new int[rodSize+1];
+		maxCost[1] = prices[1];
+		for (int i = 1; i <= rodSize; i++) {
+			int maxVal = Integer.MIN_VALUE;
+			for (int j = 0; j <= i; j++) {
+				maxVal = max(maxVal, prices[j] + maxCost[i-j]);
+			}
+			maxCost[i] = maxVal;
+		}
+		System.out.println("Maximum cost of the cutting rod: " + maxCost[rodSize]);
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the size of the cost array: ");
@@ -46,6 +64,6 @@ public class RodCuttingProblem {
 		System.out.println("Enter the size of the rod: ");
 		int rod = sc.nextInt();
 		System.out.println("maximum cost: " + maximizeRodCutting(rod, cost));
-
+		maximizeRodCutting("dp", rod, cost);
 	}
 }
