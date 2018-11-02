@@ -118,7 +118,7 @@ Fundamentals of data structures: Vectors. A vector, in computing, is generally a
 
 
 ## Contribution
-Feel free to refactor code, report bugs, submit pull requests or just send a suggestion.
+Feel free to refactor codes, report bugs, submit pull requests or just send a suggestion.
 
 You can get a list of the repository authors and contributors at the [AUTHORS.md](AUTHORS.md) file.
 
