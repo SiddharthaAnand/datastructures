@@ -6,12 +6,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
- import java.util.*;
+import java.util.*;
+
 public class Graph 
 {
     private Map<Integer, List<Integer>> adjacencyList;
     public int farthestNode = -1;
     public int farthestNodeLength = -1;
+    
     public Graph(int v) 
     {
         adjacencyList = new HashMap<Integer, List<Integer>>();
