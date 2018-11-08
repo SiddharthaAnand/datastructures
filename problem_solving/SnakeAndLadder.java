@@ -10,28 +10,34 @@ public class SnakeAndLadder {
 	private static int playLudo(Graph g, int startNode, HashMap<Integer, Integer> ladderPos) {
 		boolean[] visited = new boolean[31];
 		int[] distance = new int[31];
-
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.add(startNode);
+
+		for (int i = 2; i <= 30; i++) {
+			distance[i] = Integer.MAX_VALUE;
+			q.add(i);
+		}
+
 		visited[startNode] = true;
 
 		while (!q.isEmpty()) {
 			int start = q.remove();
+			visited[start] = true;
 			List<Integer> list = g.getEdge(start);
 			Iterator<Integer> it = list.iterator();
 			System.out.print("start node: " + start+ " ");
+
+			if (ladderPos.containsKey(start) && distance[ladderPos.get(start)] > distance[start]) {
+				//distance[neighbor] = distance[start];
+				System.out.println("ladder: " + start + " value: " + ladderPos.get(start));
+				distance[ladderPos.get(start)] = distance[start];
+				visited[ladderPos.get(start)] = true;
+			}
 			while (it.hasNext()) {
 				int neighbor = (Integer)it.next();
-				if (!visited[neighbor]) {
-					q.add(neighbor);
+				if (distance[neighbor] > (distance[start] + 1)) {
 					System.out.print(neighbor + "->");
-					visited[neighbor] = true;
-					if (ladderPos.containsKey(neighbor)) {
-						distance[neighbor] = distance[start];
-					}
-					else {
-						distance[neighbor] = distance[start] + 1;
-					}
+					distance[neighbor] = distance[start] + 1;
 				}
 			}
 			System.out.println();
@@ -56,12 +62,12 @@ public class SnakeAndLadder {
 	 * we are able to ignore them.
 	 */
 	private static void createLudoAdjacencyList(Graph g, HashMap<Integer, Integer> snakePos) {
-		for (int i = 1; i <= 24; i++) {
+		for (int i = 1; i <= 30; i++) {
 			if (snakePos.containsKey(i)) {
 				continue;
 			}
 			for (int j = i+1; j <= i+6; j++) {
-				if (snakePos.containsKey(j)) {
+				if (j > 30 || snakePos.containsKey(j)) {
 					continue;
 				}
 				g.setEdge(i, j);
@@ -90,14 +96,14 @@ public class SnakeAndLadder {
 				int endVertex = sc.nextInt();
 				if (endVertex > startVertex) {
 					g.setEdge(startVertex, endVertex);
-					ladderPos.put(endVertex, 1);
+					ladderPos.put(startVertex, endVertex);
 				}
 				else {
 					snakePos.put(startVertex, 1);
 				}
 			}
 			createLudoAdjacencyList(g, snakePos);
-
+			g.printAdjacencyList(30);
 			int startNode = 1;
 			System.out.println(playLudo(g, startNode, ladderPos));
 		}
