@@ -13,7 +13,7 @@ public class Graph
     private Map<Integer, List<Integer>> adjacencyList;
     public int farthestNode = -1;
     public int farthestNodeLength = -1;
-    
+
     public Graph(int v) 
     {
         adjacencyList = new HashMap<Integer, List<Integer>>();
@@ -58,6 +58,21 @@ public class Graph
                 startDFS(nextNode, dist + 1, visited);
             }
         }
+    }
+
+    public void printAdjacencyList(int v) {
+
+            for (int i = 1; i <= v; i++) 
+            {
+                System.out.print(i + "->");
+                List<Integer> edgeList = this.getEdge(i);
+                Iterator<Integer> it = edgeList.iterator();
+
+                while (it.hasNext()) {
+                    System.out.print(it.next() + " ");
+                }
+                System.out.println();
+            }
     }
 
     public static void main(String args[]) 
