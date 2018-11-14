@@ -39,25 +39,40 @@ class BucketSort {
 		}
 	
 	   }
-	return array;
-	
+	return array;	
 	}
-
-
 	public static void main(String[] args)
 	{
 		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of elements:");
 		int t=sc.nextInt();
 		int[] a=new int[t];
+		System.out.println("Enter the elements:");
 		for(int i=0;i<t;i++)
 		{
 			a[i]=sc.nextInt();
 		}
 		bucketSort(a,t);
+		System.out.println("Sorted array is ");
 		for(int i=0;i<t;i++)
 		{
 			System.out.println(a[i]);
 		}
-
 	}
 }
+
+
+// Enter the number of elements:
+// 5
+// Enter the elements:
+// 5
+// 2
+// 3
+// 1
+// 4
+// Sorted array is 
+// 1
+// 2
+// 3
+// 4
+// 5
