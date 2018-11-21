@@ -36,7 +36,7 @@ class MatrixRotation {
 
 	private static void rotateBy180(int[][] matrix) {
 		int length = matrix.length;
-		// Transpose and then swap the columns
+		// Reverse row values and then reverse rows
 		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < length/2; j++) {
 				int temp = matrix[i][j];
@@ -55,6 +55,27 @@ class MatrixRotation {
 		print(matrix);
 	}
 
+	private static void rotateBy270(int[][] matrix) {
+		int length = matrix.length;
+		// Reverse row values and then transpose
+		for (int i = 0; i < length; i++) {
+			for (int j = 0; j < length/2; j++) {
+				int temp = matrix[i][j];
+				matrix[i][j] = matrix[i][length - j - 1];
+				matrix[i][length - j - 1] = temp;
+			}
+		}
+
+		for (int i = 0; i < length; i++) {
+			for (int j = i+1; j < length; j++) {
+				int temp = matrix[i][j];
+				matrix[i][j] = matrix[j][i];
+				matrix[j][i] = temp;
+			}
+		}
+		print(matrix);
+	}
+	
 	private static void rotateMatrix(int rotateAngle, int[][] matrix) {
 		if (rotateAngle != 90 && rotateAngle != 180 && rotateAngle != 270) {
 			System.out.println("Rotation angle should be one of [90, 180, 270]");
@@ -71,7 +92,7 @@ class MatrixRotation {
 			rotateBy180(matrix);
 		}
 		else if (rotateAngle == 270) {
-		//	rotateby270(matrix);
+			rotateBy270(matrix);
 		}
 	}
 
