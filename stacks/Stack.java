@@ -60,6 +60,13 @@ public class Stack {
 		}
 		return val;
 	}
+	
+	public boolean isEmptyStack() {
+		if (top == -1)
+		return true;
+		else
+		return false;
+	 }
 
 	public int size() {
 		return size;
