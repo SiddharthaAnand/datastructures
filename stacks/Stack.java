@@ -25,30 +25,33 @@ public class Stack {
 		System.out.println();
 	}
 	
-	public int pop() {
-		int val = Integer.MAX_VALUE;
-		if (top != -1) {
-			val = input[top];
+	public void pop() {
+        if(isEmptyStack())
+        {
+            System.out.println("Stack underflow condition");
+        }
+        else
+        {
+            int val = Integer.MAX_VALUE;
+       		val = input[top];
 			input[top] = 0;
 			top--;
 			size -= 1;
-		}
-		else {
-			System.out.println("Stack underflow condition");
-		}
-		return val;
-	}
+        }
+    }
 
 	public void push(int value) {
-		if (top != capacity-1) {
-			top++;
-			input[top] = value;
-			size += 1;
-		}
-		else {
-			System.out.println("Stack overflow condition");
-		}
-	}
+        if(isFullStack())
+        {
+            System.out.println("Stack overflow condition");
+        }
+        else
+        {
+            top++;
+            input[top] = value;
+            size += 1;
+        }
+    }
 
 	public int peek() {
 		int val = Integer.MAX_VALUE;
@@ -60,6 +63,20 @@ public class Stack {
 		}
 		return val;
 	}
+	
+	public boolean isEmptyStack() {
+		if (top == -1)
+		return true;
+		else
+		return false;
+     }
+     
+     public boolean isFullStack() {
+		if (size == capacity)
+		return true;
+		else
+		return false;
+	 }
 
 	public int size() {
 		return size;
