@@ -12,6 +12,7 @@ class InfixToPostfix {
 		stack = new Stack<Character>();
 	}
 
+	// Upper-case or lower-case ASCII pattern matching
 	public boolean isOperand(char ch) {
 		return (ch >= 97 && ch <= 122) || (ch >= 65 && ch <= 90);
 	}
