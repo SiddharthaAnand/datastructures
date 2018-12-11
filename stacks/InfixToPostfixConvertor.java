@@ -20,11 +20,12 @@ class InfixToPostfix {
 		return (ch == '*' || ch == '+' || ch == '/' || ch == '-');
 	}
 
+	// Deciding the precedence of the operator based on numeric values
 	public int precedence(char operator) {
 		if (operator == '+')
 			return 1;
 		if (operator == '-')
-			return 2;
+			return 1;
 		if (operator == '*')
 			return 3;
 		if (operator == '/')
@@ -38,7 +39,7 @@ class InfixToPostfix {
 				System.out.print(expression.charAt(i));
 			}
 			else if (isOperator(expression.charAt(i))) {
-				while (!stack.isEmpty() && precedence(expression.charAt(i)) < precedence(stack.peek())) {
+				while (!stack.isEmpty() && precedence(expression.charAt(i)) <= precedence(stack.peek())) {
 					System.out.print(stack.peek());
 					stack.pop();
 				}
@@ -58,6 +59,7 @@ class InfixToPostfix {
 		while (!stack.isEmpty()) {
 			System.out.print(stack.pop());
 		}
+		System.out.println();
 	}
 }
 
