@@ -13,7 +13,7 @@ class InfixToPostfix {
 	}
 
 	public boolean isOperand(char ch) {
-		return (ch >= 97 && ch <= 122);
+		return (ch >= 97 && ch <= 122) || (ch >= 65 && ch <= 90);
 	}
 
 	public boolean isOperator(char ch) {
