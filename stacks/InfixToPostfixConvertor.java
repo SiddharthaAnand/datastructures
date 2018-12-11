@@ -36,6 +36,8 @@ class InfixToPostfix {
 
 	public void processExpression(String expression) {
 		for (int i = 0; i < expression.length(); i++) {
+
+			// If it is an operand, simply print it
 			if (isOperand(expression.charAt(i))) {
 				System.out.print(expression.charAt(i));
 			}
