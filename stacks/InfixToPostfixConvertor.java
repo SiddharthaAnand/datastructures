@@ -56,6 +56,7 @@ class InfixToPostfix {
 					System.out.print(stack.peek());
 					stack.pop();
 				}
+				// Extra pop to remove '(' too.
 				stack.pop();
 			}
 		}
