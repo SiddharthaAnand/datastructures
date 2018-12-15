@@ -10,6 +10,10 @@ class QueueUsingStack {
 		queueUsingStack.push(data);
 	}
 
+	// Recursively, pop elements from the stack, pop out the last element,
+	// and push the elements back again.
+	// O(1) - Enqueue () operation
+	// O(stack_size) - Dequeue () operation
 	private static void dequeue(Stack<Integer> queueUsingStack, String top) {
 		int topElement = queueUsingStack.pop();
 		if (queueUsingStack.isEmpty()) {
