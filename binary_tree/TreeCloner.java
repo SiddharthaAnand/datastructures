@@ -37,6 +37,10 @@ public class TreeCloner {
 
 	}
 
+	public static void cloneRandomPtr(Node tree) {
+
+	}
+	
 	public static void main(String[] args) {
 		Node tree = new Node(1);
 		tree.left = new Node(2);
