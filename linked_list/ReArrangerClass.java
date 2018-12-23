@@ -13,6 +13,9 @@ class Node {
 
 public class ReArrangerClass {
 	
+	// 1. Divide the linked list in two halves
+	// 2. Reverse the second half
+	// 3. Merge the nodes alternatively to make the final linked list.
 	public static void rearrange(Node head) {
 		Node middle = findMiddle(head);
 		print(middle);
@@ -43,6 +46,7 @@ public class ReArrangerClass {
 		}
 	}
 
+	// Find the middle of the linked list using hare-tortoise method
 	public static Node findMiddle(Node head) {
 		Node tortoise = head;
 		Node hare = head;
@@ -63,6 +67,7 @@ public class ReArrangerClass {
 		System.out.println();
 	}
 
+	// Reverse a linked list and return the pointer to the head
 	public static Node reverse(Node head) {
 		Node prev = null;
 		Node curr = head;
