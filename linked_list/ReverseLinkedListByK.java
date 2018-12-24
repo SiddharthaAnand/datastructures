@@ -38,8 +38,16 @@ public class ReverseLinkedListByK {
 		}
 	}
 
-	public static void reverseLListByK(Node head, int k) {
-
+	public static void reverseLListByK(Node head, Queue<Integer> q, int k) {
+		int i = 0;
+		while (head != null) {
+			i = 0;
+			reverseByValue(head, q, k);		
+			while (i < k) {
+				head = head.next;
+				i += 1;
+			}
+		}
 	}
 
 	public static void print(Node head) {
@@ -52,7 +60,8 @@ public class ReverseLinkedListByK {
 	}
 	public static void main (String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+		System.out.println("Enter the size/batch in whcih to reverse the linkedlist: ");
+		int k = sc.nextInt();
 
 		Node head = new Node(1);
 		head.next = new Node(2);
@@ -64,9 +73,11 @@ public class ReverseLinkedListByK {
 		head.next.next.next.next.next.next.next = new Node(9);
 		head.next.next.next.next.next.next.next.next = new Node(10);
 
+		System.out.print("Initial hard-coded input: ");
 		print(head);
+		System.out.println();
 		Queue<Integer> q = new LinkedList<Integer>();
-		reverseByValue(head, q, 3);
+		reverseLListByK(head, q, k);
 		print(head);
 
 	}
