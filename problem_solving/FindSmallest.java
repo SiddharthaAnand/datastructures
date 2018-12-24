@@ -1,3 +1,7 @@
+/* URL: https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/
+ * Solution Approach Refernce: Cormen's Introduction to Algorithms
+ */
+
 package problem_solving;
 
 import java.util.Scanner;
