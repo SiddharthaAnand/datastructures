@@ -2,6 +2,7 @@
  * Question: Reverse the linked list in batches of k(given as input).
  * Solution Approach: Since the linked list remains as it is, we can simply
  * replace the elements and leave the nodes as it is.
+ * Practice Link: https://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
  */
 
 package linked_list;
