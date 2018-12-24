@@ -43,11 +43,12 @@ public class ReverseLinkedListByK {
 		while (head != null) {
 			i = 0;
 			reverseByValue(head, q, k);		
-			while (i < k) {
+			while (head != null && i < k) {
 				head = head.next;
 				i += 1;
 			}
 		}
+
 	}
 
 	public static void print(Node head) {
@@ -58,6 +59,7 @@ public class ReverseLinkedListByK {
 		}
 		System.out.println();
 	}
+
 	public static void main (String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the size/batch in whcih to reverse the linkedlist: ");
@@ -70,8 +72,8 @@ public class ReverseLinkedListByK {
 		head.next.next.next.next = new Node(6);
 		head.next.next.next.next.next = new Node(7);
 		head.next.next.next.next.next.next = new Node(8);
-		head.next.next.next.next.next.next.next = new Node(9);
-		head.next.next.next.next.next.next.next.next = new Node(10);
+		//head.next.next.next.next.next.next.next = new Node(9);
+		//head.next.next.next.next.next.next.next.next = new Node(10);
 
 		System.out.print("Initial hard-coded input: ");
 		print(head);
