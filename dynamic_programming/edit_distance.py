@@ -16,6 +16,10 @@ def optimize_edit(S, i, T, j):
             else:
                 dist[i][j] = 1 + min(dist[i-1][j-1], dist[i-1][j], dist[i][j-1])
 
+    for x in dist:
+        for j in x:
+            print j,
+        print
     return dist[len(S)][len(T)]
 
 
