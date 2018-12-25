@@ -1,3 +1,6 @@
+/* URL: https://www.geeksforgeeks.org/convert-a-given-binary-tree-to-doubly-linked-list-set-4/
+ */
+ 
 package binary_tree;
 
 /* Data structure to store a data and left and right pointers too
@@ -57,6 +60,8 @@ public class BinaryTreeToDLL {
 		converter(root.right);
 	}
 
+	/* Print the tree in inorder fashion.
+	 */
 	static void inOrder(Node root) {
 
 		if (root == null)
