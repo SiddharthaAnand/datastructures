@@ -22,7 +22,7 @@ public class MeetInTheMiddle {
 
 			while (i < j) {
 				if ((input[i] + input[j]) == c) {
-					System.out.println("Found a pythagorean triplet at positions " + i + " " + j + " " + k);
+					System.out.println(":) Found a pythagorean triplet at positions " + i + " " + j + " " + k);
 					return;
 				}
 				else if (input[i] + input[j] < c) {
