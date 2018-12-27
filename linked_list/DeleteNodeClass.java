@@ -5,18 +5,9 @@
 
 class DeleteNodeClass
 {
-    void deleteNode(Node del)
-    {
-         // Your code here
-         Node tmp = del.next;
-         while (tmp.next != null) {
-             del.data = tmp.data;
-             del = del.next;
-             tmp = tmp.next;
-         }
-         del.data = tmp.data;
-         tmp = null;
-         del.next = null;    
+    void deleteNode(Node del) {	
+	     del.data = del.next.data;
+	     del.next = del.next.next;
     }
 }
 
