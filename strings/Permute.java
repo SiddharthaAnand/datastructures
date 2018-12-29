@@ -7,11 +7,15 @@ import java.util.*;
 
 class Permute {
 
+	// Store the permuted strings
+	static ArrayList<String> store = new ArrayList<String>();
+
 	/* This method does not necessarily return strings 
 	 * in alphabetical order.
 	 */
 	static void permuteString(char[] input, int i) {
 		if (i == input.length) {
+			store.add(new String(input));
 			System.out.println(input);
 		}
 
@@ -33,10 +37,21 @@ class Permute {
 		input[y] = t;
 	}
 
+	/* This permutation does not consider duplicate 
+	 * character reduction for generating permutations.
+	 * All the characters are taken to be unique.
+	 */
 	public static void main(String[] args) {
-		
-		String input = "abc";
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
 		char[] inp = input.toCharArray();
 		permuteString(inp, 0);
+		Collections.sort(store);
+		System.out.println("All Permutations");
+		Iterator<String> it = store.iterator();
+
+		while (it.hasNext()) {
+			System.out.println(it.next());
+		}
 	}
 }
