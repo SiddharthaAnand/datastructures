@@ -7,7 +7,7 @@ import java.util.*;
 
 class Permute {
 
-	// Store the permuted strings
+	// Store the permuted strings to sort them and print.
 	static ArrayList<String> store = new ArrayList<String>();
 
 	/* This method does not necessarily return strings 
@@ -16,7 +16,7 @@ class Permute {
 	static void permuteString(char[] input, int i) {
 		if (i == input.length) {
 			store.add(new String(input));
-			System.out.println(input);
+			//System.out.println(input);
 		}
 
 		else {
@@ -46,12 +46,17 @@ class Permute {
 		String input = sc.nextLine();
 		char[] inp = input.toCharArray();
 		permuteString(inp, 0);
+
+		// Sorting the strings here so as to print them in order.
 		Collections.sort(store);
-		System.out.println("All Permutations");
+		System.out.println("-------All Permutations-------");
+		System.out.println("------------------------------");
 		Iterator<String> it = store.iterator();
 
 		while (it.hasNext()) {
 			System.out.println(it.next());
 		}
+		System.out.println("------------------------------");
+		System.out.println("------------------------------");
 	}
 }
