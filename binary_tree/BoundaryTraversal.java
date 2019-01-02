@@ -21,6 +21,8 @@ public class BoundaryTraversal {
 
 	TreeMap<Integer, Node> tmap = new TreeMap<Integer, Node>();
 
+	/* This logic will add the nodes in a vertical manner.
+	 */
 	static void boundary(Node root, int dist) {
 		if (root == null)
 			return;
