@@ -19,7 +19,7 @@ class Node {
 
 public class BoundaryTraversal {
 
-	TreeMap<Integer, Node> tmap = new TreeMap<Integer, Node>();
+	  TreeMap<Integer, Node> tmap = new TreeMap<Integer, Node>();
 
 	/* This logic will add the nodes in a vertical manner.
 	 */
