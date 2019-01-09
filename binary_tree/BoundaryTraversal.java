@@ -40,6 +40,33 @@ public class BoundaryTraversal {
 		}
 	}
 
+	/* This method will divide the printing process in 3 parts:
+	 * left nodes
+	 * leaf nodes
+	 * right nodes
+	 */
+	static void boundary(Node root) {
+		if (root == null) {
+			return;
+		}
+		else {
+			printLeft(root);
+			printLeaf(root);
+			printRight(root);
+		}
+	}
+
+	static void printLeaf(Node root) {
+		if (root == null)
+			return;
+		else if (root.left == null && root.right == null)
+			System.out.print(root.data + " ");
+		else {
+			printLeaf(root.left);
+			printLeaf(root.right);
+		}
+	}
+	
 	public static void main(String[] args) {
 		Node root = new Node(20);
 		root.left = new Node(8);
