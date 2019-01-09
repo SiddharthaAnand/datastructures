@@ -66,7 +66,7 @@ public class BoundaryTraversal {
 			printLeaf(root.right);
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Node root = new Node(20);
 		root.left = new Node(8);
@@ -76,6 +76,6 @@ public class BoundaryTraversal {
 		root.left.right.left = new Node(10);
 		root.left.right.right = new Node(14);
 		root.right.right = new Node(25);
-
+		boundary(root);
 	}
 }
