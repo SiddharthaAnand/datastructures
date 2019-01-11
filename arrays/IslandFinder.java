@@ -7,7 +7,8 @@ class IslandFinder {
 	private static int count = 0;
 
 	private static void countIsland(int[][] matrix, int row, int col) {
-
+		if (matrix == null || matrix.length == 0 || row < 0 || col < 0)
+			return;
 	}
 
 	public static void main(String[] args) {
