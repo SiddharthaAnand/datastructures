@@ -9,6 +9,8 @@ class IslandFinder {
 	private static void countIsland(int[][] matrix, int row, int col) {
 		if (matrix == null || matrix.length == 0 || row < 0 || col < 0)
 			return;
+
+
 	}
 
 	public static void main(String[] args) {
@@ -24,5 +26,6 @@ class IslandFinder {
 		}
 
 		countIsland(matrix, row, col);
+		System.out.println("Number of islands: " + count);
 	}
 }
