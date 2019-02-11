@@ -1,5 +1,11 @@
+// URL: https://www.geeksforgeeks.org/sort-elements-by-frequency-set-5-using-java-map/
+
+package arrays;
+
 import java.util.*;
 
+/* Use a Sorter which implements a Comparator and compares the values of a user-defined class.
+ */
 class Sorter implements Comparator<Integer> {
 
 	HashMap<Integer, Integer> hm;
