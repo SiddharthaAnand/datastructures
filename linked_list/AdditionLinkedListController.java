@@ -109,7 +109,7 @@ public class AdditionLinkedListController {
 				number.addDigit(digit);
 			}
 		}
-		System.out.println("Enter the number to be added: ");
+		System.out.println("Enter the number in reverse order to be added: ");
 		int no = sc.nextInt();
 		number.finalSum(no);
 		number.print();
