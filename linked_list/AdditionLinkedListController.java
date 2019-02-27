@@ -40,6 +40,12 @@ class AddNumbersInLinkedListClass {
 		}
 	}
 
+	/* Method to add the number to the linked list representation of number.
+	 * Need to consider all test cases:
+	 * 1. No carry.
+	 * 2. Carry without need for creation of new node.
+	 * 3. Carry with need for creation of new node.
+	 */
 	public void finalSum(int number) {
 		if (head != null) {
 			if  ((number + head.data) > 9) {
