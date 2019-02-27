@@ -24,7 +24,8 @@ class AddNumbersInLinkedListClass {
 			return somethingNew;
 		}
 		catch (Exception e) {
-
+			System.out.println(e);
+			System.out.println("Unable to create a new node :(");
 		}
 		return somethingNew;
 	}
