@@ -48,21 +48,26 @@ class AddNumbersInLinkedListClass {
 	 */
 	public void finalSum(int number) {
 		if (head != null) {
+			// 2. If Carry condition is true
 			if  ((number + head.data) > 9) {
 				Node temp = head;
 				int carry = number;
+				// Go till the last node and check if there is need for creation of new node.
 				while (temp.next != null && (carry + temp.data) > 9) {
 					int val = temp.data;
 					temp.data = (carry + temp.data) % 10;
 					carry = (number + val) / 10;
 					temp = temp.next;
 				}
+				// If last node reached, then check do we need to create a new node (if there is a non-zero carry)
 				if (temp.next == null) {
 					if ((carry + temp.data) > 9) {
+						// Create a new node and then update the current value.
 						temp.next = createNode((carry + temp.data) / 10);
 						temp.data = (carry + temp.data) % 10;
 					}
 				}
+				// If carry not required, then simply update the value.
 				else {
 					temp.data = carry + temp.data;
 				}
