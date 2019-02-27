@@ -45,7 +45,6 @@ class AddNumbersInLinkedListClass {
 				Node temp = head;
 				int carry = number;
 				while (temp.next != null && (carry + temp.data) > 9) {
-					System.out.println("Carry: " + carry);
 					int val = temp.data;
 					temp.data = (carry + temp.data) % 10;
 					carry = (number + val) / 10;
