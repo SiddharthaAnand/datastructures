@@ -32,12 +32,11 @@ class AddNumbersInLinkedListClass {
 
 	public void addDigit(int digit) {
 		Node temp = head;
-		while (temp != null && temp.next != null) {
-			temp = temp.next;
-		}
-		if (temp != null) {
-			temp.next = createNode(digit);
-		}
+		// Store the number in reverse order so as to make the addition easy.
+			temp = head;
+			head = createNode(digit);
+			head.next = temp;
+		
 	}
 
 	/* Method to add the number to the linked list representation of number.
