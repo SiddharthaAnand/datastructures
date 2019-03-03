@@ -1,3 +1,5 @@
+/* Find a path from root to a node if a value is present in one of the nodes in the tree.
+ */
 import java.util.*;
 
 class Node {
