@@ -31,9 +31,6 @@ public class MergeNewInterval {
                 if (temp.end > top.end) {
                     top.end = temp.end;
                 }
-                else if (temp.end < top.end) {
-                    // No need to do anything
-                }
             }
         }
         Iterator<Interval> it = stack.iterator();
