@@ -18,6 +18,7 @@ class LengthOfLongestSubstring {
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 		for (int i = 0, j = 0; i < input.length() && j < input.length();) {
 			if (map.containsKey(input.charAt(j))) {
+				// Jump after that index since till that index you will be having a duplicate value.
 				i = Math.max(map.get(input.charAt(j))+1, i);
 			}
 			map.put(input.charAt(j), j);
