@@ -6,6 +6,9 @@ import java.util.HashMap;
 
 class LengthOfLongestSubstring {
 	/* Sliding Window where the window has only unique characters in every iteration. 
+	 * Every character visit is done only once.
+	 * Time Complexity: O(n)
+	 * Space complexity: O(n)
 	 */
 	public static int lengthOfLongestSubstringContainingUniqueCharacters(StringBuilder input) {
 		int ans = 0;
