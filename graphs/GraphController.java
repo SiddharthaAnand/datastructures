@@ -66,7 +66,7 @@ class Graph {
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.add(start);
 		visited[start] = true;
-
+		System.out.print(start+ " ");
 		while (!q.isEmpty()) {
 			int v = q.remove();
 			Iterator<Integer> it = adjList.get(v).iterator();
