@@ -6,10 +6,12 @@ import java.util.LinkedList;
 
 class Graph {
 	int v;
+	boolean[] visited;
 	Map<Integer, LinkedList<Integer>> adjList;
 
 	Graph(int v) {
 		this.v = v;
+		visited = new boolean[v+1];
 		adjList = new HashMap<Integer, LinkedList<Integer>>(v);
 
 		for (int i = 1; i <= v; i++) {
@@ -22,6 +24,9 @@ class Graph {
 		LinkedList<Integer> list = adjList.get(a);
 		list.add(b);
 		adjList.put(a, list);
+		list = adjList.get(b);
+		list.add(a);
+		adjList.put(b, list);
 	}
 
 	public void printLinkedList(int v) {
@@ -35,6 +40,18 @@ class Graph {
 	public void printAdjList() {
 		for (int i = 1; i <= v; i++) {
 			printLinkedList(i);
+		}
+	}
+
+	public void startDFS(int start) {
+		visited[start] = true;
+		System.out.print(start + " ");
+		Iterator<Integer> it = adjList.get(start).iterator();
+		while (it.hasNext()) {
+			int v = it.next();
+			if (!visited[v]) {
+				startDFS(v);
+			}
 		}
 	}
 }
@@ -58,6 +75,7 @@ public class GraphController {
 		}
 
 		g.printAdjList();
+		g.startDFS(1);
 
 	}
 }
