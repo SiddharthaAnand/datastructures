@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Queue;
 
 class Graph {
 	int v;
@@ -54,6 +55,32 @@ class Graph {
 			}
 		}
 	}
+
+	public void initializeVisited() {
+		for (int i = 1; i <= v; i++) {
+			visited[i] = false;
+		}
+	}
+
+	public void startBFS(int start) {
+		Queue<Integer> q = new LinkedList<Integer>();
+		q.add(start);
+		visited[start] = true;
+
+		while (!q.isEmpty()) {
+			int v = q.remove();
+			Iterator<Integer> it = adjList.get(v).iterator();
+			while (it.hasNext()) {
+				int vert = it.next();
+				if (!visited[vert]) {
+					visited[vert] = true;
+					System.out.print(vert +" ");
+					q.add(vert);
+				}
+			}
+		}
+		System.out.println();
+	}
 }
 
 public class GraphController {
@@ -78,6 +105,8 @@ public class GraphController {
 		int start = sc.nextInt();
 		g.printAdjList();
 		g.startDFS(start);
-
+		g.initializeVisited();
+		System.out.println();
+		g.startBFS(start);
 	}
 }

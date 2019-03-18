@@ -39,9 +39,10 @@ class LinkedList {
 				}
 				Node holder = runner.next;
 				runner.next = temp;
-				temp.next = holder;
-				prev.next = null;
+				temp.next = temp.next != null ? holder : temp.next;
+				prev.next = prev.next.next != null ? null: prev.next;
 				runner = runner.next != null ? runner.next.next: runner.next;
+				print(head);
 			}
 		}
 	}
