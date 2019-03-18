@@ -74,8 +74,10 @@ public class GraphController {
 			g.addEdge(a, b);
 		}
 
+		System.out.println("Enter the start vertex to start DFS: ");
+		int start = sc.nextInt();
 		g.printAdjList();
-		g.startDFS(1);
+		g.startDFS(start);
 
 	}
 }
