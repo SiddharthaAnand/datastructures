@@ -33,8 +33,9 @@ class ChessBoardSquaresCount {
 		while (t > 0) {
 		    t -= 1;
 		    long n = sc.nextLong();
-		    System.out.println(squaresCount(n));
-		    System.out.println(rectanglesCount(n));
+		    System.out.println("Number of squares:" + squaresCount(n));
+		    System.out.println("Number of rectangles(including squares): " + rectanglesCount(n));
+		    System.out.println("Number of rectangles(excluding squares): " + (rectanglesCount(n) - squaresCount(n)));
 		}
 	}
 }
