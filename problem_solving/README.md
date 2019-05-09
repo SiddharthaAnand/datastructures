@@ -16,3 +16,11 @@ number of elements beforehand.
 ### Loop Finder
 
 Find a loop in a given linked list. Uses O(n) time and O(1) space complexity.
+
+### Breadth First Search
+
+Traversal of a graph using breadth first search. 
+
+### Count Perfect Squares
+
+Problem to count the number of perfect squares between a given range as input.
