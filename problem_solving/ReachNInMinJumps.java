@@ -9,7 +9,12 @@ class ReachNInMinJumps {
 		if (source == destination) {
 			return valueAddedTillNow;
 		}
-		if (Math.abs(source) > destination) {
+		// Taking the absolute value here since reaching k and -k are symmetric. So considering only 
+		// positive values. Reaching k and -k, the number of jumps would be the same.
+		// Also, Can we reach every number ?
+		// We can. Since, going from i to i+1, we can take k jumps to the left and k+1 to the right
+		// and increment the step by one. So, all values are reachable.
+		if (Math.abs(source) > Math.abs(destination)) {
 			return Integer.MAX_VALUE;
 		}
 		long leftJumpCount = minStepsToReachN(source - (valueAddedTillNow + 1), valueAddedTillNow + 1, destination);
@@ -24,6 +29,6 @@ class ReachNInMinJumps {
 		System.out.print("(minStepsToReachN(0, 0, 1) == 1) - ");
 		System.out.println((minStepsToReachN(0, 0, 1) == 1) ? "Testcase passed" : "Testcase failed");
 		System.out.print("(minStepsToReachN(0, 0, -1) == 2) - ");
-		System.out.println((minStepsToReachN(0, 0, Math.abs(-1)) == 1) ? "Testcase passed" : "Testcase failed");
+		System.out.println((minStepsToReachN(0, 0, -2) == 3) ? "Testcase passed" : "Testcase failed");
 	}
 }
