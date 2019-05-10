@@ -30,5 +30,10 @@ class ReachNInMinJumps {
 		System.out.println((minStepsToReachN(0, 0, 1) == 1) ? "Testcase passed" : "Testcase failed");
 		System.out.print("(minStepsToReachN(0, 0, -1) == 2) - ");
 		System.out.println((minStepsToReachN(0, 0, -2) == 3) ? "Testcase passed" : "Testcase failed");
+		/* Can run this code by running the following command:
+		 * java -ea ReachNInMinJumps
+		 * -ea means enabled assertions
+		 * assert (minStepsToReachN(0, 0, 2) == 3);
+		 */
 	}
 }
