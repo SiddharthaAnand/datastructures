@@ -24,3 +24,10 @@ Traversal of a graph using breadth first search.
 ### Count Perfect Squares
 
 Problem to count the number of perfect squares between a given range as input.
+
+### Reach N in Min Steps (ReachNInMinJumps.java)
+
+There is an infinite line from -INFINITY to +INFINITY. You are starting from 0.
+You have to reach a given value n with minimum number of jumps such that at 
+the ith step of the solution you can jump i steps either to the left or to the right.
+For more information, refer the code and the url link provided at the top of that code.
