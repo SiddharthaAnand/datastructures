@@ -38,3 +38,13 @@ This problem is asked in many software developer interviews. There is a set of c
 buildings with varying heights and unit width, defined by an array of numbers. It starts 
 raining heavily, and the terrace of all the buildings is filled completely with water.
 You have to determine the total water stored on top of those buildings.
+
+### Pascal Triangle
+
+Print the pascal triangle based on a given number as input which is the number of rows
+needed to print.
+
+### Squares on Chessboard
+
+Count the number of squares on a chessboard. Also, another variation present where 
+we need to count the number of rectangles (exclude/include squares) as well.
