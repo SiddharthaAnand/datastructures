@@ -48,3 +48,8 @@ needed to print.
 
 Count the number of squares on a chessboard. Also, another variation present where 
 we need to count the number of rectangles (exclude/include squares) as well.
+
+### Sieve of Erastosthenes
+
+A famous and old method of calculating primes until a given value n. It is a very simple
+method of finding primes. 
