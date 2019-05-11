@@ -31,3 +31,10 @@ There is an infinite line from -INFINITY to +INFINITY. You are starting from 0.
 You have to reach a given value n with minimum number of jumps such that at 
 the ith step of the solution you can jump i steps either to the left or to the right.
 For more information, refer the code and the url link provided at the top of that code.
+
+### Trapped Water Problem
+
+This problem is asked in many software developer interviews. There is a set of connected
+buildings with varying heights and unit width, defined by an array of numbers. It starts 
+raining heavily, and the terrace of all the buildings is filled completely with water.
+You have to determine the total water stored on top of those buildings.
