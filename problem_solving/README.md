@@ -53,3 +53,17 @@ we need to count the number of rectangles (exclude/include squares) as well.
 
 A famous and old method of calculating primes until a given value n. It is a very simple
 method of finding primes. 
+
+### Queue using Stack
+
+Implement queue data structure using Stack datastructure and methods only.
+
+### Snake and Ladder
+
+Calculate the minimum number of moves to reach 100 in a game of snake and ladders.
+
+### Profit Maximization
+
+Maximize your profit based on the condition that the following constraint holds:
+profit[j] % profit[i] == 0 AND j > i where i and j are indices and profit is the 
+input array.
