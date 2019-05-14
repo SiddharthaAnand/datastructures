@@ -67,3 +67,7 @@ Calculate the minimum number of moves to reach 100 in a game of snake and ladder
 Maximize your profit based on the condition that the following constraint holds:
 profit[j] % profit[i] == 0 AND j > i where i and j are indices and profit is the 
 input array.
+
+### Producer-Consumer Problem
+
+Implement a producer and consumer, sharing a resource. Simulation done using threads.
