@@ -68,6 +68,7 @@ class ProducerConsumerController {
 		//found the answer here: https://stackoverflow.com/questions/16880494/how-can-we-create-object-of-interface-in-java
 		// You can check that an anonymous class with the name ProducerConsumerController$1.class
 		// is getting created which is an anonymous class.
+		// Also refer https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html
 		Thread t1 = new Thread(new Runnable() {
 			public void run() {
 				try {
