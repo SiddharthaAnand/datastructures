@@ -13,3 +13,7 @@ and [this stackoverflow question](https://stackoverflow.com/questions/16880494/h
 both of which are interesting cases of how can we write a syntax which shows that 
 an object of an interface is being created which actually creates an [anonymous class](https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html).
 
+This code also denotes the use of synchronized keyword, which signifies that the 
+thread will not switch when it is inside this section.
+
+wait() and notify() being used to communicate between the 2 threads.
