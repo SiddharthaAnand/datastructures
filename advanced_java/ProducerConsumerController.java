@@ -62,6 +62,12 @@ class ProducerConsumerController {
 
 		ProducerConsumer obj = new ProducerConsumer(new LinkedList<Integer>(), 10);
 
+		// Shining example of an Anonymous Class being created here. I had a question
+		// regarding how is this possible that an object of an interface(Runnable) is
+		// being created? On googling, 
+		//found the answer here: https://stackoverflow.com/questions/16880494/how-can-we-create-object-of-interface-in-java
+		// You can check that an anonymous class with the name ProducerConsumerController$1.class
+		// is getting created which is an anonymous class.
 		Thread t1 = new Thread(new Runnable() {
 			public void run() {
 				try {
