@@ -17,3 +17,7 @@ This code also denotes the use of synchronized keyword, which signifies that the
 thread will not switch when it is inside this section.
 
 wait() and notify() being used to communicate between the 2 threads.
+
+## ProducerConsumerSemaphore.java
+
+Code which uses Sempahores to synchronize inter thread communication. 
