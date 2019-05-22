@@ -21,3 +21,13 @@ wait() and notify() being used to communicate between the 2 threads.
 ## ProducerConsumerSemaphore.java
 
 Code which uses Sempahores to synchronize inter thread communication. 
+
+## A Strategy for Defining Immutable Objects
+
+Strategy for defining immutable objects in Java. String class is an immutable object. 
+Referenced from the [official java docs](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html).
+
+## Contributions
+
+Create a branch and submit your changes.  Create a PR for the changes.
+Also, don't forget to add the context about the change here in README.md
