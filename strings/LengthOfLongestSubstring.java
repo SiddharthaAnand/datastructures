@@ -74,17 +74,5 @@ class LengthOfLongestSubstring {
 			default:
 				break;
 		}
-		// StringBuilder input = new StringBuilder("abcdabcd");
-		// System.out.println(lengthOfLongestSubstringContainingUniqueCharacters(input));
-		// input = new StringBuilder("aabbccdd");
-		// System.out.println(lengthOfLongestSubstringContainingUniqueCharacters(input));
-		// input = new StringBuilder("aaaa");
-		// System.out.println(lengthOfLongestSubstringContainingUniqueCharacters(input));
-		// input = new StringBuilder("");
-		// System.out.println(lengthOfLongestSubstringContainingUniqueCharacters(input));
-		// input = new StringBuilder("aabcd");
-		// System.out.println(lengthOfLongestSubstringContainingUniqueCharacters(input));
-		// input = new StringBuilder("abcdbcdef");
-		// System.out.println(lengthOfLongestSubstringContainingUniqueCharacters(input));
 	}	
 }
