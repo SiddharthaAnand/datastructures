@@ -1,3 +1,7 @@
+// Question: https://www.geeksforgeeks.org/word-break-problem-using-backtracking/
+/* This problem has been solved using the backtracking approach. This removes
+ * extra branches/calls and avoids them which are unnecessary.
+ */
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,6 +17,11 @@ class BreakWordsIntoDictionary {
 
 	}
 
+	/* Split the words by taking a pointer and keeping it at a certain position and check if
+	 * the word formed from this to the idx is present or not in dictionary. 
+	 * If present, then put the split pointer to the next value of idx and continue to 
+	 * search for the next word from that position.
+	 */
 	public static void splitWords(String input, HashMap<String, Boolean> dictionary, ArrayList<String> list, int splitPos) {
 		if (input == null || input.length() == 0) {
 
