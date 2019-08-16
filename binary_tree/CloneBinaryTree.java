@@ -6,6 +6,7 @@
 
 import java.util.HashMap;
 
+/* Defining the tree nodes as a class. */
 class Node {
 	int data;
 	Node left;
@@ -21,7 +22,10 @@ class Node {
 }
 
 public class CloneBinaryTree {
-	
+	/* Method which recursively clones only the left and right pointer nodes
+	 * by creating a new node in every call, and maps the older node to the new
+	 * node using a map.
+	 */
 	public static Node cloneOtherPointers(Node root, HashMap<Node, Node> map) {
 		if (root == null) {
 			return null;
@@ -33,6 +37,9 @@ public class CloneBinaryTree {
 		return clonedRoot;
 	}
 
+	/* Method which only clones the random pointers using the map stored 
+	 * while traversing the tree.
+	 */
 	public static void cloneRandomPointer(Node root, Node clonedRoot, HashMap<Node, Node> map) {
 		if (root == null) {
 			return;
@@ -74,6 +81,7 @@ public class CloneBinaryTree {
 	}
 
 	public static void main(String[] args) {
+		// Test case 1
 		Node root = new Node(1);
 		root.left = new Node(2);
 		root.right = new Node(3);
