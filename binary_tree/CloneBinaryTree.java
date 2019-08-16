@@ -1,6 +1,7 @@
 /* Question: Clone a given binary tree which also has an extra pointer as an attribute 
  * called a random pointer pointing to a random node of the same binary tree.
  * It is not necessary that every random pointer will be not null.
+ * URL: https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
  */
 
 import java.util.HashMap;
