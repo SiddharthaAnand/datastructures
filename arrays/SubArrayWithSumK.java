@@ -1,3 +1,8 @@
+/* Question: Find the subarray which has the sum equal to a given value K.
+ * URL:
+ * Given: K >= 0 and arr[i] >= 0 for all i.
+ */
+
 import java.util.Scanner;
 
 class SubArrayWithSumK {
