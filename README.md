@@ -27,7 +27,7 @@ In order to run any file with .java extension(BinarySearch.java), type the follo
 $ javac -d . BinarySearch.java
 $ java arrays.BinarySearch
 ```
-In order to run any file with .c extension(hello_world.c), type the following command:
+In order to run any file with .c extension(hello_world.java), type the following command:
 ```
 $ gcc hello_world.c
 $ hello_world
