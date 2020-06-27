@@ -46,17 +46,12 @@ public class Analysis {
 		double average = 0;
 		int max = maxLimit;
 		while (maxLimit > 0) {
-			//System.out.println("maxLimit: " + maxLimit);
 			generateRandomArray(array, arraySize);
-			//printArray(array);
 			long startTimeInMSeconds = getCurrentTime();
 			startSort(array);
 			long endTimeInMSeconds = getCurrentTime();
-			//printArray(array);
-			//writeToFile(arraySize, endTimeInSeconds - startTimeInSeconds);
 			sum +=  (endTimeInMSeconds - startTimeInMSeconds);
 			maxLimit -= 1;
-
 		}
 		average = sum / max;
 		System.out.println(arraySize + "," + average);
@@ -70,8 +65,6 @@ public class Analysis {
 		System.out.println("===================Analysis Start===================");
 		System.out.println("ArraySize,Time");
 		while (idx < lengthArray.length) {
-			
-			//Thread.sleep(5000);
 			int len = lengthArray[idx];
 			analysisMachine(len, maxLimit);
 			idx += 1;
