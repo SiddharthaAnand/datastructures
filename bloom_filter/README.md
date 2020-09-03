@@ -71,8 +71,13 @@ You, being you, have to figure out a different approach to find a solution
 to this problem!
 
 **Focussing back On The Problem**
-- Is that list a static list? Will no new weak passwords be inserted in that
+- Is that list a static list? Will no newer weak passwords be inserted in that
 list, ever?
+```
+If you think a little, you might answer a No. It is entirely possible
+that there are newer weak passwords out there in the world which needs
+to be avoided at any cost. So, No.., it is not going to be a static list.
+```
 - If the list is huge, why can't we store it in a database? And rely on a cache
 to do this job?
 
