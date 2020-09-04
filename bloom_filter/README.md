@@ -106,6 +106,12 @@ Everyone all over the world, is not going to pick such weak passwords,
 so even that argument fails that cache would be helpful. There would always
 be some passwords which are not present in cache, and it would force
 the system to do a database read.
+
+Another problem: Even for users who enter secure passwords, using this
+method, will anyway go to do a database read. After getting the response,
+it is going to figure out that this password does not belong to the list
+of prohibited/weak passwords. So, cache is not at all a solution for this
+problem.
 ```
 
 - How do you avoid disk/database reads?
@@ -113,7 +119,7 @@ the system to do a database read.
 The paper in question, listed in the references below, sheds some light
 on having a data-structure which will come in handy when you have the
 following requirements.
->>>
+>>> Avoid too many database reads for case
 ```
 ## Can we rely on probability ?
 
