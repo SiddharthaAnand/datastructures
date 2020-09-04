@@ -71,6 +71,7 @@ You, being you, have to figure out a different approach to find a solution
 to this problem!
 
 **Focussing back On The Problem**
+
 - Is that list a static list? Will no newer weak passwords be inserted in that
 list, ever?
 ```
@@ -78,10 +79,42 @@ If you think a little, you might answer a No. It is entirely possible
 that there are newer weak passwords out there in the world which needs
 to be avoided at any cost. So, No.., it is not going to be a static list.
 ```
-- If the list is huge, why can't we store it in a database? And rely on a cache
-to do this job?
 
+- If the list is huge, why can't we store it in a database?
+```
+Yes, we can! Insert the passwords in a database. But, this would create a
+big problem. For every password change coming to the server, you would
+have to make a database read call to check if this password is present
+in the database or not. The disk reads are really slow -if you have worked
+with databases before, you know that already. The number of reads hitting
+your database will be huge and might slow down every user interacting with
+it.
+```
 
+- But wait, what about cache?
+```
+Yes, we can! But this is same as having an in-memory data structure. We
+have already discussed. That was our first solution to this. So, it won't
+really be helpful. Also, if you think about cache - such systems are
+used to keep things which are frequently accessed. There is no guarantee,
+in fact it is impossible that users all over the world, who are using
+your application will try to keep the same password or similar passwords,
+which are weak.
+For example:
+If the cache has current passwords as: ['12345', '98765', 'apple', 'tom']
+Everyone all over the world, is not going to pick such weak passwords,
+so even that argument fails that cache would be helpful. There would always
+be some passwords which are not present in cache, and it would force
+the system to do a database read.
+```
+
+- How do you avoid disk/database reads?
+```
+The paper in question, listed in the references below, sheds some light
+on having a data-structure which will come in handy when you have the
+following requirements.
+>>>
+```
 ## Can we rely on probability ?
 
 
