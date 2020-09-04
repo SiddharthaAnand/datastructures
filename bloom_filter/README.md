@@ -114,14 +114,28 @@ of prohibited/weak passwords. So, cache is not at all a solution for this
 problem.
 ```
 
-- How do you avoid disk/database reads?
+- What next?
+```
+Our requirements from the user perspective:
+#############################################
+#1. I want users Not to have a weak password.
+#############################################
+```
+
+Our requirements from a CTO's perspective:
+#############################################
+#2. I want to Avoid database reads 'FOR EVERY USER'.
+#3. I want a 100% match if a user has entered a weak password.
+#############################################
+
+## Can we rely on probability ?
+```
+Probabilistic data structure to the rescue!
+```
+
+## Credits?
 ```
 The paper in question, listed in the references below, sheds some light
 on having a data-structure which will come in handy when you have the
 following requirements.
->>> Avoid too many database reads for case
 ```
-## Can we rely on probability ?
-
-
-## Credits?
