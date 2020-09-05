@@ -114,6 +114,10 @@ of prohibited/weak passwords. So, cache is not at all a solution for this
 problem.
 ```
 
+- Can we try to decrease the amount of database reads substantially, at the very least?
+```
+
+```
 - What next?
 ```
 Our requirements from the user perspective:
