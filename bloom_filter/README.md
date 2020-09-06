@@ -154,6 +154,10 @@ You can read about this data structure from numerous sources, which
 do an incredible job of explaining the architecture in detail. Some of
 those sources are listed below in **Credits**.
 
+## Other usages?
+- A Cache storage strategy?
+- Content recommendation?
+
 ## Credits
 
 - [The original paper by Burton Bloom](https://dl.acm.org/doi/10.1145/362686.362692)
