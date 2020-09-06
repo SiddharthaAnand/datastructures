@@ -127,16 +127,7 @@ entered password by a user.
 - Owing to the 2nd bullet, space is a constraint.
 - Owing to the 2nd and 3rd bullet, time is a constraint.
 
-
-
-Can we try to decrease the amount of database reads substantially, at the very least?
-```
-When we want to decrease database reads drastically, and in a case, where using
-cache does not seem an option, can we have some sort of fuzziness in between?
-
-A probable error
-```
-- What next?
+### Probable solution?
 ```
 Our requirements from the user perspective:
 #############################################
@@ -148,7 +139,9 @@ Our requirements from a CTO's perspective:
 #############################################
 #2. I want to Avoid database reads 'FOR EVERY USER'.
 #3. I want a 100% match if a user has entered a weak password.
+#4. I want #3 to happen and QUICKLY.
 #############################################
+
 
 ## Can we rely on probability ?
 ```
