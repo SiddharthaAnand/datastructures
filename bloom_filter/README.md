@@ -114,9 +114,27 @@ of prohibited/weak passwords. So, cache is not at all a solution for this
 problem.
 ```
 
-- Can we try to decrease the amount of database reads substantially, at the very least?
-```
+### Problem Statement
 
+Given a set of weak passwords, I want to test for set membership of a newly
+entered password by a user.
+
+**Constraints:**
+
+- I cannot use a simple hashing data structure as per (i).
+- I cannot use a simple database as per (ii).
+- I cannot use a cache on top of the database as per (iii).
+- Owing to the 2nd bullet, space is a constraint.
+- Owing to the 2nd and 3rd bullet, time is a constraint.
+
+
+
+Can we try to decrease the amount of database reads substantially, at the very least?
+```
+When we want to decrease database reads drastically, and in a case, where using
+cache does not seem an option, can we have some sort of fuzziness in between?
+
+A probable error
 ```
 - What next?
 ```
