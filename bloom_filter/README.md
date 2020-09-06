@@ -158,5 +158,5 @@ those sources are listed below in **Credits**.
 
 - [The original paper by Burton Bloom](https://dl.acm.org/doi/10.1145/362686.362692)
 - [Bloom Filter in Network Applications](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=3F47EA042DE40EFEEE7CA19E8A359C29?doi=10.1.1.20.98&rep=rep1&type=pdf)
-- [Bloom Filter in weak password detection]()
+- [Bloom Filter in weak password detection](http://passwordresearch.com/papers/paper116.html)
 - [Understand the architecture of Bloom Filters](https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832)
