@@ -127,30 +127,36 @@ entered password by a user.
 - Owing to the 2nd bullet, space is a constraint.
 - Owing to the 2nd and 3rd bullet, time is a constraint.
 
-### Probable solution?
-```
-Our requirements from the user perspective:
-#############################################
-#1. I want users Not to have a weak password.
-#############################################
-```
+### Probable solution :P?
+- Our requirements from the user perspective:
+  - **I want users Not to have a weak password.**
 
-Our requirements from a CTO's perspective:
-#############################################
-#2. I want to Avoid database reads 'FOR EVERY USER'.
-#3. I want a 100% match if a user has entered a weak password.
-#4. I want #3 to happen and QUICKLY.
-#############################################
+- Our requirements from a CTO's perspective:
+  - **I want to Avoid database reads 'FOR EVERY USER'.**
+  - **I want a 100% match if a user has entered a weak password.**
+  - **I want the above to happen and happen QUICKLY.**
 
+We have to check for set membership. The nearest data structure that performs
+that incredibly fast is a Map/dictionary. Can we store the data in it, a little
+smartly? Instead of storing actual passwords/hashed passwords with salt etc,
+can a set of single bits be as good as the actual password that we want to store?
 
-## Can we rely on probability ?
-```
-Probabilistic data structure to the rescue!
-```
+Think over it for some time, and then come back here.
 
-## Credits?
-```
-The paper in question, listed in the references below, sheds some light
-on having a data-structure which will come in handy when you have the
-following requirements.
-```
+### Probabilistic data structure to the rescue!
+
+It can be represented as a set of bits in an array. We will delve into the structure
+part of the data-structure later. We only care about the fact that a weak password
+should be identified correctly and there should be almost no database reads while
+it does so (which would be costly on the resources and on the pocket as well).
+
+You can read about this data structure from numerous sources, which
+do an incredible job of explaining the architecture in detail. Some of
+those sources are listed below in **Credits**.
+
+## Credits
+
+- [The original paper by Burton Bloom](https://dl.acm.org/doi/10.1145/362686.362692)
+- [Bloom Filter in Network Applications](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=3F47EA042DE40EFEEE7CA19E8A359C29?doi=10.1.1.20.98&rep=rep1&type=pdf)
+- [Bloom Filter in weak password detection]()
+- [Understand the architecture of Bloom Filters](https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832)
