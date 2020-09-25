@@ -29,10 +29,12 @@ inserted here.
   The answer is printed as per user's choice.
 
 - Permute String
+  
   This problem finds and prints all the permutations of a given string taken as input from user.
   
 - String Subsequence
   Given two strings, check if the first string can be formed by removing some (or none) of the characters of the second string
   
 - Remove Character
+  
   Remove all ocurrences of a given character from a string. Code contains both recursive and iterative approach
