@@ -125,7 +125,7 @@ question, input and output of the program.
 ## To-dos
 - [X] Add a Utilities.java file which can be used anywhere in the repository.
 - [X] Add other data-structures like Strings, Linked-lists and Trees. (In progress)
-- [ ] Add advanced data-structures like Red-Black trees.
+- [X] Add advanced data-structures like Red-Black trees.
 - [X] Add algorithms related to graphs.
-- [ ] Add design patterns examples
+- [ ] Add design patterns examples - In Progress
 - [X] Add language-specific usages of certain common classes(ex. Comparable and Comparator in Java).
