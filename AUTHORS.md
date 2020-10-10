@@ -6,8 +6,9 @@ This repository is open to anyone who wants to contribute. The authors and contr
 ## Main authors
 
 * Siddhartha Anand ([@SiddharthaAnand](https://github.com/SiddharthaAnand))
-* Khusbu Mishra ([@Khusbu](https://github.com/Khusbu))
 
 ## Contributors
 
+* Khusbu Mishra ([@Khusbu](https://github.com/Khusbu))
 * Andrés Ignacio Torres ([@aitorres](https://github.com/aitorres)), added a red-black tree implementation as well as repository documentation.
+* Debangee Das([@debangeedas](https://github.com/debangeedas)), added a README.md file for stacks.
