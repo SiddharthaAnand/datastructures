@@ -1,7 +1,7 @@
 # Java Advanced Features
 This is the readme file for a summary of information contaiining in this directory.
 
-## ProducedConsumerController.java
+- **ProducedConsumerController.java**
 
 This contains a Producer Consumer simulation of how these two work without using 
 Semaphores. Here, both the threads fill/empty the buffer and notify each other
@@ -18,15 +18,19 @@ thread will not switch when it is inside this section.
 
 wait() and notify() being used to communicate between the 2 threads.
 
-## ProducerConsumerSemaphore.java
+- **[ProducerConsumerSemaphore.java](./ProducerConsumerSemaphore.java)**
 
 Code which uses Sempahores to synchronize inter thread communication. 
 
-## A Strategy for Defining Immutable Objects
+- **[A Strategy for Defining Immutable Objects](./ImmutableClassCreator.java)**
 
 Strategy for defining immutable objects in Java. String class is an immutable object. 
 Referenced from the [official java docs](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html).
 
+- **[Enums](./SolarSystemAttendance.java)**
+
+Create an Enum class taking an example. Implement basic methods to and their
+signatures to access the values.
 ## Contributions
 
 Create a branch and submit your changes.  Create a PR for the changes.
