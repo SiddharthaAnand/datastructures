@@ -31,6 +31,13 @@ Referenced from the [official java docs](https://docs.oracle.com/javase/tutorial
 
 Create an Enum class taking an example. Implement basic methods to and their
 signatures to access the values.
+
+- Assertions
+
+Checking for assertions are conditions of the system from which the application
+or system is unrecoverable. So, we should not try to handle them or attempt
+recovery.
+
 ## Contributions
 
 Create a branch and submit your changes.  Create a PR for the changes.

@@ -1,3 +1,5 @@
+package advanced_java.src;
+
 import java.util.*;
 public enum Planets {
     MERCURY("mercury"),
