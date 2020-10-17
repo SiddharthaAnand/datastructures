@@ -1,4 +1,4 @@
-
+package advanced_java.src;
 public class SolarSystemAttendance {
     public static void main(String[] args) {
 
