@@ -1,0 +1,5 @@
+language: java
+jdk: oraclejdk8
+script:
+  - javac advanced_java/tests/PlanetsTest.java
+  - java javac advanced_java/tests/PlanetsTest
