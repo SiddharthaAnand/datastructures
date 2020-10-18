@@ -8,6 +8,7 @@ import advanced_java.src.*;
 import java.text.MessageFormat;
 
 class PlanetsTest {
+    private static String EARTH = "earth03";
     private static String loggerMsg = "Assertion Failed: Expected {0} but found {1}";
 
     public static void testEarth_WhenPlanetsGiven(Planets planets, String expected) {
@@ -16,7 +17,7 @@ class PlanetsTest {
     }
 
     public static void main(String[] args) {
-        testEarth_WhenPlanetsGiven(Planets.EARTH, "earth03");
+        testEarth_WhenPlanetsGiven(Planets.EARTH, EARTH);
     }
 
 
