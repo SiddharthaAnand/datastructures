@@ -1,16 +1,23 @@
-class Build(object):
+import logging
+
+class Stages:
+    def __init__(self, stage_name):
+        self.name = stage_name
+
+
+class Build(Stages):
     pass
 
 
-class Test(object):
+class Test(Stages):
     pass
 
 
-class Compile(object):
+class Compile(Stages):
     pass
 
 
-class Util(object):
-    def __init__(self):
+class StageRunner:
+    def __init__(self, **kwargs):
         pass
 
