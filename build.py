@@ -1,5 +1,5 @@
 import logging
-
+import build_utils
 
 class Stages:
     def __init__(self, stage_name):
@@ -37,6 +37,7 @@ class Compile(Stages):
 
     def run(self):
         #TODO Get the list of directories containing the py/java files
+        _f = build_utils.get_dirs()
         #TODO Compile/Run then one by one
         #TODO Use a logger
         pass
