@@ -54,20 +54,26 @@ class Compile(Stages):
         import os
         print('Setting current working directory\t{}'.format(os.getcwd()))
         try:
+            failed_files = []
             for _dir in self._files:
                 for _f in self._files[_dir]:
                     try:
                         if '.java' in _f:
-                            os.system('javac {}'.format(_f))
-                            print('Compiled {}'.format(_f))
+                            if (os.system('javac {}'.format(_f)) != 0):
+                                failed_files.append(_f)
+                                print('failed files length: \t{0}'.format(len(failed_files)))
+                            print('Compiled files:\t {}'.format(_f))
                     except Exception as e:
-                        #TODO Create a list of failed compiled files and print in the last.
                         continue
         except Exception as e:
             raise
+        finally:
+            with open('failed_compilations', 'w') as ff:
+                ff.write('\n'.join(failed_files))
+            print('Files failed compilation:\t {}'.format(len(failed_files)))
 
     def run(self):
-        print("running {}".format(Compile._name))
+        print("Stage Running :\t {}".format(Compile._name))
         #TODO Compile/Run then one by one
         self.compile()
         #TODO Use a logger
@@ -99,4 +105,4 @@ class StageRunner:
 ###################################################################
 if __name__ == '__main__':
     stage_runner = StageRunner([Compile, Build], build_utils.get_dirs())
-    # stage_runner.run()
+    stage_runner.run()
