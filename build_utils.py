@@ -15,3 +15,12 @@ def get_dirs():
             compilable_files[a] = [os.path.join(a, _file) for _file in c]
     print(compilable_files)
     return compilable_files
+
+
+def create_dir(path=None, name=None):
+    """
+    Create a new directory in the directory given as path.
+    :param: Path where you want the new directory to be created.
+    :return: True if the path got created
+    """
+    pass
