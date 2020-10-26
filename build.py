@@ -8,8 +8,8 @@ class Stages:
     def __init__(self, stage_name):
         self.stage_name = stage_name
 
-    def __repr__(self):
-        print("repr: [name:{0}]".format(__name__))
+    # def __repr__(self):
+    #     print("repr: [name:{0}]".format(__name__))
 
     def run(self):
         pass
@@ -20,8 +20,9 @@ class Stages:
 ###################################################################
 class Build(Stages):
     __name__ = 'build'
-    def __init__(self, stage):
-        super().__init__(__name__)
+    def __init__(self, _files):
+        super().__init__(stage_name=__name__)
+        self._files = _files
 
     def run(self):
         pass
@@ -97,5 +98,5 @@ class StageRunner:
 #
 ###################################################################
 if __name__ == '__main__':
-    stage_runner = StageRunner([Compile], build_utils.get_dirs())
-    stage_runner.run()
+    stage_runner = StageRunner([Compile, Build], build_utils.get_dirs())
+    # stage_runner.run()
