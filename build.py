@@ -1,7 +1,7 @@
 import logging
 import build_utils
 
-logging.basicConfig(filename='ds.log', level=logging.INFO)
+logging.basicConfig(filename='ds.log', level=logging.ERROR)
 
 ###################################################################
 #                           BASE STAGE                            #
