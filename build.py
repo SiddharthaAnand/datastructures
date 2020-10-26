@@ -43,18 +43,34 @@ class Test(Stages):
 #                         COMPILE                                 #
 ###################################################################
 class Compile(Stages):
-    __name__ = 'compile'
+    _name = 'compile'
 
-    def __init__(self):
+    def __init__(self, _files):
         super().__init__(stage_name=__name__)
+        self._files = _files
+
+    def compile(self):
+        import os
+        print('Setting current working directory\t{}'.format(os.getcwd()))
+        try:
+            for _dir in self._files:
+                for _f in self._files[_dir]:
+                    try:
+                        if '.java' in _f:
+                            os.system('javac {}'.format(_f))
+                            print('Compiled {}'.format(_f))
+                    except Exception as e:
+                        #TODO Create a list of failed compiled files and print in the last.
+                        continue
+        except Exception as e:
+            raise
 
     def run(self):
-        #TODO Get the list of directories containing the py/java files
-        _f = build_utils.get_dirs()
+        print("running {}".format(Compile._name))
         #TODO Compile/Run then one by one
+        self.compile()
         #TODO Use a logger
-        pass
-
+        print('Compilation done')
 
 ###################################################################
 #                      STAGES RUNNER                              #
@@ -65,7 +81,8 @@ class StageRunner:
         :param kwargs: dictionary of stages inheriting Stages class
         """
         assert args is not  None and len(args) != 0
-        self.stages = args
+        self.stages = [stage(args[1]) for stage in args[0]]
+        self._files = args[1]
 
     def run(self):
         for stage in self.stages:
@@ -80,5 +97,5 @@ class StageRunner:
 #
 ###################################################################
 if __name__ == '__main__':
-    stage_runner = StageRunner()
+    stage_runner = StageRunner([Compile], build_utils.get_dirs())
     stage_runner.run()
