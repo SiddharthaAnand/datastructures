@@ -4,3 +4,4 @@ __pychache__/
 *iml
 *idea
 *.class
+target/*

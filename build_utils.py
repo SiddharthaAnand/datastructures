@@ -23,4 +23,5 @@ def create_dir(path=None, name=None):
     :param: Path where you want the new directory to be created.
     :return: True if the path got created
     """
-    pass
+    if not os.path.exists(path):
+        os.makedirs(path)

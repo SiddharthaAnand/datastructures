@@ -59,7 +59,7 @@ class Compile(Stages):
                 for _f in self._files[_dir]:
                     try:
                         if '.java' in _f and _f not in self._ignored:
-                            if (os.system('javac {}'.format(_f)) != 0):
+                            if os.system('javac {} -d target'.format(_f)) != 0:
                                 failed_files.append(_f)
                                 logging.info('failed files length: \t{0}'.format(len(failed_files)))
                             logging.info('Compiled files:\t {}'.format(_f))
@@ -76,7 +76,6 @@ class Compile(Stages):
     def run(self):
         logging.info("RUNNING STAGE:\t {}".format(Compile._name))
         self.compile()
-        #TODO Use a logger
         logging.info('COMPILATION COMPLETE')
 
 ###################################################################
@@ -93,13 +92,17 @@ class StageRunner:
         self.ignored = args[2]
 
     def run(self):
+        self.create_dir()
         for stage in self.stages:
+            print('run')
             stage.run()
 
     def validate(self):
         for stage in self.stages:
             stage.run()
 
+    def create_dir(self):
+        build_utils.create_dir('target')
 
 ###################################################################
 #
@@ -109,6 +112,5 @@ if __name__ == '__main__':
     _ff = open('failed_compilations', 'r')
     _fflist = _ff.readlines()
     _ff.close()
-
-    stage_runner = StageRunner([Compile], _files, _ff)
+    stage_runner = StageRunner([Compile], _files, _fflist)
     stage_runner.run()
