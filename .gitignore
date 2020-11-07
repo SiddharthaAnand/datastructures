@@ -5,3 +5,4 @@ __pychache__/
 *idea
 *.class
 target/*
+*.log
