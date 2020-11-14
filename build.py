@@ -19,6 +19,7 @@ class Stages:
 ###################################################################
 class Build(Stages):
     __name__ = 'build'
+
     def __init__(self, _files):
         super().__init__(stage_name=__name__)
         self._files = _files
@@ -69,7 +70,7 @@ class Compile(Stages):
             raise
         finally:
             if len(failed_files) != 0:
-                with open('failed_compilations', 'w') as ff:
+                with open('failed_compilations', 'a') as ff:
                     ff.write('\n'.join(failed_files))
                 logging.error('COMPILATION FAILED FOR {} FILES'.format(len(failed_files)))
 
