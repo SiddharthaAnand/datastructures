@@ -1,5 +1,4 @@
 import os
-import requests
 
 def get_dirs():
     """
